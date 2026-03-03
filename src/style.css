@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+  }
+}
+
+@layer utilities {
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Nav underline hover */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: #D4A017;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* Donate pulse */
+  .pulse-btn {
+    animation: ring 2.8s infinite;
+  }
+  @keyframes ring {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.45); }
+    60%       { box-shadow: 0 0 0 10px rgba(212, 160, 23, 0); }
+  }
+
+  /* Section label */
+  .section-label {
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #D4A017;
+    border-bottom: 1.5px solid #D4A017;
+    padding-bottom: 2px;
+    margin-bottom: 1rem;
+  }
+
+  /* Yellow accent rule */
+  .accent-rule {
+    width: 40px;
+    height: 3px;
+    background: #D4A017;
+    border-radius: 2px;
+  }
+
+  /* Stat number */
+  .stat-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    color: #1E4D35;
+  }
+
+  /* Card hover lift */
+  .card-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Avatar border */
+  .avatar-ring {
+    border: 2.5px solid #D4A017;
+  }
+
+  /* Hero grain texture */
+  .hero-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+}
