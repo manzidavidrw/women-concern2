@@ -1,7 +1,19 @@
 <template>
-  <NavBar />
-  <main>
-    <HeroSection />
+  <NavBar @navigate="goTo" />
+
+  <WhoWeAre v-if="page === 'who-we-are'" @navigate="goTo" />
+  <OurMission v-else-if="page === 'our-mission'" @navigate="goTo" />
+  <OurHistory v-else-if="page === 'our-history'" @navigate="goTo" />
+  <DonorsPartners v-else-if="page === 'donors-partners'" @navigate="goTo" />
+  <Contactus v-else-if="page === 'contact-us'" @navigate="goTo" />
+  <BlogIndex v-else-if="page === 'blog'" @navigate="goTo" />
+  <BlogPost v-else-if="page.startsWith('blog-')" :post-id="Number(page.split('-')[1])" @navigate="goTo" />
+  <ourBoard v-else-if="page === 'our-board'" @navigate="goTo" />
+  <PartnershipsPage v-else-if="page === 'partnerships'" @navigate="goTo" />
+
+
+  <main v-else>
+    <HeroSection @navigate="goTo" />
     <ImpactStats />
     <DonateBanner />
     <MalkiaPads />
@@ -26,4 +38,24 @@ import BoardMembers from './components/BoardMembers.vue'
 import GetInvolved from './components/GetInvolved.vue'
 import OurDonors from './components/OurDonors.vue'
 import SiteFooter from './components/SiteFooter.vue'
+import WhoWeAre from './pages/WhoWeAre.vue'
+import OurMission from './pages/OurMission.vue'
+import OurHistory from './pages/OurHistory.vue'
+import DonorsPartners from './pages/DonorsPartners.vue'
+import Contactus from './pages/Contactus.vue'
+import ourBoard from './pages/ourboard.vue'
+import PartnershipsPage from './pages/PartnershipsPage.vue'
+
+import BlogIndex from './pages/BlogIndex.vue'
+import BlogPost from './pages/BlogPost.vue'
+import { ref } from 'vue'
+
+
+
+const page = ref('home')
+
+const goTo = (p) => {
+  page.value = p
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 </script>
