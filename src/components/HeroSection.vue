@@ -50,18 +50,6 @@
               {{ t(post.excerpt) }}
             </p>
 
-            <!-- Meta -->
-            <div class="flex items-center gap-3 mb-8">
-              <span
-                class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center text-sm backdrop-blur-sm">
-                {{ post.authorEmoji }}
-              </span>
-              <div>
-                <p class="text-white/90 text-xs font-semibold">{{ post.author }}</p>
-                <p class="text-white/50 text-xs">{{ post.date }} · {{ t(post.readTime) }}</p>
-              </div>
-            </div>
-
             <!-- CTAs -->
             <div class="flex flex-wrap gap-4">
               <button @click.stop="emit('navigate', 'blog-' + post.id)"
@@ -140,9 +128,8 @@ const posts = [
     id: 1,
     bg: 'linear-gradient(135deg, #1E4D35 0%, #163a28 100%)',
     image: project1,
-    emoji: '🚨', authorEmoji: '👩🏾', author: 'Marie K.', date: 'March 2024',
+    emoji: '🚨',
     category: { en: 'Emergency Response', fr: "Réponse d'Urgence" },
-    readTime: { en: '4 min read', fr: '4 min de lecture' },
     title: { en: 'Standing With Goma in Its Darkest Hour', fr: 'Aux Côtés de Goma dans Son Heure la Plus Sombre' },
     excerpt: { en: 'As conflict intensifies in Eastern DRC, Women Concern teams are on the ground delivering emergency relief to thousands of displaced women and children.', fr: "Alors que le conflit s'intensifie dans l'est de la RDC, les équipes de Women Concern sont sur le terrain pour apporter une aide d'urgence." },
   },
@@ -150,9 +137,8 @@ const posts = [
     id: 2,
     bg: 'linear-gradient(135deg, #1a4530 0%, #0f2e1e 100%)',
     image: project1,
-    emoji: '🌸', authorEmoji: '👩🏽', author: 'Amina T.', date: 'February 2024',
+    emoji: '🌸',
     category: { en: 'Malkia Pads', fr: 'Malkia Pads' },
-    readTime: { en: '5 min read', fr: '5 min de lecture' },
     title: { en: 'How a Pack of Pads Keeps a Girl in School', fr: "Comment un Paquet de Serviettes Garde une Fille à l'École" },
     excerpt: { en: 'Meet Zawadi, 14, who missed school every month until Malkia Pads reached her village. Her story is one of 500 — and counting.', fr: "Rencontrez Zawadi, 14 ans, qui manquait l'école chaque mois jusqu'à ce que Malkia Pads atteigne son village." },
   },
@@ -160,9 +146,8 @@ const posts = [
     id: 3,
     bg: 'linear-gradient(135deg, #1E4D35 0%, #2d5c3e 100%)',
     image: project1,
-    emoji: '💼', authorEmoji: '👩🏿', author: 'Grace N.', date: 'January 2024',
+    emoji: '💼',
     category: { en: 'Economic Empowerment', fr: 'Autonomisation Économique' },
-    readTime: { en: '6 min read', fr: '6 min de lecture' },
     title: { en: 'From Displacement Camp to Business Owner', fr: "Du Camp de Déplacés à Chef d'Entreprise" },
     excerpt: { en: 'After fleeing conflict with nothing, Esperance used our microloan program to build a thriving tailoring business that now employs three other women.', fr: "Après avoir fui le conflit sans rien, Espérance a utilisé notre programme de microcrédit pour créer une entreprise prospère." },
   },
@@ -170,9 +155,8 @@ const posts = [
     id: 4,
     bg: 'linear-gradient(135deg, #163a28 0%, #1E4D35 100%)',
     image: project1,
-    emoji: '✨', authorEmoji: '👩🏻', author: 'Claire M.', date: 'December 2023',
+    emoji: '✨',
     category: { en: 'GLFX Program', fr: 'Programme GLFX' },
-    readTime: { en: '3 min read', fr: '3 min de lecture' },
     title: { en: 'GLFX: The Next Generation of Women Leaders', fr: 'GLFX : La Prochaine Génération de Femmes Leaders' },
     excerpt: { en: 'Our Girls Leadership & Futures Exchange program has graduated its first cohort of 40 young women, ready to lead in their communities and beyond.', fr: 'Notre programme GLFX a diplômé sa première cohorte de 40 jeunes femmes, prêtes à diriger dans leurs communautés.' },
   },

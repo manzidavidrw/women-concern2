@@ -18,7 +18,7 @@
           <p class="text-white/80 text-lg leading-relaxed max-w-2xl">
             {{ t({
               en: `We collaborate with incredible organizations and institutions that share our vision of empowering women
-            and girls in DRC.Together, we amplify our impact.`,
+            and girls in DRC. Together, we amplify our impact.`,
               fr: `Nous collaborons avec des organisations et institutions incroyables qui partagent notre vision
             d\'autonomiser les femmes et les filles en RDC. Ensemble, nous amplifions notre impact.`
             }) }}
@@ -26,7 +26,6 @@
         </div>
       </div>
 
-      <!-- Decorative wave -->
       <div class="absolute bottom-0 inset-x-0">
         <svg viewBox="0 0 1440 54" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 30C480 60 960 0 1440 30V54H0V30Z" fill="#F9FAFB" />
@@ -34,145 +33,60 @@
       </div>
     </section>
 
-    <!-- Strategic Partners Section -->
-    <section class="py-20">
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <!-- Partners Section -->
+    <section class="py-24 relative" style="background: rgba(15, 35, 24, 0.08);">
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         <!-- Section Header -->
         <div class="text-center mb-16">
           <div
             class="inline-flex items-center gap-2 mb-4 border border-brand-green/20 rounded-full px-4 py-1.5 bg-brand-green/5">
-            <span class="text-xl">🤝</span>
-            <span class="text-brand-green text-xs font-medium tracking-widest uppercase">Strategic Partners</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse"></span>
+            <span class="text-brand-green text-xs font-medium tracking-widest uppercase">
+              {{ t({ en: 'All Partners', fr: 'Tous les Partenaires' }) }}
+            </span>
           </div>
           <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 mb-4">
-            {{ t({ en: 'Strategic Partners', fr: 'Partenaires Stratégiques' }) }}
+            {{ t({ en: 'Working Together', fr: 'Travailler Ensemble' }) }}
           </h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p class="text-gray-500 text-lg max-w-xl mx-auto">
             {{ t({
-              en: 'Long-term partners who provide critical support and resources.',
-              fr: 'Partenaires à long terme qui fournissent un soutien et des ressources essentiels.'
+              en: 'Organizations and institutions united by a shared mission.',
+              fr: 'Organisations et institutions unies par une mission commune.'
             }) }}
           </p>
         </div>
 
         <!-- Partners Grid -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          <a v-for="partner in strategicPartners" :key="partner.name" :href="partner.website" target="_blank"
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+          <a v-for="partner in allPartners" :key="partner.name" :href="partner.website" target="_blank"
             rel="noopener noreferrer"
-            class="group bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center">
-
-            <!-- Logo Container -->
-            <div
-              class="w-full h-32 mb-6 flex items-center justify-center bg-gray-50 rounded-xl group-hover:bg-brand-green/5 transition-colors">
+            class="group flex flex-col items-center justify-center gap-3 rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg"
+            style="background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.8); backdrop-filter: blur(8px);"
+            @mouseenter="e => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.transform = 'translateY(-3px)' }"
+            @mouseleave="e => { e.currentTarget.style.background = 'rgba(255,255,255,0.6)'; e.currentTarget.style.transform = 'translateY(0)' }">
+            <div class="h-14 flex items-center justify-center w-full">
               <img :src="partner.logo" :alt="partner.name"
-                class="max-w-[180px] max-h-[100px] object-contain group-hover:scale-105 transition-transform duration-300" />
+                class="max-w-[110px] max-h-[52px] object-contain transition-transform duration-300 group-hover:scale-105" />
             </div>
-
-            <!-- Partner Name -->
-            <h3
-              class="font-display font-bold text-xl text-gray-900 mb-2 group-hover:text-brand-green transition-colors">
-              {{ partner.name }}
-            </h3>
-
-            <!-- Description -->
-            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-1">
-              {{ t(partner.description) }}
-            </p>
-
-            <!-- Visit Link -->
-            <div
-              class="inline-flex items-center gap-2 text-brand-green font-semibold text-sm group-hover:gap-3 transition-all">
-              <span>{{ t({ en: 'Visit Website', fr: 'Visiter le Site' }) }}</span>
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
-                stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Divider -->
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-    </div>
-
-    <!-- Program Partners Section -->
-    <section class="py-20">
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-          <div
-            class="inline-flex items-center gap-2 mb-4 border border-brand-green/20 rounded-full px-4 py-1.5 bg-brand-green/5">
-            <span class="text-xl">🎯</span>
-            <span class="text-brand-green text-xs font-medium tracking-widest uppercase">Program Partners</span>
-          </div>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 mb-4">
-            {{ t({ en: 'Program Partners', fr: 'Partenaires de Programme' }) }}
-          </h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-            {{ t({
-              en: 'Organizations collaborating on specific initiatives and programs.',
-              fr: 'Organisations collaborant sur des initiatives et programmes spécifiques.'
-            }) }}
-          </p>
-        </div>
-
-        <!-- Partners Grid (Compact) -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <a v-for="partner in programPartners" :key="partner.name" :href="partner.website" target="_blank"
-            rel="noopener noreferrer"
-            class="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center">
-
-            <!-- Logo -->
-            <div class="w-full h-24 mb-4 flex items-center justify-center">
-              <img :src="partner.logo" :alt="partner.name"
-                class="max-w-[120px] max-h-[80px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300" />
-            </div>
-
-            <!-- Partner Name -->
-            <p class="font-semibold text-sm text-gray-700 group-hover:text-brand-green transition-colors text-center">
+            <p class="text-xs font-semibold text-gray-500 group-hover:text-brand-green transition-colors leading-tight">
               {{ partner.name }}
             </p>
           </a>
         </div>
-      </div>
-    </section>
 
-    <!-- Divider -->
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-    </div>
-
-    <!-- Funding Partners Section -->
-    <section class="py-20">
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
+        <!-- Partner count badge -->
+        <div class="flex justify-center mt-12">
           <div
-            class="inline-flex items-center gap-2 mb-4 border border-brand-green/20 rounded-full px-4 py-1.5 bg-brand-green/5">
-            <span class="text-xl">💰</span>
-            <span class="text-brand-green text-xs font-medium tracking-widest uppercase">Funding Partners</span>
+            class="inline-flex items-center gap-3 bg-white/70 border border-gray-200 rounded-full px-6 py-3 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+            <span class="text-sm text-gray-500 font-medium">
+              {{ t({
+                en: `${allPartners.length} organizations working alongside us`,
+                fr: `${allPartners.length} organisations travaillant à nos côtés`
+              }) }}
+            </span>
           </div>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 mb-4">
-            {{ t({ en: 'Funding Partners', fr: 'Partenaires Financiers' }) }}
-          </h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-            {{ t({
-              en: 'Generous funders making our work possible.',
-              fr: 'Bailleurs généreux rendant notre travail possible.'
-            }) }}
-          </p>
-        </div>
-
-        <!-- Funders Logo Wall (Simple) -->
-        <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
-          <a v-for="funder in fundingPartners" :key="funder.name" :href="funder.website" target="_blank"
-            rel="noopener noreferrer" :title="funder.name" class="group">
-            <img :src="funder.logo" :alt="funder.name"
-              class="h-16 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
-          </a>
         </div>
       </div>
     </section>
@@ -209,142 +123,28 @@
 <script setup>
 import { useLang } from '../composables/useLang.js'
 
-// Import partner logos
-import unwomenLogo from '../assets/partners/hesperian.png'
-import unicefLogo from '../assets/partners/hesperian.png'
-import usaidLogo from '../assets/partners/hesperian.png'
-import whoLogo from '../assets/partners/ipb.svg'
-import oxfamLogo from '../assets/partners/ican.jpeg'
-import carelogo from '../assets/partners/dovetail.png'
+import hesperian from '../assets/partners/hesperian.png'
+import girls from '../assets/partners/girls.jpeg'
+import mundo from '../assets/partners/mundo.png'
+import ipb from '../assets/partners/ipb.svg'
+import ican from '../assets/partners/ican.jpeg'
+import GLF from '../assets/partners/GLF.png'
 import ircLogo from '../assets/partners/cifor-icraf-logo.webp'
-import redcrossLogo from '../assets/partners/mundo.png'
+import upenergy from '../assets/partners/upenergy.png'
+import dovetail from '../assets/partners/dovetail.png'
 
 const emit = defineEmits(['navigate'])
 const { t } = useLang()
 
-// Strategic Partners - Major collaborators with detailed descriptions
-const strategicPartners = [
-  {
-    name: 'UN Women',
-    logo: unwomenLogo,
-    website: 'https://www.unwomen.org',
-    description: {
-      en: 'Supporting our programs for women\'s economic empowerment and leadership development across DRC.',
-      fr: 'Soutient nos programmes pour l\'autonomisation économique des femmes et le développement du leadership à travers la RDC.'
-    }
-  },
-  {
-    name: 'UNICEF',
-    logo: unicefLogo,
-    website: 'https://www.unicef.org',
-    description: {
-      en: 'Partnering on girls\' education initiatives and menstrual health programs in conflict-affected regions.',
-      fr: 'Partenariat sur les initiatives d\'éducation des filles et les programmes de santé menstruelle dans les régions affectées par les conflits.'
-    }
-  },
-  {
-    name: 'USAID',
-    logo: usaidLogo,
-    website: 'https://www.usaid.gov',
-    description: {
-      en: 'Providing critical funding for our emergency response and long-term development programs.',
-      fr: 'Fournit un financement essentiel pour notre réponse d\'urgence et nos programmes de développement à long terme.'
-    }
-  },
-  {
-    name: 'World Health Organization',
-    logo: whoLogo,
-    website: 'https://www.who.int',
-    description: {
-      en: 'Collaborating on reproductive health services and community health worker training.',
-      fr: 'Collaboration sur les services de santé reproductive et la formation des agents de santé communautaire.'
-    }
-  },
-  {
-    name: 'Oxfam International',
-    logo: oxfamLogo,
-    website: 'https://www.oxfam.org',
-    description: {
-      en: 'Joint efforts in humanitarian response and women\'s rights advocacy in Eastern DRC.',
-      fr: 'Efforts conjoints dans la réponse humanitaire et le plaidoyer pour les droits des femmes dans l\'est de la RDC.'
-    }
-  },
-  {
-    name: 'CARE International',
-    logo: carelogo,
-    website: 'https://www.care.org',
-    description: {
-      en: 'Working together on microfinance programs and women\'s economic empowerment initiatives.',
-      fr: 'Travail conjoint sur les programmes de microfinance et les initiatives d\'autonomisation économique des femmes.'
-    }
-  }
-]
-
-// Program Partners - Organizations working on specific initiatives
-const programPartners = [
-  {
-    name: 'International Rescue Committee',
-    logo: ircLogo,
-    website: 'https://www.rescue.org'
-  },
-  {
-    name: 'Red Cross',
-    logo: redcrossLogo,
-    website: 'https://www.icrc.org'
-  },
-  {
-    name: 'Save the Children',
-    logo: unwomenLogo, // Replace with actual logo
-    website: 'https://www.savethechildren.org'
-  },
-  {
-    name: 'Action Against Hunger',
-    logo: unicefLogo, // Replace with actual logo
-    website: 'https://www.actionagainsthunger.org'
-  },
-  {
-    name: 'Plan International',
-    logo: usaidLogo, // Replace with actual logo
-    website: 'https://plan-international.org'
-  },
-  {
-    name: 'Women for Women International',
-    logo: whoLogo, // Replace with actual logo
-    website: 'https://www.womenforwomen.org'
-  },
-  {
-    name: 'Mercy Corps',
-    logo: oxfamLogo, // Replace with actual logo
-    website: 'https://www.mercycorps.org'
-  },
-  {
-    name: 'Global Fund for Women',
-    logo: carelogo, // Replace with actual logo
-    website: 'https://www.globalfundforwomen.org'
-  }
-]
-
-// Funding Partners - Simple logo wall
-const fundingPartners = [
-  {
-    name: 'Bill & Melinda Gates Foundation',
-    logo: unwomenLogo, // Replace with actual logo
-    website: 'https://www.gatesfoundation.org'
-  },
-  {
-    name: 'Global Affairs Canada',
-    logo: unicefLogo, // Replace with actual logo
-    website: 'https://www.international.gc.ca'
-  },
-  {
-    name: 'European Union',
-    logo: usaidLogo, // Replace with actual logo
-    website: 'https://ec.europa.eu'
-  },
-  {
-    name: 'UK Aid',
-    logo: whoLogo, // Replace with actual logo
-    website: 'https://www.gov.uk/government/organisations/foreign-commonwealth-development-office'
-  }
+const allPartners = [
+  { name: 'Hesperian', logo: hesperian, website: 'https://hesperian.org/' },
+  { name: 'Girls Not Brides', logo: girls, website: 'https://www.girlsnotbrides.org/' },
+  { name: 'Mundo Cooperante', logo: mundo, website: 'https://mundocooperante.org/' },
+  { name: 'International Peace Bureau', logo: ipb, website: 'https://www.ipb.org' },
+  { name: 'ICAN', logo: ican, website: 'https://www.icanw.org/' },
+  { name: 'Global Landscapes Forum', logo: GLF, website: 'https://www.globallandscapesforum.org/' },
+  { name: 'CIFOR-ICRAF', logo: ircLogo, website: 'https://www.cifor-icraf.org/' },
+  { name: 'Up Energy', logo: upenergy, website: 'https://www.upenergygroup.com/' },
+  { name: 'Dovetail', logo: dovetail, website: 'https://dovetailimpact.org/' }
 ]
 </script>

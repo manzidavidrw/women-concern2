@@ -21,7 +21,8 @@
               })
             }}
           </p>
-          <a href="https://gogetfunding.com/PLACEHOLDER" target="_blank" rel="noopener"
+          <a href="https://gogetfunding.com/emergency-humanitarian-response-in-goma-north-kivu/" target="_blank"
+            rel="noopener"
             class="pulse-btn inline-block bg-brand-yellow text-brand-green font-semibold text-sm px-5 py-2.5 rounded-full hover:brightness-105 transition-all">
             ♥ {{ t({ en: 'Donate Now', fr: 'Donner Maintenant' }) }}
           </a>
@@ -45,9 +46,10 @@
         <div>
           <h4 class="text-white/45 text-xs font-semibold uppercase tracking-widest mb-5">Contact</h4>
           <ul class="space-y-3 text-white/35 text-sm">
-            <li>📍 Goma, Nord-Kivu, DRC</li>
+            <li>📍 Bukavu,DRC</li>
             <li>✉️ info@women-concern.org</li>
-            <li>📞 +243 XXX XXX XXX</li>
+            <li>📞 +243 820 539 830
+            </li>
           </ul>
           <div class="flex gap-2 mt-6">
             <a v-for="s in socials" :key="s" href="#"

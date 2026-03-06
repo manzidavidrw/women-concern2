@@ -22,15 +22,18 @@
           <p class="text-white/55 max-w-xl mx-auto text-base mb-10 leading-relaxed">
             {{
               t({
-                en: 'Thousands of displaced women and children in Goma face hunger, violence, and medical emergencies every day. Your donation goes directly to emergency relief on the ground.',
-                fr: "Des milliers de femmes et enfants déplacés à Goma font face à la faim, la violence et des urgences médicales chaque jour. Votre don va directement à l'aide d'urgence sur le terrain.",
+                en: `Thousands of displaced women and children in Goma face hunger, violence, and medical emergencies every
+            day.Your donation goes directly to emergency relief on the ground.`,
+                fr: `Des milliers de femmes et enfants déplacés à Goma font face à la faim, la violence et des urgences
+            médicales chaque jour.Votre don va directement à l'aide d'urgence sur le terrain.`,
               })
             }}
           </p>
 
           <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://gogetfunding.com/PLACEHOLDER" target="_blank" rel="noopener"
+            <a href="https://gogetfunding.com/emergency-humanitarian-response-in-goma-north-kivu/" target="_blank"
+              rel="noopener"
               class="pulse-btn bg-brand-yellow text-brand-green font-bold px-9 py-4 rounded-full text-base hover:brightness-105 transition-all">
               ♥ {{ t({ en: 'Donate on GoGetFunding', fr: 'Donner sur GoGetFunding' }) }}
             </a>

@@ -367,17 +367,17 @@ const contactCards = [
   {
     emoji: '📞',
     label: { en: 'Phone', fr: 'Téléphone' },
-    value: { en: '+243 (0) 123 456 789', fr: '+243 (0) 123 456 789' },
+    value: { en: '+243 820 539 830', fr: '+243 820 539 830' },
   },
   {
     emoji: '📍',
     label: { en: 'Location', fr: 'Localisation' },
-    value: { en: 'Goma, North Kivu, DRC', fr: 'Goma, Nord-Kivu, RDC' },
+    value: { en: 'Bukavu, DRC', fr: 'Bukavu, RDC' },
   },
   {
     emoji: '🤝',
     label: { en: 'Partnerships', fr: 'Partenariats' },
-    value: { en: 'partners@women-concern.org', fr: 'partners@women-concern.org' },
+    value: { en: 'info@women-concern.org', fr: 'info@women-concern.org' },
   },
 ]
 
