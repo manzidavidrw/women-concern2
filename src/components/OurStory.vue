@@ -8,14 +8,17 @@
           <span class="section-label">{{ t({ en: 'Our Story', fr: 'Notre Histoire' }) }}</span>
 
           <h2 class="font-display font-bold text-gray-900 leading-tight mb-6 text-4xl md:text-5xl">
-            {{ t({ en: 'Born from the Heart of Goma.', fr: 'Née du Cœur de Goma.' }) }}
+            {{ t({ en: 'Born from the Heart of DRC.', fr: 'Née du Cœur de RDC.' }) }}
           </h2>
 
           <p class="text-gray-500 text-base leading-relaxed mb-4">
             {{
               t({
-                en: 'Women Concern was founded in Goma, Democratic Republic of Congo — a city that has endured decades of conflict and displacement. We saw women and girls bearing the heaviest burden, and we chose to act.',
-                fr: "Women Concern a été fondée à Goma, RDC — une ville qui a enduré des décennies de conflits et de déplacements. Nous avons vu les femmes et les filles porter le fardeau le plus lourd, et nous avons choisi d'agir.",
+                en: `Women Concern was founded in Bukavu, Democratic Republic of Congo — a city that has endured decades of
+            conflict and displacement.We saw women and girls bearing the heaviest burden, and we chose to act.`,
+                fr: `Women Concern a été fondée à Bukavu, RDC — une ville qui a enduré des décennies de conflits et de
+            déplacements.Nous avons vu les femmes et les filles porter le fardeau le plus lourd, et nous avons choisi
+            d'agir.`,
               })
             }}
           </p>
@@ -23,8 +26,10 @@
           <p class="text-gray-500 text-base leading-relaxed mb-8">
             {{
               t({
-                en: 'Today we run programs in health, education, economic empowerment, and psychosocial support — touching thousands of lives across Eastern DRC.',
-                fr: "Aujourd'hui nous gérons des programmes en santé, éducation, autonomisation économique et soutien psychosocial — touchant des milliers de vies dans l'est de la RDC.",
+                en: `Today we run programs in health, education, economic empowerment, and psychosocial support — touching
+            thousands of lives across Eastern DRC.`,
+                fr: `Aujourd'hui nous gérons des programmes en santé, éducation, autonomisation économique et soutien
+            psychosocial — touchant des milliers de vies dans l'est de la RDC.`,
               })
             }}
           </p>
@@ -40,8 +45,8 @@
           <div class="rounded-2xl bg-brand-green flex items-center justify-center">
             <div class="text-center text-white p-4">
               <div class="text-5xl mb-3">🌍</div>
-              <p class="font-display font-semibold text-lg">Goma, DRC</p>
-              <p class="text-white/45 text-xs mt-1">Nord-Kivu</p>
+              <p class="font-display font-semibold text-lg">Bukavu, DRC</p>
+              <p class="text-white/45 text-xs mt-1">Sud-Kivu</p>
             </div>
           </div>
           <div class="flex flex-col gap-4">

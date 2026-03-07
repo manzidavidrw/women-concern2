@@ -1,22 +1,15 @@
 <template>
   <div class="pb-20 min-h-screen bg-white">
 
-    <!-- ─────────────────────────────────────────────
-         HERO — full bleed green from top-0
-    ───────────────────────────────────────────── -->
+    <!-- HERO -->
     <div class="relative overflow-hidden" style="background: #1E4D35; padding-top: 68px;">
-
-      <!-- Yellow diagonal wash -->
       <div class="absolute inset-0 pointer-events-none"
         style="background: linear-gradient(135deg, transparent 40%, rgba(212,160,23,0.12) 100%);" />
-      <!-- Decorative rings -->
       <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full border border-white/5 pointer-events-none" />
       <div
         class="absolute -bottom-16 -left-16 w-52 h-52 rounded-full border border-brand-yellow/10 pointer-events-none" />
-      <!-- Yellow left accent bar -->
       <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-yellow opacity-60" />
 
-      <!-- Breadcrumb -->
       <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 pt-5 pb-0">
         <div class="flex items-center gap-2 text-xs text-white/40 font-medium">
           <button @click="$emit('navigate', 'home')" class="hover:text-white transition-colors flex items-center gap-1">
@@ -34,7 +27,6 @@
         </div>
       </div>
 
-      <!-- Hero content -->
       <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 py-16">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
@@ -55,8 +47,6 @@
               }) }}
             </p>
           </div>
-
-          <!-- Response time pill -->
           <div class="flex-shrink-0">
             <div class="bg-white/8 border border-white/15 rounded-2xl px-6 py-5 text-center">
               <div class="text-3xl mb-1">⚡</div>
@@ -67,16 +57,12 @@
         </div>
       </div>
 
-      <!-- Wave into white -->
       <svg viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block">
         <path d="M0 20C480 40 960 0 1440 20V40H0V20Z" fill="white" />
       </svg>
     </div>
 
-
-    <!-- ─────────────────────────────────────────────
-         CONTACT INFO CARDS
-    ───────────────────────────────────────────── -->
+    <!-- CONTACT INFO CARDS -->
     <div class="max-w-5xl mx-auto px-6 lg:px-10 -mt-2 py-12">
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
         <div v-for="info in contactCards" :key="info.label"
@@ -85,20 +71,15 @@
             class="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center text-xl mb-4 group-hover:bg-brand-green/20 transition-colors">
             {{ info.emoji }}
           </div>
-          <p class="text-xs text-gray-400 uppercase tracking-wider font-medium mb-1">
-            {{ t(info.label) }}
-          </p>
+          <p class="text-xs text-gray-400 uppercase tracking-wider font-medium mb-1">{{ t(info.label) }}</p>
           <p class="text-sm font-semibold text-gray-800 leading-snug">{{ t(info.value) }}</p>
         </div>
       </div>
 
-
-      <!-- ─────────────────────────────────────────────
-           MAIN GRID — Form + Sidebar
-      ───────────────────────────────────────────── -->
+      <!-- MAIN GRID -->
       <div class="grid lg:grid-cols-5 gap-10">
 
-        <!-- Contact Form (3/5) -->
+        <!-- Contact Form -->
         <div class="lg:col-span-3">
           <span class="section-label">{{ t({ en: 'Send a Message', fr: 'Envoyer un Message' }) }}</span>
           <h2 class="font-display font-bold text-gray-900 text-3xl mb-8">
@@ -106,80 +87,59 @@
           </h2>
 
           <form @submit.prevent="handleSubmit" class="space-y-5">
-
-            <!-- Name row -->
             <div class="grid sm:grid-cols-2 gap-4">
               <div class="float-group">
                 <input v-model="form.firstName" id="firstName" type="text" placeholder=" " class="float-input peer"
                   :class="errors.firstName ? 'border-red-400' : ''" />
-                <label for="firstName" class="float-label">
-                  {{ t({ en: 'First Name *', fr: 'Prénom *' }) }}
-                </label>
+                <label for="firstName" class="float-label">{{ t({ en: 'First Name *', fr: 'Prénom *' }) }}</label>
                 <p v-if="errors.firstName" class="text-red-400 text-xs mt-1">{{ errors.firstName }}</p>
               </div>
               <div class="float-group">
                 <input v-model="form.lastName" id="lastName" type="text" placeholder=" " class="float-input peer" />
-                <label for="lastName" class="float-label">
-                  {{ t({ en: 'Last Name', fr: 'Nom de Famille' }) }}
-                </label>
+                <label for="lastName" class="float-label">{{ t({ en: 'Last Name', fr: 'Nom de Famille' }) }}</label>
               </div>
             </div>
 
-            <!-- Email -->
             <div class="float-group">
               <input v-model="form.email" id="email" type="email" placeholder=" " class="float-input peer"
                 :class="errors.email ? 'border-red-400' : ''" />
-              <label for="email" class="float-label">
-                {{ t({ en: 'Email Address *', fr: 'Adresse Email *' }) }}
-              </label>
+              <label for="email" class="float-label">{{ t({ en: 'Email Address *', fr: 'Adresse Email *' }) }}</label>
               <p v-if="errors.email" class="text-red-400 text-xs mt-1">{{ errors.email }}</p>
             </div>
 
-            <!-- Phone -->
             <div class="float-group">
               <input v-model="form.phone" id="phone" type="tel" placeholder=" " class="float-input peer" />
-              <label for="phone" class="float-label">
-                {{ t({ en: 'Phone Number (optional)', fr: 'Téléphone (optionnel)' }) }}
-              </label>
+              <label for="phone" class="float-label">{{ t({
+                en: 'Phone Number (optional)', fr: 'Téléphone (optionnel)'
+              }) }}</label>
             </div>
 
-            <!-- Subject / inquiry type -->
             <div class="float-group">
               <select v-model="form.subject" id="subject" class="float-input peer"
                 :class="errors.subject ? 'border-red-400' : ''">
                 <option value="" disabled></option>
-                <option v-for="opt in subjectOptions" :key="opt.value" :value="opt.value">
-                  {{ t(opt) }}
-                </option>
+                <option v-for="opt in subjectOptions" :key="opt.value" :value="opt.value">{{ t(opt) }}</option>
               </select>
-              <label for="subject" class="float-label">
-                {{ t({ en: 'Subject *', fr: 'Objet *' }) }}
-              </label>
+              <label for="subject" class="float-label">{{ t({ en: 'Subject *', fr: 'Objet *' }) }}</label>
               <p v-if="errors.subject" class="text-red-400 text-xs mt-1">{{ errors.subject }}</p>
             </div>
 
-            <!-- Message -->
             <div class="float-group">
               <textarea v-model="form.message" id="message" rows="5" placeholder=" "
                 class="float-input peer resize-none" :class="errors.message ? 'border-red-400' : ''"></textarea>
-              <label for="message" class="float-label">
-                {{ t({ en: 'Your Message *', fr: 'Votre Message *' }) }}
-              </label>
+              <label for="message" class="float-label">{{ t({ en: 'Your Message *', fr: 'Votre Message *' }) }}</label>
               <div class="flex justify-between mt-1">
                 <p v-if="errors.message" class="text-red-400 text-xs">{{ errors.message }}</p>
                 <p class="text-xs text-gray-400 ml-auto">{{ form.message.length }}/500</p>
               </div>
             </div>
 
-            <!-- Submit -->
             <button type="submit" :disabled="submitted"
               :class="['w-full py-4 rounded-2xl font-semibold text-sm transition-all duration-200',
                 submitted
                   ? 'bg-brand-green/20 text-brand-green cursor-default'
                   : 'bg-brand-green text-white hover:opacity-90 hover:shadow-lg hover:shadow-brand-green/20 active:scale-[0.99]']">
-              <span v-if="!submitted">
-                {{ t({ en: 'Send Message →', fr: 'Envoyer le Message →' }) }}
-              </span>
+              <span v-if="!submitted">{{ t({ en: 'Send Message →', fr: 'Envoyer le Message →' }) }}</span>
               <span v-else class="flex items-center justify-center gap-2">
                 <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" stroke-width="2.5"
                   viewBox="0 0 24 24">
@@ -191,30 +151,28 @@
 
             <p class="text-center text-xs text-gray-400">
               {{ t({
-                en: 'We typically respond within 24 hours on business days.',
-                fr: 'Nous répondons généralement dans les 24 heures les jours ouvrables.'
-              }) }}
+                en: `We typically respond within 24 hours on business days.', fr: 'Nous répondons généralement dans
+              les 24 heures les jours ouvrables.` }) }}
             </p>
           </form>
         </div>
 
-        <!-- Sidebar (2/5) -->
+        <!-- Sidebar -->
         <div class="lg:col-span-2 space-y-6">
 
           <!-- Office hours -->
           <div class="bg-gray-50 rounded-2xl border border-gray-100 p-6">
             <div class="flex items-center gap-3 mb-5">
               <div class="w-8 h-8 rounded-lg bg-brand-green/10 flex items-center justify-center text-base">🕐</div>
-              <h3 class="font-display font-bold text-gray-900 text-lg">
-                {{ t({ en: 'Office Hours', fr: 'Heures de Bureau' }) }}
-              </h3>
+              <h3 class="font-display font-bold text-gray-900 text-lg">{{ t({
+                en: 'Office Hours', fr: 'Heures de Bureau'
+              }) }}</h3>
             </div>
             <div class="space-y-3">
               <div v-for="h in officeHours" :key="h.day.en" class="flex justify-between items-center">
                 <span class="text-sm text-gray-500">{{ t(h.day) }}</span>
-                <span :class="['text-sm font-semibold', h.closed ? 'text-gray-300' : 'text-brand-green']">
-                  {{ t(h.time) }}
-                </span>
+                <span :class="['text-sm font-semibold', h.closed ? 'text-gray-300' : 'text-brand-green']">{{ t(h.time)
+                }}</span>
               </div>
             </div>
           </div>
@@ -223,14 +181,15 @@
           <div class="bg-gray-50 rounded-2xl border border-gray-100 p-6">
             <div class="flex items-center gap-3 mb-5">
               <div class="w-8 h-8 rounded-lg bg-brand-green/10 flex items-center justify-center text-base">🌐</div>
-              <h3 class="font-display font-bold text-gray-900 text-lg">
-                {{ t({ en: 'Follow Us', fr: 'Suivez-Nous' }) }}
+              <h3 class="font-display font-bold text-gray-900 text-lg">{{ t({ en: 'Follow Us', fr: 'Suivez-Nous' }) }}
               </h3>
             </div>
             <div class="space-y-3">
               <a v-for="s in socials" :key="s.name" :href="s.url" target="_blank"
                 class="flex items-center gap-3 p-3 bg-white rounded-xl border border-gray-100 hover:border-brand-yellow/40 hover:bg-brand-green/5 transition-all group cursor-pointer">
-                <span class="text-xl">{{ s.emoji }}</span>
+                <!-- SVG icon -->
+                <span class="w-5 h-5 flex-shrink-0 text-gray-400 group-hover:text-brand-green transition-colors"
+                  v-html="s.icon"></span>
                 <div>
                   <p class="text-sm font-semibold text-gray-700 group-hover:text-brand-green transition-colors">{{
                     s.name }}</p>
@@ -251,15 +210,13 @@
             <div class="relative z-10 p-6">
               <div class="flex items-center gap-3 mb-4">
                 <div class="w-8 h-8 rounded-lg bg-brand-yellow/20 flex items-center justify-center text-base">📍</div>
-                <h3 class="font-display font-bold text-white text-lg">
-                  {{ t({ en: 'Find Us', fr: 'Nous Trouver' }) }}
+                <h3 class="font-display font-bold text-white text-lg">{{ t({ en: 'Find Us', fr: 'Nous Trouver' }) }}
                 </h3>
               </div>
               <p class="text-white/60 text-sm leading-relaxed mb-4">
                 {{ t({
-                  en: 'Goma, North Kivu\nDemocratic Republic of Congo',
-                  fr: 'Goma, Nord-Kivu\nRépublique Démocratique du Congo'
-                }) }}
+                  en: `Goma, North Kivu\nDemocratic Republic of Congo', fr: 'Goma, Nord-Kivu\nRépublique
+                Démocratique du Congo`}) }}
               </p>
               <a href="https://maps.google.com/?q=Goma,DRC" target="_blank"
                 class="inline-flex items-center gap-2 bg-brand-yellow text-brand-green font-semibold text-xs px-4 py-2 rounded-full hover:brightness-105 transition-all">
@@ -276,10 +233,7 @@
       </div>
     </div>
 
-
-    <!-- ─────────────────────────────────────────────
-         BOTTOM CTA
-    ───────────────────────────────────────────── -->
+    <!-- BOTTOM CTA -->
     <div class="max-w-5xl mx-auto px-6 lg:px-10 mt-16">
       <div class="relative overflow-hidden rounded-3xl" style="background: #1E4D35;">
         <div class="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none"
@@ -297,10 +251,9 @@
             </h2>
             <p class="text-white/55 text-sm leading-relaxed">
               {{ t({
-                en: `Every contribution — time, money, or expertise — helps us empower more women and girls in Goma.`,
-                fr: `Chaque contribution — temps, argent ou expertise — nous aide à autonomiser davantage de femmes et de
-              filles à Goma.`
-              }) }}
+                en: `Every contribution — time, money, or expertise — helps us empower more women and girls in
+              Goma.`, fr: `Chaque contribution — temps, argent ou expertise — nous aide à autonomiser davantage de
+              femmes et de filles à Goma.` }) }}
             </p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4">
@@ -327,15 +280,7 @@ import { useLang } from '../composables/useLang.js'
 defineEmits(['navigate'])
 const { t } = useLang()
 
-// ── Form state ──
-const form = reactive({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  subject: '',
-  message: '',
-})
+const form = reactive({ firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' })
 const errors = reactive({})
 const submitted = ref(false)
 
@@ -343,8 +288,7 @@ function validate() {
   Object.keys(errors).forEach(k => delete errors[k])
   if (!form.firstName.trim()) errors.firstName = t({ en: 'First name is required.', fr: 'Le prénom est requis.' })
   if (!form.email.trim()) errors.email = t({ en: 'Email is required.', fr: "L'email est requis." })
-  else if (!/\S+@\S+\.\S+/.test(form.email))
-    errors.email = t({ en: 'Please enter a valid email.', fr: 'Veuillez entrer un email valide.' })
+  else if (!/\S+@\S+\.\S+/.test(form.email)) errors.email = t({ en: 'Please enter a valid email.', fr: 'Veuillez entrer un email valide.' })
   if (!form.subject) errors.subject = t({ en: 'Please select a subject.', fr: 'Veuillez sélectionner un objet.' })
   if (!form.message.trim()) errors.message = t({ en: 'Message cannot be empty.', fr: 'Le message ne peut pas être vide.' })
   else if (form.message.length > 500) errors.message = t({ en: 'Max 500 characters.', fr: '500 caractères maximum.' })
@@ -353,32 +297,14 @@ function validate() {
 
 function handleSubmit() {
   if (!validate()) return
-  // TODO: wire up to your backend / email service
   submitted.value = true
 }
 
-// ── Data ──
 const contactCards = [
-  {
-    emoji: '📧',
-    label: { en: 'Email', fr: 'Email' },
-    value: { en: 'info@women-concern.org', fr: 'info@women-concern.org' },
-  },
-  {
-    emoji: '📞',
-    label: { en: 'Phone', fr: 'Téléphone' },
-    value: { en: '+243 820 539 830', fr: '+243 820 539 830' },
-  },
-  {
-    emoji: '📍',
-    label: { en: 'Location', fr: 'Localisation' },
-    value: { en: 'Bukavu, DRC', fr: 'Bukavu, RDC' },
-  },
-  {
-    emoji: '🤝',
-    label: { en: 'Partnerships', fr: 'Partenariats' },
-    value: { en: 'info@women-concern.org', fr: 'info@women-concern.org' },
-  },
+  { emoji: '📧', label: { en: 'Email', fr: 'Email' }, value: { en: 'info@women-concern.org', fr: 'info@women-concern.org' } },
+  { emoji: '📞', label: { en: 'Phone', fr: 'Téléphone' }, value: { en: '+243 820 539 830', fr: '+243 820 539 830' } },
+  { emoji: '📍', label: { en: 'Location', fr: 'Localisation' }, value: { en: 'Bukavu, DRC', fr: 'Bukavu, RDC' } },
+  { emoji: '🤝', label: { en: 'Partnerships', fr: 'Partenariats' }, value: { en: 'info@women-concern.org', fr: 'info@women-concern.org' } },
 ]
 
 const subjectOptions = [
@@ -397,15 +323,34 @@ const officeHours = [
 ]
 
 const socials = [
-  { name: 'Facebook', handle: '@WomenConcernDRC', emoji: '📘', url: '#' },
-  { name: 'Instagram', handle: '@womenconcern', emoji: '📸', url: '#' },
-  { name: 'Twitter/X', handle: '@WomenConcernDRC', emoji: '🐦', url: '#' },
-  { name: 'YouTube', handle: 'Women Concern', emoji: '▶️', url: '#' },
+  {
+    name: 'Facebook',
+    handle: '@WomenConcernDRC',
+    url: 'https://web.facebook.com/people/Women-Concern/61551719409706/',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>`
+  },
+  {
+    name: 'LinkedIn',
+    handle: 'Women Concern',
+    url: 'https://www.linkedin.com/in/women-concern/recent-activity/all/',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`
+  },
+  {
+    name: 'Twitter / X',
+    handle: '@WomenConcernDRC',
+    url: 'https://x.com/concern_women?lang=en',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.213 5.567 5.95-5.567zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`
+  },
+  {
+    name: 'YouTube',
+    handle: 'Women Concern',
+    url: '#',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`
+  },
 ]
 </script>
 
 <style scoped>
-/* Floating label input system */
 .float-group {
   position: relative;
 }
@@ -439,7 +384,6 @@ const socials = [
   background: transparent;
 }
 
-/* Lift label when focused or filled */
 .float-input:focus~.float-label,
 .float-input:not(:placeholder-shown)~.float-label,
 select.float-input:focus~.float-label,
@@ -452,7 +396,6 @@ select.float-input[value]:not([value=""])~.float-label {
   text-transform: uppercase;
 }
 
-/* select arrow */
 select.float-input {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
   background-repeat: no-repeat;

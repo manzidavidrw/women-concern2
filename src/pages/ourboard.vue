@@ -1,39 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <!-- Hero Section -->
-    <section class="relative bg-brand-green text-white py-20 overflow-hidden">
-      <div class="absolute inset-0 opacity-10"
-        style="background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 512 512%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%22.06%22/%3E%3C/svg%3E')" />
-
-      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-        <div class="max-w-3xl">
-          <div
-            class="inline-flex items-center gap-2 mb-4 border border-white/20 rounded-full px-4 py-1.5 bg-white/5 backdrop-blur-sm">
-            <span class="text-xl">🏛️</span>
-            <span class="text-white/80 text-xs font-medium tracking-widest uppercase">Leadership & Team</span>
-          </div>
-          <h1 class="font-display font-bold text-5xl md:text-6xl mb-6">
-            {{ t({ en: 'Our Board & Team', fr: 'Notre Conseil & Équipe' }) }}
-          </h1>
-          <p class="text-white/80 text-lg leading-relaxed max-w-2xl">
-            {{ t({
-              en: `Meet the dedicated leaders and passionate individuals who guide our mission and work every day to
-            create lasting impact for women and girls in DRC.`,
-              fr: `Rencontrez les dirigeants dévoués et les personnes passionnées qui guident notre mission et travaillent
-            chaque jour pour créer un impact durable pour les femmes et les filles en RDC.`
-            }) }}
-          </p>
-
-        </div>
-      </div>
-
-      <!-- Decorative wave -->
-      <div class="absolute bottom-0 inset-x-0">
-        <svg viewBox="0 0 1440 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 30C480 60 960 0 1440 30V54H0V30Z" fill="#F9FAFB" />
-        </svg>
-      </div>
-    </section>
+   <div class="min-h-screen bg-gray-50"
 
     <!-- Board Members Section -->
     <section class="py-20">

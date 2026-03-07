@@ -6,16 +6,15 @@
       <div v-for="(post, i) in posts" :key="post.id" v-show="current === i" class="absolute inset-0 flex items-center">
 
         <!-- Background image with faded overlay -->
-        <div class="absolute inset-0">
+        <div class="absolute inset-0 pointer-events-none">
           <img v-if="post.image" :src="post.image" :alt="t(post.title)" class="w-full h-full object-cover" />
-          <!-- Multiple gradient overlays for smooth fade effect -->
           <div class="absolute inset-0 bg-gradient-to-r from-brand-green via-transparent to-brand-green opacity-60" />
           <div class="absolute inset-0 bg-gradient-to-b from-brand-green/40 via-transparent to-brand-green/60" />
           <div class="absolute inset-0" :style="{ background: post.bg, opacity: 0.7 }" />
         </div>
 
         <!-- Noise texture -->
-        <div class="absolute inset-0 opacity-40"
+        <div class="absolute inset-0 opacity-40 pointer-events-none"
           style="background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 512 512%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%22.06%22/%3E%3C/svg%3E')" />
 
         <!-- Decorative circles -->
@@ -52,11 +51,11 @@
 
             <!-- CTAs -->
             <div class="flex flex-wrap gap-4">
-              <button @click.stop="emit('navigate', 'blog-' + post.id)"
+              <button @click="emit('navigate', 'blog-' + post.id)"
                 class="pulse-btn bg-brand-yellow text-brand-green font-semibold px-7 py-3.5 rounded-full text-sm hover:brightness-105 transition-all cursor-pointer shadow-xl">
                 {{ t({ en: 'Read Article →', fr: "Lire l'Article →" }) }}
               </button>
-              <button @click.stop="emit('navigate', 'blog')"
+              <button @click="emit('navigate', 'blog')"
                 class="border border-white/25 text-white font-medium px-7 py-3.5 rounded-full text-sm hover:bg-white/10 transition-all cursor-pointer backdrop-blur-sm">
                 {{ t({ en: 'All Stories', fr: 'Toutes les Histoires' }) }}
               </button>
@@ -103,7 +102,7 @@
     </div>
 
     <!-- Bottom wave -->
-    <div class="absolute bottom-0 inset-x-0 z-10">
+    <div class="absolute bottom-0 inset-x-0 z-10 pointer-events-none">
       <svg viewBox="0 0 1440 54" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 30C480 60 960 0 1440 30V54H0V30Z" fill="white" />
       </svg>
@@ -116,6 +115,10 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useLang } from '../composables/useLang.js'
 import project1 from '../assets/project1.jpeg'
+import closing1 from '../assets/blogs/closing1.png'
+import launch1 from '../assets/blogs/launch1.jpg'
+import uwezo1 from '../assets/blogs/uwezo1.jpeg'
+import youth1 from '../assets/blogs/youth1.jpg'
 
 const emit = defineEmits(['navigate'])
 const { t } = useLang()
@@ -125,40 +128,68 @@ let timer = null
 
 const posts = [
   {
-    id: 1,
-    bg: 'linear-gradient(135deg, #1E4D35 0%, #163a28 100%)',
-    image: project1,
-    emoji: '🚨',
-    category: { en: 'Emergency Response', fr: "Réponse d'Urgence" },
-    title: { en: 'Standing With Goma in Its Darkest Hour', fr: 'Aux Côtés de Goma dans Son Heure la Plus Sombre' },
-    excerpt: { en: 'As conflict intensifies in Eastern DRC, Women Concern teams are on the ground delivering emergency relief to thousands of displaced women and children.', fr: "Alors que le conflit s'intensifie dans l'est de la RDC, les équipes de Women Concern sont sur le terrain pour apporter une aide d'urgence." },
+    id: 8,
+    image: launch1,
+    bg: 'linear-gradient(135deg, #7c1d6f 0%, #4a0e42 100%)', emoji: '📢',
+    authorEmoji: '👩🏾‍💻', author: 'Women Concern Team', date: '25 November 2025',
+    category: { en: 'Campaign & Activism', fr: 'Campagne & Activisme' },
+    readTime: { en: '3 min read', fr: '3 min de lecture' },
+    title: {
+      en: `Launch of the 16 Days of Activism Campaign Against Online GBV`,
+      fr: `Lancement de la Campagne des 16 Jours d'Activisme Contre les VBG en Ligne`
+    },
+    excerpt: {
+      en: `On 25 November 2025, Women Concern through the Umoja Network officially launched its #16Days of Activism campaign, placing a special focus on online violence — an emerging and rapidly growing threat in our communities.`,
+      fr: `Le 25 novembre 2025, Women Concern, à travers le Réseau Umoja, a lancé sa campagne #16Jours d'Activisme avec un accent particulier sur les violences en ligne — une menace émergente et croissante dans nos communautés.`
+    },
   },
   {
-    id: 2,
-    bg: 'linear-gradient(135deg, #1a4530 0%, #0f2e1e 100%)',
-    image: project1,
-    emoji: '🌸',
-    category: { en: 'Malkia Pads', fr: 'Malkia Pads' },
-    title: { en: 'How a Pack of Pads Keeps a Girl in School', fr: "Comment un Paquet de Serviettes Garde une Fille à l'École" },
-    excerpt: { en: 'Meet Zawadi, 14, who missed school every month until Malkia Pads reached her village. Her story is one of 500 — and counting.', fr: "Rencontrez Zawadi, 14 ans, qui manquait l'école chaque mois jusqu'à ce que Malkia Pads atteigne son village." },
+    id: 6,
+    image: closing1,
+    bg: 'linear-gradient(135deg, #1E4D35 0%, #0f3d26 100%)', emoji: '🎓',
+    authorEmoji: '👩🏿', author: 'Women Concern Team', date: 'December 2025',
+    category: { en: 'Advocacy & Awareness', fr: 'Plaidoyer & Sensibilisation' },
+    readTime: { en: '5 min read', fr: '5 min de lecture' },
+    title: {
+      en: 'Closing the 16 Days of Activism: Reaching Over 1,000 Students at Institut de Goma',
+      fr: 'Clôture des 16 Jours d\'Activisme : Plus de 1 000 Élèves Touchés à l\'Institut de Goma'
+    },
+    excerpt: {
+      en: 'On the final day of the 16 Days of Activism Against GBV, Women Concern and the Uwezo Network engaged nearly 1,000 students at Institut de Goma — sparking the creation of a GBV Ambassadors Club.',
+      fr: 'Le dernier jour des 16 Jours d\'Activisme contre les VBG, Women Concern et le Réseau Uwezo ont engagé près de 1 000 élèves à l\'Institut de Goma — donnant naissance à un Club d\'Ambassadeurs VBG.'
+    },
   },
   {
-    id: 3,
-    bg: 'linear-gradient(135deg, #1E4D35 0%, #2d5c3e 100%)',
-    image: project1,
-    emoji: '💼',
-    category: { en: 'Economic Empowerment', fr: 'Autonomisation Économique' },
-    title: { en: 'From Displacement Camp to Business Owner', fr: "Du Camp de Déplacés à Chef d'Entreprise" },
-    excerpt: { en: 'After fleeing conflict with nothing, Esperance used our microloan program to build a thriving tailoring business that now employs three other women.', fr: "Après avoir fui le conflit sans rien, Espérance a utilisé notre programme de microcrédit pour créer une entreprise prospère." },
+    id: 7,
+    image: uwezo1,
+    bg: 'linear-gradient(135deg, #2d1b69 0%, #1a0f3e 100%)', emoji: '🔬',
+    authorEmoji: '👨🏿‍💼', author: 'Uwezo Network', date: 'November 2025',
+    category: { en: 'Research & Advocacy', fr: 'Recherche & Plaidoyer' },
+    readTime: { en: '4 min read', fr: '4 min de lecture' },
+    title: {
+      en: 'Uwezo Network Launches Study on Needs of Women Survivors of SGBV',
+      fr: 'Le Réseau Uwezo Lance une Étude sur les Besoins Non Satisfaits des Survivantes de VSBG en Zone de Conflit'
+    },
+    excerpt: {
+      en: 'On November 7, 2025, the Uwezo Network held a landmark workshop launching a study on the unmet needs of women survivors of SGBV in North and South Kivu, while strengthening inter-organizational coordination among its members.',
+      fr: 'Le 7 novembre 2025, le Réseau Uwezo a tenu un atelier marquant le lancement d\'une étude sur les besoins non satisfaits des survivantes de VSBG au Nord et Sud-Kivu, tout en renforçant la coordination inter-organisationnelle.'
+    },
   },
   {
-    id: 4,
-    bg: 'linear-gradient(135deg, #163a28 0%, #1E4D35 100%)',
-    image: project1,
-    emoji: '✨',
-    category: { en: 'GLFX Program', fr: 'Programme GLFX' },
-    title: { en: 'GLFX: The Next Generation of Women Leaders', fr: 'GLFX : La Prochaine Génération de Femmes Leaders' },
-    excerpt: { en: 'Our Girls Leadership & Futures Exchange program has graduated its first cohort of 40 young women, ready to lead in their communities and beyond.', fr: 'Notre programme GLFX a diplômé sa première cohorte de 40 jeunes femmes, prêtes à diriger dans leurs communautés.' },
+    id: 9,
+    image: youth1,
+    bg: 'linear-gradient(135deg, #0f4c75 0%, #063050 100%)', emoji: '🎤',
+    authorEmoji: '👩🏿', author: 'Women Concern Team', date: '10 December 2025',
+    category: { en: 'Youth & Activism', fr: 'Jeunesse & Activisme' },
+    readTime: { en: '5 min read', fr: '5 min de lecture' },
+    title: {
+      en: 'Youth Voices Rising: Women Concern Concludes 16 Days of Activism at Institut Mikeno, Goma',
+      fr: "Les Voix de la Jeunesse S'élèvent : Women Concern Clôture les 16 Jours d'Activisme à l'Institut Mikeno, Goma"
+    },
+    excerpt: {
+      en: 'On December 10, 2025, Women Concern through the Uwezo Network brought a powerful message of prevention and empowerment to 600 students and teachers at Institut Mikeno in Goma — uniting youth voices against digital violence.',
+      fr: "Le 10 décembre 2025, Women Concern à travers le Réseau Uwezo a apporté un puissant message de prévention à 600 élèves et enseignants de l'Institut Mikeno à Goma."
+    },
   },
 ]
 
