@@ -11,6 +11,9 @@
   <BlogPost v-else-if="page.startsWith('blog-')" :post-id="Number(page.replace('blog-', ''))" @navigate="goTo" />
   <WhatWeDo v-else-if="page === 'what-we-do'" @navigate="goTo" />
 
+  <!-- Program Detail Pages -->
+  <ProgramDetail v-else-if="page.startsWith('program-')" :program-id="page" @navigate="goTo" />
+
   <main v-else>
     <HeroSection @navigate="goTo" />
     <ImpactStats />
@@ -22,6 +25,7 @@
     <GetInvolved />
     <PartnershipsPage />
   </main>
+
   <SiteFooter />
 </template>
 
@@ -42,6 +46,7 @@ import OurMission from './pages/OurMission.vue'
 import OurHistory from './pages/OurHistory.vue'
 import DonorsPartners from './pages/DonorsPartners.vue'
 import Contactus from './pages/Contactus.vue'
+import ProgramDetail from './components/ProgramDetail.vue'
 import WhatWeDo from './pages/Whatwedo.vue'
 import BlogIndex from './pages/BlogIndex.vue'
 import BlogPost from './pages/BlogPost.vue'

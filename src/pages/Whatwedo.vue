@@ -55,7 +55,8 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ImageCard v-for="(card, i) in weeCards" :key="card.title" v-bind="card" :index="i" accent="emerald" />
+          <ImageCard v-for="(card, i) in weeCards" :key="card.title" v-bind="card" :index="i" accent="emerald"
+            @navigate="$emit('navigate', $event)" />
         </div>
       </section>
 
@@ -63,8 +64,6 @@
 
       <!-- ══════════════════════════════════════════
            2. EDUCATION & GIRLS EMPOWERMENT
-           👉 TO ADD/programs: add img: '/images/your-file.png'
-              to each object in eduCards below
       ══════════════════════════════════════════ -->
       <section id="education-girls-empowerment" class="scroll-mt-40">
         <SectionHeader emoji="📚" tag="Education" tagColor="bg-amber-100 text-amber-700"
@@ -80,7 +79,8 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ImageCard v-for="(card, i) in eduCards" :key="card.title" v-bind="card" :index="i" accent="amber" />
+          <ImageCard v-for="(card, i) in eduCards" :key="card.title" v-bind="card" :index="i" accent="amber"
+            @navigate="$emit('navigate', $event)" />
         </div>
       </section>
 
@@ -88,8 +88,6 @@
 
       <!-- ══════════════════════════════════════════
            3. LAND RESTORATION & CLIMATE RESILIENCE
-           👉 TO ADD IMAGES: add img: '/images/your-file.png'
-              to each object in climateCards below
       ══════════════════════════════════════════ -->
       <section id="land-restoration-climate" class="scroll-mt-40">
         <SectionHeader emoji="🌱" tag="Climate & Environment" tagColor="bg-green-100 text-green-700"
@@ -111,7 +109,8 @@
         </div>
 
         <div class="grid sm:grid-cols-3 gap-6">
-          <ImageCard v-for="(card, i) in climateCards" :key="card.title" v-bind="card" :index="i" accent="green" />
+          <ImageCard v-for="(card, i) in climateCards" :key="card.title" v-bind="card" :index="i" accent="green"
+            @navigate="$emit('navigate', $event)" />
         </div>
       </section>
 
@@ -119,8 +118,6 @@
 
       <!-- ══════════════════════════════════════════
            4. PEACE BUILDING & DISARMAMENT
-           👉 TO ADD IMAGES: add img: '/images/your-file.png'
-              to each object in peaceCards below
       ══════════════════════════════════════════ -->
       <section id="peace-building-disarmament" class="scroll-mt-40">
         <SectionHeader emoji="🕊️" tag="Peace & Security" tagColor="bg-blue-100 text-blue-700"
@@ -136,7 +133,8 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ImageCard v-for="(card, i) in peaceCards" :key="card.title" v-bind="card" :index="i" accent="blue" />
+          <ImageCard v-for="(card, i) in peaceCards" :key="card.title" v-bind="card" :index="i" accent="blue"
+            @navigate="$emit('navigate', $event)" />
         </div>
       </section>
 
@@ -144,8 +142,6 @@
 
       <!-- ══════════════════════════════════════════
            5. RESEARCH & LEARNING
-           👉 TO ADD IMAGES: add img: '/images/your-file.png'
-              to each object in researchCards below
       ══════════════════════════════════════════ -->
       <section id="research-learning" class="scroll-mt-40">
         <SectionHeader emoji="🔬" tag="Research & Learning" tagColor="bg-purple-100 text-purple-700"
@@ -161,7 +157,8 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ImageCard v-for="(card, i) in researchCards" :key="card.title" v-bind="card" :index="i" accent="purple" />
+          <ImageCard v-for="(card, i) in researchCards" :key="card.title" v-bind="card" :index="i" accent="purple"
+            @navigate="$emit('navigate', $event)" />
         </div>
       </section>
 
@@ -169,8 +166,6 @@
 
       <!-- ══════════════════════════════════════════
            6. ADVOCACY
-           👉 TO ADD IMAGES: add img: '/images/your-file.png'
-              to each object in advocacyCards below
       ══════════════════════════════════════════ -->
       <section id="advocacy" class="scroll-mt-40">
         <SectionHeader emoji="📣" tag="Advocacy" tagColor="bg-yellow-100 text-yellow-700" title="Community-Led Advocacy"
@@ -186,7 +181,8 @@
         </div>
 
         <div class="grid sm:grid-cols-3 gap-6">
-          <ImageCard v-for="(card, i) in advocacyCards" :key="card.title" v-bind="card" :index="i" accent="yellow" />
+          <ImageCard v-for="(card, i) in advocacyCards" :key="card.title" v-bind="card" :index="i" accent="yellow"
+            @navigate="$emit('navigate', $event)" />
         </div>
       </section>
 
@@ -297,23 +293,21 @@ const PlaceholderImage = defineComponent({
 })
 
 // ── ImageCard ───────────────────────────────────────────────
-// Accepts an optional `img` prop.
-// If img is provided  → shows your real photo.
-// If img is missing   → shows the camera placeholder automatically.
+// Now accepts a `page` prop for the "Read More" navigation link.
 const ImageCard = defineComponent({
-  props: ['emoji', 'title', 'desc', 'accent', 'index', 'img'],
-  setup(props) {
+  props: ['emoji', 'title', 'desc', 'accent', 'index', 'img', 'page'],
+  emits: ['navigate'],
+  setup(props, { emit }) {
     const accentConfig = {
-      emerald: { bar: 'bg-emerald-500', badge: 'bg-emerald-500 text-white', imgBg: 'from-emerald-100 to-emerald-200', imgTxt: 'text-emerald-300', imgBorder: 'border-emerald-200', hover: 'hover:border-emerald-300' },
-      amber: { bar: 'bg-amber-400', badge: 'bg-amber-400 text-white', imgBg: 'from-amber-100 to-amber-200', imgTxt: 'text-amber-300', imgBorder: 'border-amber-200', hover: 'hover:border-amber-300' },
-      green: { bar: 'bg-green-500', badge: 'bg-green-500 text-white', imgBg: 'from-green-100 to-green-200', imgTxt: 'text-green-300', imgBorder: 'border-green-200', hover: 'hover:border-green-300' },
-      blue: { bar: 'bg-blue-500', badge: 'bg-blue-500 text-white', imgBg: 'from-blue-100 to-blue-200', imgTxt: 'text-blue-300', imgBorder: 'border-blue-200', hover: 'hover:border-blue-300' },
-      purple: { bar: 'bg-purple-500', badge: 'bg-purple-500 text-white', imgBg: 'from-purple-100 to-purple-200', imgTxt: 'text-purple-300', imgBorder: 'border-purple-200', hover: 'hover:border-purple-300' },
-      yellow: { bar: 'bg-yellow-400', badge: 'bg-yellow-400 text-gray-900', imgBg: 'from-yellow-100 to-yellow-200', imgTxt: 'text-yellow-400', imgBorder: 'border-yellow-200', hover: 'hover:border-yellow-300' },
+      emerald: { bar: 'bg-emerald-500', badge: 'bg-emerald-500 text-white', imgBg: 'from-emerald-100 to-emerald-200', imgTxt: 'text-emerald-300', imgBorder: 'border-emerald-200', hover: 'hover:border-emerald-300', btn: 'text-emerald-600 hover:bg-emerald-50' },
+      amber: { bar: 'bg-amber-400', badge: 'bg-amber-400 text-white', imgBg: 'from-amber-100 to-amber-200', imgTxt: 'text-amber-300', imgBorder: 'border-amber-200', hover: 'hover:border-amber-300', btn: 'text-amber-600 hover:bg-amber-50' },
+      green: { bar: 'bg-green-500', badge: 'bg-green-500 text-white', imgBg: 'from-green-100 to-green-200', imgTxt: 'text-green-300', imgBorder: 'border-green-200', hover: 'hover:border-green-300', btn: 'text-green-600 hover:bg-green-50' },
+      blue: { bar: 'bg-blue-500', badge: 'bg-blue-500 text-white', imgBg: 'from-blue-100 to-blue-200', imgTxt: 'text-blue-300', imgBorder: 'border-blue-200', hover: 'hover:border-blue-300', btn: 'text-blue-600 hover:bg-blue-50' },
+      purple: { bar: 'bg-purple-500', badge: 'bg-purple-500 text-white', imgBg: 'from-purple-100 to-purple-200', imgTxt: 'text-purple-300', imgBorder: 'border-purple-200', hover: 'hover:border-purple-300', btn: 'text-purple-600 hover:bg-purple-50' },
+      yellow: { bar: 'bg-yellow-400', badge: 'bg-yellow-400 text-gray-900', imgBg: 'from-yellow-100 to-yellow-200', imgTxt: 'text-yellow-400', imgBorder: 'border-yellow-200', hover: 'hover:border-yellow-300', btn: 'text-yellow-600 hover:bg-yellow-50' },
     }
     const c = accentConfig[props.accent] || accentConfig.emerald
 
-    // The image area: real photo OR placeholder depending on whether `img` is set
     const imageArea = props.img
       ? h('img', {
         src: props.img,
@@ -330,19 +324,29 @@ const ImageCard = defineComponent({
         h('span', { class: `text-xs ${c.imgTxt} font-medium` }, 'Add your photo here'),
       ])
 
+    // Read More button — only shown when a page prop is provided
+    const readMoreBtn = props.page
+      ? h('button', {
+        onClick: () => emit('navigate', props.page),
+        class: `mt-3 self-start inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-current transition-all duration-200 ${c.btn}`
+      }, [
+        'Read More',
+        h('span', { class: 'transition-transform duration-200 group-hover:translate-x-0.5' }, ' →'),
+      ])
+      : null
+
     return () => h('div', {
       class: `group relative rounded-2xl overflow-hidden border border-gray-100 ${c.hover} shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 bg-white flex flex-col`
     }, [
       h('div', { class: 'relative h-44 overflow-hidden' }, [
         imageArea,
-        // Emoji badge — always on top of image
         h('div', { class: `absolute top-3 left-3 w-10 h-10 rounded-xl ${c.badge} flex items-center justify-center text-lg shadow-lg z-10` }, props.emoji),
-        // Accent bar slides in on hover
         h('div', { class: `absolute bottom-0 left-0 right-0 h-1 ${c.bar} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-10` }),
       ]),
       h('div', { class: 'p-5 flex flex-col flex-1' }, [
         h('h3', { class: 'font-bold text-gray-900 text-sm leading-snug mb-2' }, props.title),
         h('p', { class: 'text-xs text-gray-500 leading-relaxed flex-1' }, props.desc),
+        readMoreBtn,
       ]),
     ])
   }
@@ -373,201 +377,189 @@ const Divider = defineComponent({
 
 // ═══════════════════════════════════════════════════════════════
 // CONTENT DATA
-// ───────────────────────────────────────────────────────────────
-// HOW TO ADD IMAGES TO ANY CARD:
-//   1. Put your image file in src/assets/images/ (e.g. basic.png)
-//   2. Add  img: new URL('../assets/images/basic.png', import.meta.url).href
-//      to the card object below.
-//   3. The placeholder disappears automatically — no other change needed.
-//
-// EXAMPLE (already done for Section 1 below):
-//   { emoji: '🍽️', title: 'Basic Needs Support', img: new URL(...).href, desc: '...' }
+// Each card now has a `page` key matching its ProgramPage.vue entry.
 // ═══════════════════════════════════════════════════════════════
 
 // ── SECTION 1: Women's Economic Empowerment ─────────────────
-// ✅ Real images wired in. Put these files in src/assets/images/
-//    basic.png | skills.png | productive.png | savings.png | coaching.png
 const weeCards = [
   {
     emoji: '🍽️',
     title: 'Basic Needs Support',
+    page: 'program-basic-needs',
     img: new URL('../assets/programs/basic.png', import.meta.url).href,
     desc: 'Address urgent vulnerabilities through food, hygiene products, and health care to restore dignity and readiness for development.',
   },
   {
     emoji: '🪡',
     title: 'Skills & Livelihood Training',
+    page: 'program-skills-training',
     img: new URL('../assets/programs/skills.jpeg', import.meta.url).href,
     desc: 'Women receive practical vocational training based on market demand — agriculture, cookstove production, tailoring, and non-farm trades.',
   },
   {
     emoji: '🌾',
     title: 'Productive Asset Transfers',
+    page: 'program-asset-transfers',
     img: new URL('../assets/programs/productive.jpeg', import.meta.url).href,
     desc: 'Providing seed capital or equipment to launch small businesses or agricultural activities, empowering women to be self-sufficient.',
   },
   {
     emoji: '💰',
     title: 'Savings & Financial Inclusion',
+    page: 'program-savings-financial',
     img: new URL('../assets/programs/savings.jpg', import.meta.url).href,
     desc: 'Through Village Savings and Loan Associations (VSLAs), women access savings and credit, allowing reinvestment and economic stability.',
   },
   {
     emoji: '🤝',
     title: 'Coaching & Mentorship',
+    page: 'program-coaching-mentorship',
     img: new URL('../assets/programs/caoching.jpg', import.meta.url).href,
     desc: 'Each woman receives personalised mentorship in goal setting, financial literacy, leadership, and confidence-building.',
   },
 ]
 
 // ── SECTION 2: Girls' Education & Empowerment ───────────────
-// 👉 TO ADD IMAGES: replace each null with:
-//    new URL('../assets/images/YOUR-FILE.png', import.meta.url).href
-//
-//    sponsorship.png  →  School Sponsorship card
-//    academy.png      →  Girls Leadership Academy card
-//    pads.png         →  Menstrual Hygiene card
-//    srhr.png         →  SRHR card
 const eduCards = [
   {
     emoji: '🎒',
     title: 'School Sponsorship & Retention',
+    page: 'program-school-sponsorship',
     img: new URL('../assets/programs/school.jpeg', import.meta.url).href,
     desc: 'We identify girls at risk of dropping out and provide school fees, uniforms, and learning materials to ensure continuous education.',
   },
   {
     emoji: '🌟',
     title: "Career Guidance & Girls' Leadership Academy",
+    page: 'program-girls-leadership',
     img: new URL('../assets/programs/career.jpeg', import.meta.url).href,
     desc: "Our Girls Academy offers life skills, mentorship, and career development to inspire girls' dreams and leadership pathways.",
   },
   {
     emoji: '🌸',
     title: 'Menstrual Hygiene & Reusable Pads',
+    page: 'program-menstrual-hygiene',
     img: new URL('../assets/programs/menstrual.jpeg', import.meta.url).href,
     desc: "We locally produce and distribute washable Malkia Pads to schools and girls' clubs, ensuring dignity and school attendance.",
   },
   {
     emoji: '💜',
     title: 'Sexual & Reproductive Health Rights',
+    page: 'program-srhr',
     img: new URL('../assets/programs/sexual.jpeg', import.meta.url).href,
     desc: 'Through peer education and school clubs, we create safe spaces where girls learn about their bodies, rights, and choices.',
   },
 ]
 
 // ── SECTION 3: Land Restoration & Climate Resilience ────────
-// 👉 TO ADD IMAGES:
-//    ruzizi.png   →  Ruzizi Plain Greening Project card
-//    jiko.png     →  Jiko Life for Family & Forest card
-//    peaceplot.png →  Peace Plot Project card
 const climateCards = [
   {
     emoji: '🌱',
     title: 'Ruzizi Plain Greening Project',
+    page: 'program-ruzizi',
     img: new URL('../assets/programs/ruzizi.jpeg', import.meta.url).href,
     desc: 'Women-led cooperatives establish nurseries, plant agroforestry trees, and adopt climate-smart farming practices to restore degraded lands.',
   },
   {
     emoji: '🔥',
     title: 'Jiko Life for Family & Forest',
+    page: 'program-jiko',
     img: new URL('../assets/programs/jiko.jpeg', import.meta.url).href,
     desc: 'Promotes improved cookstoves, reducing charcoal use and indoor pollution while creating sustainable income for local producers.',
   },
   {
     emoji: '🕊️',
     title: 'Peace Plot Project',
+    page: 'program-peace-plot',
     img: new URL('../assets/programs/peace.jpeg', import.meta.url).href,
     desc: 'Communities cultivate shared farmland, practice climate-smart farming, and build trust — sowing seeds of both peace and prosperity.',
   },
 ]
 
 // ── SECTION 4: Peace Building & Disarmament ─────────────────
-// 👉 TO ADD IMAGES:
-//    salw.png          →  Combating SALW card
-//    dialogue.png      →  Community Dialogue card
-//    reintegration.png →  Reintegration of Ex-Combatants card
-//    leadership.png    →  Women's Leadership card
 const peaceCards = [
   {
     emoji: '🔫',
     title: 'Combating SALW',
+    page: 'program-salw',
     img: new URL('../assets/programs/Combating.jpeg', import.meta.url).href,
     desc: 'Community awareness campaigns on small arms, advocacy with local leaders, and links to national/international disarmament frameworks.',
   },
   {
     emoji: '💬',
     title: 'Community Dialogue & Mediation',
+    page: 'program-dialogue',
     img: new URL('../assets/programs/Dialogue.jpeg', import.meta.url).href,
     desc: 'Safe spaces for women and community members to discuss tensions, mediate disputes, and build mutual understanding.',
   },
   {
     emoji: '🔄',
     title: 'Reintegration of Ex-Combatants',
+    page: 'program-reintegration',
     img: new URL('../assets/programs/Reintegration.jpeg', import.meta.url).href,
     desc: 'Using the UPG model, we support former combatants with psychosocial counselling, livelihood support, and skills training.',
   },
   {
     emoji: '👩‍⚖️',
     title: "Women's Leadership in Peacebuilding",
+    page: 'program-women-peace-leadership',
     img: new URL('../assets/programs/Leadership.jpeg', import.meta.url).href,
     desc: 'Women trained in conflict transformation, leadership, and local governance to influence decisions and promote justice and inclusion.',
   },
 ]
 
 // ── SECTION 5: Research & Learning ──────────────────────────
-// 👉 TO ADD IMAGES:
-//    action-research.png  →  Action Research card
-//    policy.png           →  Policy Engagement card
-//    voices.png           →  Amplifying Voices card
-//    upg-evidence.png     →  Evidence for UPG card
 const researchCards = [
   {
     emoji: '🔍',
     title: 'Action Research & Knowledge Generation',
+    page: 'program-action-research',
     img: new URL('../assets/programs/Action.jpeg', import.meta.url).href,
     desc: 'Participatory field research to identify gender issues, track programme impact, and develop localised toolkits, manuals, and reports.',
   },
   {
     emoji: '📜',
     title: 'Policy Engagement & Legal Reform',
+    page: 'program-policy-engagement',
     img: new URL('../assets/programs/policy.jpeg', import.meta.url).href,
     desc: "Advocate for laws and policies that protect women's rights and ensure accountability on gender commitments in post-conflict recovery.",
   },
   {
     emoji: '📢',
     title: "Amplifying Rural Women's Voices",
+    page: 'program-amplifying-voices',
     img: new URL('../assets/programs/Amplifying.jpeg', import.meta.url).href,
     desc: 'Facilitate participation of women from remote, conflict-affected areas in national and international forums.',
   },
   {
     emoji: '📊',
     title: 'Evidence for Scaling the UPG Model',
+    page: 'program-upg-evidence',
     img: new URL('../assets/programs/Evidence.jpeg', import.meta.url).href,
     desc: 'Research and document the impact of the UPG model and advocate for its adoption by governments and community planners.',
   },
 ]
 
 // ── SECTION 6: Advocacy ──────────────────────────────────────
-// 👉 TO ADD IMAGES:
-//    campaigns.png     →  Leading Campaigns card
-//    duty-bearers.png  →  Engaging Duty-Bearers card
-//    evidence.png      →  Using Evidence for Change card
 const advocacyCards = [
   {
     emoji: '📣',
     title: 'Leading Campaigns',
+    page: 'program-leading-campaigns',
     img: new URL('../assets/programs/Leading.jpeg', import.meta.url).href,
     desc: 'Women and girls spearhead campaigns on gender justice, access to services, and legal rights within their communities.',
   },
   {
     emoji: '🏛️',
     title: 'Engaging Duty-Bearers',
+    page: 'program-duty-bearers',
     img: new URL('../assets/programs/Engaging.jpeg', import.meta.url).href,
     desc: "Engage with local authorities, customary leaders, and policy-makers to advocate for policies that uphold women's rights.",
   },
   {
     emoji: '📈',
     title: 'Using Evidence for Change',
+    page: 'program-evidence-change',
     img: new URL('../assets/programs/Using.jpeg', import.meta.url).href,
     desc: 'Harness evidence from lived experiences to influence decision-making and create tangible improvements in policies and social norms.',
   },
