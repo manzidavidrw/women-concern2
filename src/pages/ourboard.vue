@@ -1,5 +1,5 @@
 <template>
-   <div class="min-h-screen bg-gray-50"
+  <div class="min-h-screen bg-gray-50">
 
     <!-- Board Members Section -->
     <section class="py-20">
