@@ -20,9 +20,9 @@
     <MalkiaPads />
     <OurStory />
     <ProjectsBlog />
-    <BoardMembers />
+    <ourboard />
     <GetInvolved />
-    <OurDonors />
+    <PartnershipsPage />
   </main>
   <SiteFooter />
 </template>
@@ -35,9 +35,9 @@ import DonateBanner from './components/DonateBanner.vue'
 import MalkiaPads from './components/MalkiaPads.vue'
 import OurStory from './components/OurStory.vue'
 import ProjectsBlog from './components/ProjectsBlog.vue'
-import BoardMembers from './pages/ourboard.vue'
+import ourboard from './pages/ourboard.vue'
 import GetInvolved from './components/GetInvolved.vue'
-import OurDonors from './pages/PartnershipsPage.vue'
+import PartnershipsPage from './pages/PartnershipsPage.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import WhoWeAre from './pages/Aboutus.vue'
 import OurMission from './pages/OurMission.vue'
@@ -45,7 +45,6 @@ import OurHistory from './pages/OurHistory.vue'
 import DonorsPartners from './pages/DonorsPartners.vue'
 import Contactus from './pages/Contactus.vue'
 import ourBoard from './pages/ourboard.vue'
-import PartnershipsPage from './pages/PartnershipsPage.vue'
 import WhatWeDo from './pages/Whatwedo.vue'
 import BlogIndex from './pages/BlogIndex.vue'
 import BlogPost from './pages/BlogPost.vue'
