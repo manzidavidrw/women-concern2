@@ -9,8 +9,6 @@
   <Contactus v-else-if="page === 'contact-us'" @navigate="goTo" />
   <BlogIndex v-else-if="page === 'blog'" @navigate="goTo" />
   <BlogPost v-else-if="page.startsWith('blog-')" :post-id="Number(page.replace('blog-', ''))" @navigate="goTo" />
-  <ourBoard v-else-if="page === 'our-board'" @navigate="goTo" />
-  <PartnershipsPage v-else-if="page === 'partnerships'" @navigate="goTo" />
   <WhatWeDo v-else-if="page === 'what-we-do'" @navigate="goTo" />
 
   <main v-else>
@@ -44,7 +42,6 @@ import OurMission from './pages/OurMission.vue'
 import OurHistory from './pages/OurHistory.vue'
 import DonorsPartners from './pages/DonorsPartners.vue'
 import Contactus from './pages/Contactus.vue'
-import ourBoard from './pages/ourboard.vue'
 import WhatWeDo from './pages/Whatwedo.vue'
 import BlogIndex from './pages/BlogIndex.vue'
 import BlogPost from './pages/BlogPost.vue'
