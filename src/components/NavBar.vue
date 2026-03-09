@@ -10,10 +10,6 @@
       <!-- Logo -->
       <a href="#home" @click="$emit('navigate', 'home')" class="flex items-center gap-2.5">
         <img src="../assets/logo-transparent.png" alt="Women Concern" class="w-32 h-24 object-contain" />
-        <span :class="['font-display font-semibold text-2xl leading-none transition-colors',
-          isScrolled ? 'text-gray-900' : 'text-white']">
-          Women<span class="text-brand-yellow">Concern</span>
-        </span>
       </a>
 
       <!-- Desktop Nav -->
