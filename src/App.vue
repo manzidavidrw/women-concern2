@@ -20,7 +20,7 @@
     <DonateBanner />
     <MalkiaPads />
     <OurStory />
-    <ProjectsBlog />
+    <ProjectsBlog @navigate="goTo" />
     <ourboard />
     <GetInvolved />
     <PartnershipsPage />

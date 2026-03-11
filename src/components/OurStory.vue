@@ -8,16 +8,16 @@
           <span class="section-label">{{ t({ en: 'Our Story', fr: 'Notre Histoire' }) }}</span>
 
           <h2 class="font-display font-bold text-gray-900 leading-tight mb-6 text-4xl md:text-5xl">
-            {{ t({ en: 'Born from the Heart of DRC.', fr: 'Née du Cœur de RDC.' }) }}
+            {{ t({ en: 'Born from the Heart of DRC.', fr: 'Née du Cœur de la RDC.' }) }}
           </h2>
 
           <p class="text-gray-500 text-base leading-relaxed mb-4">
             {{
               t({
                 en: `Women Concern was founded in Bukavu, Democratic Republic of Congo — a city that has endured decades of
-            conflict and displacement.We saw women and girls bearing the heaviest burden, and we chose to act.`,
+            conflict and displacement. We saw women and girls bearing the heaviest burden, and we chose to act.`,
                 fr: `Women Concern a été fondée à Bukavu, RDC — une ville qui a enduré des décennies de conflits et de
-            déplacements.Nous avons vu les femmes et les filles porter le fardeau le plus lourd, et nous avons choisi
+            déplacements. Nous avons vu les femmes et les filles porter le fardeau le plus lourd, et nous avons choisi
             d'agir.`,
               })
             }}
@@ -40,33 +40,77 @@
           </a>
         </div>
 
-        <!-- Visual grid -->
-        <div class="reveal grid grid-cols-2 gap-4 h-[380px]">
-          <div class="rounded-2xl bg-brand-green flex items-center justify-center">
-            <div class="text-center text-white p-4">
-              <div class="text-5xl mb-3">🌍</div>
-              <p class="font-display font-semibold text-lg">Bukavu, DRC</p>
-              <p class="text-white/45 text-xs mt-1">Sud-Kivu</p>
-            </div>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div class="flex-1 rounded-2xl bg-brand-yellow flex items-center justify-center">
-              <div class="text-center p-3">
-                <div class="text-4xl mb-2">💪</div>
-                <p class="font-display font-semibold text-brand-green">
-                  {{ t({ en: 'Since 2018', fr: 'Depuis 2018' }) }}
-                </p>
+        <!-- Cards: Motto, Mission, Vision -->
+        <div class="reveal space-y-6">
+
+          <!-- Motto Card -->
+          <div
+            class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-l-4 border-brand-yellow">
+            <div class="flex items-start gap-4">
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center text-2xl">
+                ✨
               </div>
-            </div>
-            <div class="flex-1 rounded-2xl bg-gray-200 flex items-center justify-center">
-              <div class="text-center p-3">
-                <div class="text-4xl mb-2">🤝</div>
-                <p class="font-display font-semibold text-gray-700 text-sm">
-                  {{ t({ en: 'Community First', fr: "Communauté d'abord" }) }}
+              <div class="flex-1">
+                <h3 class="font-display font-bold text-gray-900 text-lg mb-2">
+                  {{ t({ en: 'Our Motto', fr: 'Notre Devise' }) }}
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  {{ t({
+                    en: 'Dignifying women\'s life',
+                    fr: 'Dignifier la vie des femmes'
+                  }) }}
                 </p>
               </div>
             </div>
           </div>
+
+          <!-- Mission Card -->
+          <div
+            class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-l-4 border-brand-green">
+            <div class="flex items-start gap-4">
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center text-2xl">
+                🎯
+              </div>
+              <div class="flex-1">
+                <h3 class="font-display font-bold text-gray-900 text-lg mb-2">
+                  {{ t({ en: 'Our Mission', fr: 'Notre Mission' }) }}
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  {{ t({
+                    en: `Lead rural women and girls to discover their potential, support them in their promotion,
+                  enhancement and exploitation for inclusive development.`,
+                    fr: `Accompagner les femmes et les filles rurales à découvrir leur potentiel, les soutenir dans leur
+                  promotion, valorisation et exploitation pour un développement inclusif.`
+                  }) }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision Card -->
+          <div
+            class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-l-4 border-emerald-500">
+            <div class="flex items-start gap-4">
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-2xl">
+                👁️
+              </div>
+              <div class="flex-1">
+                <h3 class="font-display font-bold text-gray-900 text-lg mb-2">
+                  {{ t({ en: 'Our Vision', fr: 'Notre Vision' }) }}
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  {{ t({
+                    en: 'A society where the dignity of women and girls prevails.',
+                    fr: 'Une société où la dignité des femmes et des filles prévaut.'
+                  }) }}
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
