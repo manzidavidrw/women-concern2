@@ -22,7 +22,7 @@
             <span class="font-display font-black text-xl text-white tracking-tight">
               Women<span class="text-brand-yellow">Concern</span>
             </span>
-            <p class="text-white/30 text-[10px] tracking-widest uppercase">Goma · DRC</p>
+            <p class="text-white/30 text-[10px] tracking-widest uppercase">Bukavu· DRC</p>
           </div>
         </a>
 
@@ -126,15 +126,11 @@
       </div>
 
       <!-- ── Bottom bar ── -->
-      <div class="py-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <div class="py-6 flex flex-col sm:flex-row justify-center items-center gap-3">
         <p class="text-white/20 text-xs">
           © {{ currentYear }} Women Concern NGO. {{ t({ en: 'All rights reserved.', fr: 'Tous droits réservés.' }) }}
         </p>
-        <p class="text-white/20 text-xs flex items-center gap-1">
-          {{ t({ en: 'Made with', fr: 'Fait avec' }) }}
-          <span class="text-brand-yellow mx-1">♥</span>
-          {{ t({ en: 'for the women of Goma', fr: 'pour les femmes de Goma' }) }}
-        </p>
+
       </div>
 
     </div>

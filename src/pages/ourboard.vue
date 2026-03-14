@@ -1,4 +1,4 @@
-<template>
+<template class="py-10">
   <div class="min-h-screen bg-gray-50">
 
     <!-- MODAL -->
@@ -10,7 +10,6 @@
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="closeModal"></div>
         <div
           class="relative bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col z-10">
-          <!-- Modal header -->
           <div class="relative bg-gradient-to-br from-brand-green to-brand-green/80 p-8 flex-shrink-0">
             <button @click="closeModal"
               class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-all">
@@ -61,7 +60,6 @@
               </div>
             </div>
           </div>
-          <!-- Scrollable bio -->
           <div class="flex-1 overflow-y-auto p-8">
             <div class="space-y-4">
               <p v-for="(para, i) in getAllParagraphs(modalMember.bio)" :key="i"
@@ -92,21 +90,43 @@
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Board controls: arrows left, dots right -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex gap-2">
+            <button @click="slideCarousel(boardCarousel, -1)"
+              class="w-9 h-9 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button @click="slideCarousel(boardCarousel, 1)"
+              class="w-9 h-9 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex gap-2 items-center">
+            <button v-for="(_, i) in boardMembers" :key="i" @click="scrollToIndex(boardCarousel, i, 'board')"
+              :class="['transition-all duration-300 rounded-full', activeBoardIndex === i ? 'w-6 h-2 bg-brand-green' : 'w-2 h-2 bg-gray-300 hover:bg-brand-green/50']" />
+          </div>
+        </div>
+
+        <!-- Board carousel -->
+        <div ref="boardCarousel"
+          class="carousel flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 lg:-mx-10 lg:px-10">
           <div v-for="member in boardMembers" :key="member.name"
-            class="group relative bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer">
+            class="card-item group relative bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer flex-shrink-0 snap-start w-[75vw] sm:w-[45vw] lg:w-[calc(25%-18px)]">
             <div class="relative aspect-[3/4] overflow-hidden">
               <img :src="member.photo" :alt="member.name"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <!-- Default label -->
               <div
                 class="absolute bottom-0 left-0 right-0 p-5 z-10 transition-opacity duration-300 group-hover:opacity-0">
                 <p class="text-brand-yellow text-xs font-semibold uppercase tracking-wider mb-1">{{ t(member.title) }}
                 </p>
                 <h3 class="font-display font-bold text-white text-lg leading-tight">{{ member.name }}</h3>
               </div>
-              <!-- Hover overlay -->
               <div
                 class="absolute inset-0 bg-brand-green/90 flex flex-col items-center justify-center gap-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
                 <p class="text-brand-yellow text-xs font-semibold uppercase tracking-wider">{{ t(member.title) }}</p>
@@ -177,15 +197,37 @@
           </p>
         </div>
 
-        <!-- Changed from lg:grid-cols-3 to lg:grid-cols-4 to match board members -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Team controls: arrows left, dots right -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex gap-2">
+            <button @click="slideCarousel(teamCarousel, -1)"
+              class="w-9 h-9 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button @click="slideCarousel(teamCarousel, 1)"
+              class="w-9 h-9 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex gap-2 items-center">
+            <button v-for="(_, i) in teamMembers" :key="i" @click="scrollToIndex(teamCarousel, i, 'team')"
+              :class="['transition-all duration-300 rounded-full', activeTeamIndex === i ? 'w-6 h-2 bg-brand-green' : 'w-2 h-2 bg-gray-300 hover:bg-brand-green/50']" />
+          </div>
+        </div>
+
+        <!-- Team carousel -->
+        <div ref="teamCarousel"
+          class="carousel flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 lg:-mx-10 lg:px-10">
           <div v-for="member in teamMembers" :key="member.name"
-            class="group relative bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer">
+            class="card-item group relative bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer flex-shrink-0 snap-start w-[75vw] sm:w-[45vw] lg:w-[calc(25%-18px)]">
             <div class="relative aspect-[3/4] overflow-hidden">
               <img :src="member.photo" :alt="member.name"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <!-- Default label -->
               <div
                 class="absolute bottom-0 left-0 right-0 p-5 z-10 transition-opacity duration-300 group-hover:opacity-0">
                 <span
@@ -196,7 +238,6 @@
                 <h3 class="font-display font-bold text-white text-lg leading-tight">{{ member.name }}</h3>
                 <p class="text-brand-yellow text-xs font-semibold mt-0.5">{{ t(member.position) }}</p>
               </div>
-              <!-- Hover overlay -->
               <div
                 class="absolute inset-0 bg-brand-green/90 flex flex-col items-center justify-center gap-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
                 <span
@@ -229,12 +270,11 @@
       </div>
     </section>
 
-
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useLang } from '../composables/useLang.js'
 import Myriam from '../assets/Myriam.jpg'
 import Ericson from '../assets/Ericson.jpg'
@@ -246,10 +286,15 @@ import esther from '../assets/esther.jpeg'
 import faustine from '../assets/faustine.jpeg'
 import Blaise from '../assets/Blaise.jpeg'
 import ange from '../assets/ange.jpeg'
+import aline from '../assets/aline.jpeg'
 
 const { t } = useLang()
 
 const modalMember = ref(null)
+const boardCarousel = ref(null)
+const teamCarousel = ref(null)
+const activeBoardIndex = ref(0)
+const activeTeamIndex = ref(0)
 
 const openModal = (member) => {
   modalMember.value = member
@@ -266,6 +311,49 @@ const getAllParagraphs = (bio) => {
   const text = typeof bio === 'string' ? bio : t(bio)
   return text.split('\n\n').filter(p => p.trim())
 }
+
+const getCardWidth = (el) => {
+  const card = el?.querySelector('.card-item')
+  if (!card) return 300
+  const gap = parseFloat(window.getComputedStyle(el).gap) || 24
+  return card.offsetWidth + gap
+}
+
+const slideCarousel = (carouselRef, dir) => {
+  const el = carouselRef.value
+  if (!el) return
+  el.scrollBy({ left: dir * getCardWidth(el), behavior: 'smooth' })
+}
+
+const scrollToIndex = (carouselRef, index, which) => {
+  const el = carouselRef.value
+  if (!el) return
+  el.scrollTo({ left: index * getCardWidth(el), behavior: 'smooth' })
+  if (which === 'board') activeBoardIndex.value = index
+  else activeTeamIndex.value = index
+}
+
+const onBoardScroll = () => {
+  if (!boardCarousel.value) return
+  const w = getCardWidth(boardCarousel.value)
+  activeBoardIndex.value = Math.round(boardCarousel.value.scrollLeft / w)
+}
+
+const onTeamScroll = () => {
+  if (!teamCarousel.value) return
+  const w = getCardWidth(teamCarousel.value)
+  activeTeamIndex.value = Math.round(teamCarousel.value.scrollLeft / w)
+}
+
+onMounted(() => {
+  boardCarousel.value?.addEventListener('scroll', onBoardScroll)
+  teamCarousel.value?.addEventListener('scroll', onTeamScroll)
+})
+
+onUnmounted(() => {
+  boardCarousel.value?.removeEventListener('scroll', onBoardScroll)
+  teamCarousel.value?.removeEventListener('scroll', onTeamScroll)
+})
 
 const boardMembers = [
   {
@@ -378,7 +466,7 @@ const teamMembers = [
     department: { en: 'Programs', fr: 'Programmes' },
     emoji: '💰',
     photo: gloria,
-    location: 'Goma, DRC',
+    location: 'Bukavu, DRC',
     bio: {
       en: 'Manages programs and co-leads the Girls Leadership & Futures Exchange initiative, empowering young women through education and leadership development.',
       fr: "Gère les programmes et co-dirige l'initiative Girls Leadership & Futures Exchange."
@@ -410,10 +498,22 @@ const teamMembers = [
   },
   {
     name: 'Ange DUSABE',
-    position: { en: 'Finance & Admin Assistant', fr: 'Assistante Finance & Administration' },
-    department: { en: 'Finance', fr: 'Finance' },
+    position: { en: 'Communications Officer', fr: 'Chargé(e) de communication' },
+    department: { en: 'Communication', fr: 'Communications' },
     emoji: '💼',
     photo: ange,
+    location: 'Bukavu, DRC',
+    bio: {
+      en: 'Manages financial operations and administrative processes to ensure transparency and efficiency in organizational management.',
+      fr: "Gère les opérations financières et les processus administratifs pour garantir la transparence et l'efficacité."
+    }
+  },
+  {
+    name: 'Aline Namagaju',
+    position: { en: 'Admin and Finance Officer', fr: 'Agent Administratif et Financier' },
+    department: { en: 'Administration & Finance', fr: 'Administration et Finance' },
+    emoji: '💼',
+    photo: aline,
     location: 'Bukavu, DRC',
     bio: {
       en: 'Manages financial operations and administrative processes to ensure transparency and efficiency in organizational management.',
@@ -423,4 +523,13 @@ const teamMembers = [
 ]
 </script>
 
-<style scoped></style>
+<style scoped>
+.carousel {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+</style>

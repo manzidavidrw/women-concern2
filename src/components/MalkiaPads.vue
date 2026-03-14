@@ -1,5 +1,5 @@
 <template>
-  <section id="pads" class="py-24 bg-white">
+  <section id="pads" class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -39,8 +39,10 @@
           <p class="text-gray-500 text-base leading-relaxed mb-6">
             {{
               t({
-                en: "Millions of girls miss school every month because they can't afford sanitary pads. Through Malkia Pads, you can purchase pads that are delivered directly to girls in Goma and surrounding areas.",
-                fr: "Des millions de filles manquent l'école chaque mois faute de serviettes hygiéniques. Grâce aux Malkia Pads, vous pouvez acheter des serviettes directement livrées aux filles à Goma.",
+                en: `Millions of girls miss school every month because they can't afford sanitary pads. Through Malkia Pads,
+            you can purchase pads that are delivered directly to girls in Goma and surrounding areas.`,
+                fr: `Des millions de filles manquent l'école chaque mois faute de serviettes hygiéniques. Grâce aux Malkia
+            Pads, vous pouvez acheter des serviettes directement livrées aux filles à Goma.`,
               })
             }}
           </p>

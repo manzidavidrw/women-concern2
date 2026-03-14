@@ -1,5 +1,5 @@
 <template>
-  <section id="donate" class="py-20 bg-white relative overflow-hidden">
+  <section id="donate" class="py-10 bg-white relative overflow-hidden">
 
     <!-- Subtle brand-green tint in corners -->
     <div class="absolute inset-0 pointer-events-none">
@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <div class="max-w-5xl mx-auto px-6 lg:px-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
 
       <!-- Emergency header bar -->
       <div class="flex items-center justify-center gap-4 mb-8">
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <!-- Main card — brand-green background like your other CTAs -->
+      <!-- Main card — brand-green background with image -->
       <div
         class="relative bg-brand-green border border-brand-green rounded-3xl overflow-hidden shadow-2xl shadow-brand-green/20">
 
@@ -37,78 +37,99 @@
         <div class="h-1 w-full bg-gradient-to-r from-brand-yellow/40 via-brand-yellow to-brand-yellow/40 alert-strip">
         </div>
 
-        <div class="p-8 md:p-14">
+        <div class="grid lg:grid-cols-2 gap-0">
 
-          <!-- Slide counter + progress -->
-          <div class="flex items-center justify-between mb-8">
-            <div class="flex gap-2">
-              <button v-for="(_, i) in actions" :key="i" @click="goTo(i)"
-                class="relative h-1.5 rounded-full overflow-hidden transition-all duration-300"
-                :class="i === current ? 'w-12 bg-white/20' : 'w-4 bg-white/10 hover:bg-white/20'">
-                <div v-if="i === current" class="absolute inset-y-0 left-0 bg-brand-yellow rounded-full"
-                  :style="{ width: progressWidth + '%', transition: 'width ' + tickInterval + 'ms linear' }"></div>
-              </button>
+          <!-- LEFT: Content -->
+          <div class="p-8 md:p-14 flex flex-col">
+
+            <!-- Slide counter + progress -->
+            <div class="flex items-center justify-between mb-8">
+              <div class="flex gap-2">
+                <button v-for="(_, i) in actions" :key="i" @click="goTo(i)"
+                  class="relative h-1.5 rounded-full overflow-hidden transition-all duration-300"
+                  :class="i === current ? 'w-12 bg-white/20' : 'w-4 bg-white/10 hover:bg-white/20'">
+                  <div v-if="i === current" class="absolute inset-y-0 left-0 bg-brand-yellow rounded-full"
+                    :style="{ width: progressWidth + '%', transition: 'width ' + tickInterval + 'ms linear' }"></div>
+                </button>
+              </div>
+              <span class="text-white/30 text-xs font-mono">{{ current + 1 }} / {{ actions.length }}</span>
             </div>
-            <span class="text-white/30 text-xs font-mono">{{ current + 1 }} / {{ actions.length }}</span>
+
+            <!-- Slides -->
+            <transition :name="slideDirection" mode="out-in">
+              <div :key="current" class="min-h-[280px] flex flex-col flex-1">
+
+                <!-- Location tag -->
+                <div class="flex items-center gap-2 mb-5">
+                  <div class="w-2 h-2 rounded-full bg-red-500 pulse-dot"></div>
+                  <span class="text-brand-yellow text-xs font-semibold uppercase tracking-widest">
+                    {{ t(actions[current].location) }}
+                  </span>
+                </div>
+
+                <!-- Headline -->
+                <h2 class="font-display font-black text-white mb-4 leading-tight text-3xl md:text-4xl lg:text-5xl">
+                  {{ t(actions[current].headline) }}
+                </h2>
+
+                <!-- Body -->
+                <p class="text-white/70 text-base leading-relaxed mb-8 max-w-2xl">
+                  {{ t(actions[current].body) }}
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                  <a :href="actions[current].primaryUrl" target="_blank" rel="noopener"
+                    class="inline-flex items-center justify-center gap-2 bg-brand-yellow text-brand-green font-bold px-8 py-4 rounded-full text-sm transition-all shadow-lg hover:brightness-105 hover:scale-105">
+                    <span>{{ t(actions[current].primaryLabel) }}</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                  <a v-if="actions[current].secondaryUrl" :href="actions[current].secondaryUrl"
+                    class="inline-flex items-center justify-center gap-2 border border-white/25 hover:border-brand-yellow/60 text-white/70 hover:text-white font-medium px-8 py-4 rounded-full text-sm transition-all">
+                    {{ t(actions[current].secondaryLabel) }}
+                  </a>
+                </div>
+
+                <!-- Trust line -->
+                <p class="text-white/25 text-xs mt-5">
+                  {{ t(actions[current].trust) }}
+                </p>
+
+              </div>
+            </transition>
+
           </div>
 
-          <!-- Slides -->
-          <transition :name="slideDirection" mode="out-in">
-            <div :key="current" class="min-h-[280px] flex flex-col">
-
-              <!-- Location tag -->
-              <div class="flex items-center gap-2 mb-5">
-                <div class="w-2 h-2 rounded-full bg-red-500 pulse-dot"></div>
-                <span class="text-brand-yellow text-xs font-semibold uppercase tracking-widest">
-                  {{ t(actions[current].location) }}
-                </span>
+          <!-- RIGHT: Image -->
+          <div class="relative h-[400px] lg:h-auto overflow-hidden">
+            <!-- Image with overlay -->
+            <transition :name="slideDirection" mode="out-in">
+              <div :key="current" class="absolute inset-0">
+                <img :src="actions[current].image" :alt="t(actions[current].headline)"
+                  class="w-full h-full object-cover" />
+                <!-- Gradient overlays for better text visibility and depth -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-brand-green via-brand-green/50 to-transparent lg:opacity-80">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               </div>
-
-              <!-- Headline -->
-              <h2 class="font-bold text-white mb-4 leading-tight text-3xl md:text-4xl lg:text-5xl">
-                {{ t(actions[current].headline) }}
-              </h2>
-
-              <!-- Body -->
-              <p class="text-white/60 text-base leading-relaxed mb-8 max-w-2xl">
-                {{ t(actions[current].body) }}
-              </p>
-
-              <!-- CTAs -->
-              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
-                <a :href="actions[current].primaryUrl" target="_blank" rel="noopener"
-                  class="inline-flex items-center justify-center gap-2 bg-brand-yellow text-brand-green font-bold px-8 py-4 rounded-full text-sm transition-all shadow-lg hover:brightness-105 hover:scale-105">
-                  <span>{{ t(actions[current].primaryLabel) }}</span>
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-                <a v-if="actions[current].secondaryUrl" :href="actions[current].secondaryUrl"
-                  class="inline-flex items-center justify-center gap-2 border border-white/25 hover:border-brand-yellow/60 text-white/70 hover:text-white font-medium px-8 py-4 rounded-full text-sm transition-all">
-                  {{ t(actions[current].secondaryLabel) }}
-                </a>
-              </div>
-
-              <!-- Trust line -->
-              <p class="text-white/25 text-xs mt-5">
-                {{ t(actions[current].trust) }}
-              </p>
-
-            </div>
-          </transition>
+            </transition>
+          </div>
 
         </div>
 
         <!-- Nav arrows -->
         <button @click="prev"
-          class="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white/50 hover:text-white flex items-center justify-center transition-all">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-sm text-white/50 hover:text-white flex items-center justify-center transition-all z-20 shadow-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
         <button @click="next"
-          class="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white/50 hover:text-white flex items-center justify-center transition-all">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-sm text-white/50 hover:text-white flex items-center justify-center transition-all z-20 shadow-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -135,6 +156,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useLang } from '../composables/useLang.js'
+import sexual from '../assets/programs/sexual.jpeg'
+import goma from '../assets/programs/goma.jpg'
 
 const { t } = useLang()
 
@@ -158,7 +181,8 @@ const actions = [
     secondaryLabel: { en: 'Learn More', fr: 'En Savoir Plus' },
     secondaryUrl: '#about',
     trust: { en: '100% of donations reach beneficiaries directly.', fr: '100% des dons atteignent directement les bénéficiaires.' },
-    shortLabel: { en: 'Emergency Relief', fr: "Aide d'Urgence" }
+    shortLabel: { en: 'Emergency Relief', fr: "Aide d'Urgence" },
+    image: goma
   },
   {
     location: { en: 'Girls in Crisis — Eastern DRC', fr: 'Filles en Crise — Est de la RDC' },
@@ -172,7 +196,8 @@ const actions = [
     secondaryLabel: { en: 'See Impact', fr: "Voir l'Impact" },
     secondaryUrl: '#programs',
     trust: { en: 'Each pack supports one girl for one month.', fr: 'Chaque paquet soutient une fille pendant un mois.' },
-    shortLabel: { en: 'Pads for Girls', fr: 'Serviettes' }
+    shortLabel: { en: 'Pads for Girls', fr: 'Serviettes' },
+    image: sexual
   },
   {
     location: { en: 'Women at Risk — Bukavu, DRC', fr: 'Femmes à Risque — Bukavu, RDC' },
@@ -186,7 +211,8 @@ const actions = [
     secondaryLabel: { en: 'Our GBV Programs', fr: 'Nos Programmes VBG' },
     secondaryUrl: '#programs',
     trust: { en: 'Verified impact — audited annually.', fr: 'Impact vérifié — audité chaque année.' },
-    shortLabel: { en: 'Safe Shelter', fr: 'Refuge Sûr' }
+    shortLabel: { en: 'Safe Shelter', fr: 'Refuge Sûr' },
+    image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80'
   }
 ]
 

@@ -1,5 +1,5 @@
 <template>
-  <section id="involved" class="py-24 bg-white">
+  <section id="involved" class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
       <!-- Header -->

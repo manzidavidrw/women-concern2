@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 bg-white">
+  <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 text-center">
         <div v-for="stat in stats" :key="stat.n" class="reveal">
