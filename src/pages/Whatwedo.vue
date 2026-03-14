@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10 space-y-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 space-y-16">
 
       <!-- ══════════════════════════════════════════
            1. WOMEN'S ECONOMIC EMPOWERMENT
@@ -44,17 +44,158 @@
         <SectionHeader emoji="💼" tag="Economic Empowerment" tagColor="bg-emerald-100 text-emerald-700"
           title="Women's Economic Empowerment" subtitle="Ultra-Poor Graduation (UPG) Model" />
 
-        <div class="mt-8 grid lg:grid-cols-2 gap-12 items-center mb-12">
-          <p class="text-gray-600 leading-relaxed text-base">
-            At the heart of Women Concern's mission is our women-led
-            <strong class="text-brand-green font-semibold">Ultra-Poor Graduation (UPG)</strong> strategy — a
-            transformative pathway out of extreme poverty. Programmes are community-driven, identifying the most
-            vulnerable women and providing sequenced support to achieve sustainable livelihoods.
-          </p>
-          <PlaceholderImage label="Women Economic Empowerment — Section Image" color="emerald" />
+        <!-- Intro left / Impact right -->
+        <div class="mt-10 mb-12 grid lg:grid-cols-2 gap-8 items-stretch">
+
+          <!-- LEFT: intro text -->
+          <div class="flex flex-col justify-center gap-6">
+            <div
+              class="inline-flex items-center gap-2 self-start bg-emerald-50 border border-emerald-200 rounded-full px-4 py-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-emerald-700 text-xs font-bold uppercase tracking-widest">
+                {{ lang === 'fr' ? `Notre Approche` : `Our Approach` }}
+              </span>
+            </div>
+            <h3 class="font-display font-black text-gray-900 text-2xl md:text-3xl leading-tight">
+              {{ lang === 'fr'
+                ? `Comment Nous Mettons en Œuvre Notre Programme d'Autonomisation des Femmes`
+                : `How We Implement Our Women's Empowerment Program` }}
+            </h3>
+            <div class="w-12 h-1 rounded-full bg-emerald-500"></div>
+            <p class="text-gray-500 text-base leading-relaxed">
+              {{ lang === 'fr'
+                ? `Chez Women Concern (WOCO), l'autonomisation des femmes va au-delà de la formation ou du soutien
+              financier. Nous travaillons aux côtés des femmes dans la durée pour les aider à construire des moyens de
+              subsistance durables, renforcer leur confiance et devenir des leaders au sein de leurs communautés.`
+                : `At Women Concern (WOCO), women's empowerment goes beyond training or financial support. We work
+              alongside women over time to help them build sustainable livelihoods, strengthen their confidence, and
+              become leaders within their communities.` }}
+            </p>
+            <p class="text-gray-500 text-base leading-relaxed">
+              {{ lang === 'fr'
+                ? `Grâce à un processus structuré, nous soutenons les femmes des ménages les plus vulnérables pour
+              qu'elles passent progressivement de l'extrême pauvreté à l'indépendance économique.`
+                : `Through a structured process, we support women from the most vulnerable households to gradually
+              transition from extreme poverty to economic independence.` }}
+            </p>
+          </div>
+
+          <!-- RIGHT: impact card -->
+          <div
+            class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-900 to-emerald-700 p-7 flex flex-col shadow-2xl">
+            <!-- Decorative rings -->
+            <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full border border-white/10 pointer-events-none" />
+            <div
+              class="absolute -bottom-8 -left-8 w-36 h-36 rounded-full border border-emerald-400/20 pointer-events-none" />
+            <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-emerald-500/20 pointer-events-none" />
+
+            <!-- Card header -->
+            <div class="relative z-10 flex items-center justify-between mb-6">
+              <div>
+                <p class="text-white font-black text-lg leading-none">
+                  {{ lang === 'fr' ? `Impact en un Coup d'Œil` : `Impact at a Glance` }}
+                </p>
+                <p class="text-emerald-300 text-xs mt-1">
+                  {{ lang === 'fr' ? `Résultats cumulés du programme` : `Cumulative program results` }}
+                </p>
+              </div>
+              <div
+                class="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-xl flex-shrink-0">
+                📊
+              </div>
+            </div>
+
+            <!-- Stat rows -->
+            <div class="relative z-10 flex flex-col gap-3 flex-1">
+              <div v-for="stat in weeImpact" :key="stat.number"
+                class="group flex items-center gap-4 bg-white/8 hover:bg-white/14 border border-white/10 hover:border-emerald-400/40 rounded-2xl px-5 py-3.5 transition-all duration-200">
+                <!-- Emoji bubble -->
+                <div
+                  class="w-10 h-10 rounded-xl bg-emerald-500/30 flex items-center justify-center text-lg flex-shrink-0">
+                  {{ stat.emoji }}
+                </div>
+                <!-- Number + label -->
+                <div class="flex-1 min-w-0">
+                  <p class="font-display font-black text-white text-xl leading-none">{{ stat.number }}</p>
+                  <p class="text-emerald-200/80 text-xs leading-snug mt-0.5 truncate">
+                    {{ lang === 'fr' ? stat.fr : stat.en }}
+                  </p>
+                </div>
+                <!-- Arrow indicator -->
+                <svg class="w-4 h-4 text-emerald-400/50 group-hover:text-emerald-300 transition-colors flex-shrink-0"
+                  fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Bottom accent bar -->
+            <div
+              class="relative z-10 mt-6 h-1 rounded-full bg-gradient-to-r from-emerald-400 via-yellow-300 to-emerald-400 opacity-60" />
+          </div>
         </div>
 
         <CarouselSection :cards="weeCards" accent="emerald" :emit-fn="(p) => $emit('navigate', p)" />
+
+        <!-- Closing message -->
+        <div class="mt-10 bg-emerald-50 border border-emerald-100 rounded-2xl px-8 pt-8 pb-5 md:px-12 md:pt-10 md:pb-6">
+          <div class="flex flex-col md:flex-row md:items-start gap-8">
+
+            <!-- Left: italic key statement -->
+            <div class="md:w-2/5 flex-shrink-0 flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <div class="w-1 h-8 rounded-full bg-emerald-500"></div>
+                <span class="text-emerald-600 text-xs font-black uppercase tracking-widest">
+                  {{ lang === 'fr' ? `Notre Engagement` : `Key Takeaway` }}
+                </span>
+              </div>
+              <p class="text-emerald-900 font-display font-bold text-xl md:text-2xl leading-snug">
+                {{ lang === 'fr'
+                  ? `Cet accompagnement continu est essentiel pour garantir un changement durable.`
+                  : `This continuous accompaniment is key to ensuring lasting change.` }}
+              </p>
+            </div>
+
+            <!-- Vertical divider -->
+            <div class="hidden md:block w-px self-stretch bg-emerald-200 flex-shrink-0" />
+
+            <!-- Right: from vulnerability to leadership -->
+            <div class="flex flex-col gap-3 flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-lg">👑</span>
+                <h4 class="font-display font-black text-emerald-900 text-base">
+                  {{ lang === 'fr' ? `De la Vulnérabilité au Leadership` : `From Vulnerability to Leadership` }}
+                </h4>
+              </div>
+              <p class="text-emerald-800/70 text-sm leading-relaxed">
+                {{ lang === 'fr'
+                  ? `À mesure que les femmes renforcent leur stabilité économique, beaucoup deviennent des leaders actives
+                au sein de leurs communautés. Elles participent à des initiatives coopératives, encadrent d'autres
+                femmes et contribuent aux efforts de développement local.`
+                  : `As women strengthen their economic stability, many become active leaders within their communities.
+                They participate in cooperative initiatives, mentor other women, and contribute to local development
+                efforts.` }}
+              </p>
+              <p class="text-emerald-800/70 text-sm leading-relaxed">
+                {{ lang === 'fr'
+                  ? `Grâce à ce processus, les femmes dépassent la simple survie pour accéder à des moyens de subsistance
+                durables, à la dignité et au leadership.`
+                  : `Through this process, women move beyond survival toward sustainable livelihoods, dignity, and
+                leadership.` }}
+              </p>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span
+                  v-for="tag in (lang === 'fr' ? [`Moyens de subsistance durables`, `Dignité`, `Leadership`] : [`Sustainable Livelihoods`, `Dignity`, `Leadership`])"
+                  :key="tag"
+                  class="inline-flex items-center gap-1.5 bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  {{ tag }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <Divider color="emerald" />
@@ -171,7 +312,7 @@
     </div>
 
     <!-- ── CTA Footer Band ── -->
-    <div class="bg-gradient-to-br from-emerald-900 to-brand-green mt-8 py-10 px-6 text-center relative overflow-hidden">
+    <div class="bg-gradient-to-br from-emerald-900 to-brand-green mt-8 py-20 px-6 text-center relative overflow-hidden">
       <div class="absolute inset-0 opacity-5"
         style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 32px 32px;">
       </div>
@@ -458,12 +599,19 @@ const Divider = defineComponent({
 // CONTENT DATA
 // ═══════════════════════════════════════════════════════════════
 
+const weeImpact = [
+  { emoji: '👩', number: '3,800', en: `Women Supported – Empowered through skills training, mentorship, and livelihood support`, fr: `Femmes Soutenues – Autonomisées grâce à la formation, au mentorat et au soutien aux moyens de subsistance` },
+  { emoji: '🤝', number: '18', en: `Women's Cooperatives Created and Supported – Strengthening collective action and market access`, fr: `Coopératives de Femmes Créées et Soutenues – Renforcement de l'action collective et de l'accès aux marchés` },
+  { emoji: '💰', number: '8', en: `Community Savings Groups (VSLA) Established and Supported – Promoting financial inclusion and resilience`, fr: `Groupes d'Épargne Communautaires (VSLA) Établis et Soutenus – Promotion de l'inclusion financière et de la résilience` },
+  { emoji: '🌳', number: '8', en: `Tree Nurseries Managed by Women's Groups – Supporting agroforestry and sustainable land use`, fr: `Pépinières d'Arbres Gérées par des Groupes de Femmes – Soutien à l'agroforesterie et à l'utilisation durable des terres` },
+  { emoji: '🌱', number: '12K+', en: `Trees Planted and Monitored – Contributing to environmental restoration`, fr: `Arbres Plantés et Surveillés – Contribution à la restauration environnementale` },
+]
+
 const weeCards = [
-  { emoji: '🍽️', title: 'Basic Needs Support', page: 'program-basic-needs', img: new URL('../assets/programs/basic.png', import.meta.url).href, desc: 'Address urgent vulnerabilities through food, hygiene products, and health care to restore dignity and readiness for development.' },
-  { emoji: '🪡', title: 'Skills & Livelihood Training', page: 'program-skills-training', img: new URL('../assets/programs/skills.jpeg', import.meta.url).href, desc: 'Women receive practical vocational training based on market demand — agriculture, cookstove production, tailoring, and non-farm trades.' },
-  { emoji: '🌾', title: 'Productive Asset Transfers', page: 'program-asset-transfers', img: new URL('../assets/programs/productive.jpeg', import.meta.url).href, desc: 'Providing seed capital or equipment to launch small businesses or agricultural activities, empowering women to be self-sufficient.' },
-  { emoji: '💰', title: 'Savings & Financial Inclusion', page: 'program-savings-financial', img: new URL('../assets/programs/savings.jpg', import.meta.url).href, desc: 'Through Village Savings and Loan Associations (VSLAs), women access savings and credit, allowing reinvestment and economic stability.' },
-  { emoji: '🤝', title: 'Coaching & Mentorship', page: 'program-coaching-mentorship', img: new URL('../assets/programs/caoching.jpg', import.meta.url).href, desc: 'Each woman receives personalised mentorship in goal setting, financial literacy, leadership, and confidence-building.' },
+  { emoji: '💪', title: 'Building Skills and Confidence', page: 'program-basic-needs', img: new URL('../assets/programs/basic.png', import.meta.url).href, desc: 'Address urgent vulnerabilities through food, hygiene products, and health care to restore dignity and readiness for development.' },
+  { emoji: '🌱', title: 'Supporting Livelihood Development', page: 'program-skills-training', img: new URL('../assets/programs/skills.jpeg', import.meta.url).href, desc: 'Women receive practical vocational training based on market demand — agriculture, cookstove production, tailoring, and non-farm trades.' },
+  { emoji: '💰', title: 'Strengthening Savings and Financial Inclusion', page: 'program-savings-financial', img: new URL('../assets/programs/savings.jpg', import.meta.url).href, desc: 'Through Village Savings and Loan Associations (VSLAs), women access savings and credit, allowing reinvestment and economic stability.' },
+  { emoji: '🤝', title: 'Ongoing Mentorship and Community Support', page: 'program-coaching-mentorship', img: new URL('../assets/programs/caoching.jpg', import.meta.url).href, desc: 'Each woman receives personalised mentorship in goal setting, financial literacy, leadership, and confidence-building.' },
 ]
 
 const eduCards = [
