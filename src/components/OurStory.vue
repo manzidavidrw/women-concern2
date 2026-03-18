@@ -1,5 +1,5 @@
 <template>
-  <section id="story" class="py-24 bg-gray-50">
+  <section id="story" class="pt-16 pb-10 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -40,44 +40,27 @@
           </a>
         </div>
 
-        <!-- Cards: Motto, Mission, Vision -->
-        <div class="reveal space-y-6">
-
-          <!-- Motto Card -->
-          <div
-            class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-l-4 border-brand-yellow">
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-yellow/10 flex items-center justify-center text-2xl">
-                ✨
-              </div>
-              <div class="flex-1">
-                <h3 class="font-display font-bold text-gray-900 text-lg mb-2">
-                  {{ t({ en: 'Our Motto', fr: 'Notre Devise' }) }}
-                </h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                  {{ t({
-                    en: 'Dignifying women\'s life',
-                    fr: 'Dignifier la vie des femmes'
-                  }) }}
-                </p>
-              </div>
-            </div>
-          </div>
+        <!-- Cards: Mission, Vision, Motto (motto last) -->
+        <div class="reveal space-y-4">
 
           <!-- Mission Card -->
-          <div
-            class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-l-4 border-brand-green">
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center text-2xl">
+          <div class="group relative bg-brand-green rounded-2xl p-6 overflow-hidden
+                      shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute -right-3 -bottom-4 font-display font-black text-[110px]
+                        leading-none text-white/[0.06] select-none pointer-events-none">M</div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-white/15
+                          flex items-center justify-center text-2xl shadow-inner">
                 🎯
               </div>
-              <div class="flex-1">
-                <h3 class="font-display font-bold text-gray-900 text-lg mb-2">
-                  {{ t({ en: 'Our Mission', fr: 'Notre Mission' }) }}
+              <div>
+                <p class="text-brand-yellow text-[10px] font-black uppercase tracking-[0.2em] mb-1">
+                  {{ t({ en: 'Mission', fr: 'Mission' }) }}
+                </p>
+                <h3 class="font-display font-bold text-white text-xl mb-2 leading-snug">
+                  {{ t({ en: 'What We Do', fr: 'Ce que nous faisons' }) }}
                 </h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
+                <p class="text-white/80 text-sm leading-relaxed">
                   {{ t({
                     en: `Lead rural women and girls to discover their potential, support them in their promotion,
                   enhancement and exploitation for inclusive development.`,
@@ -90,21 +73,54 @@
           </div>
 
           <!-- Vision Card -->
-          <div
-            class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-l-4 border-emerald-500">
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-2xl">
+          <div class="group relative bg-gray-900 rounded-2xl p-6 overflow-hidden
+                      shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute -right-3 -bottom-4 font-display font-black text-[110px]
+                        leading-none text-white/[0.05] select-none pointer-events-none">V</div>
+            <div class="absolute left-0 top-6 bottom-6 w-1 bg-brand-yellow rounded-r-full"></div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-white/10
+                          flex items-center justify-center text-2xl shadow-inner">
                 👁️
               </div>
-              <div class="flex-1">
-                <h3 class="font-display font-bold text-gray-900 text-lg mb-2">
-                  {{ t({ en: 'Our Vision', fr: 'Notre Vision' }) }}
+              <div>
+                <p class="text-brand-yellow text-[10px] font-black uppercase tracking-[0.2em] mb-1">
+                  {{ t({ en: 'Vision', fr: 'Vision' }) }}
+                </p>
+                <h3 class="font-display font-bold text-white text-xl mb-2 leading-snug">
+                  {{ t({ en: 'Where We\'re Going', fr: 'Là où nous allons' }) }}
                 </h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
+                <p class="text-white/70 text-sm leading-relaxed">
                   {{ t({
                     en: 'A society where the dignity of women and girls prevails.',
                     fr: 'Une société où la dignité des femmes et des filles prévaut.'
+                  }) }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motto Card -->
+          <div class="group relative bg-brand-yellow rounded-2xl p-6 overflow-hidden
+                      shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute -right-3 -bottom-4 font-display font-black text-[110px]
+                        leading-none text-black/[0.06] select-none pointer-events-none">"</div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-black/10
+                          flex items-center justify-center text-2xl shadow-inner">
+                ✨
+              </div>
+              <div>
+                <p class="text-brand-green text-[10px] font-black uppercase tracking-[0.2em] mb-1">
+                  {{ t({ en: 'Our Motto', fr: 'Notre Devise' }) }}
+                </p>
+                <h3 class="font-display font-bold text-gray-900 text-xl mb-2 leading-snug">
+                  {{ t({ en: 'Our Words to Live By', fr: 'Nos mots pour vivre' }) }}
+                </h3>
+                <p class="text-gray-800 text-sm leading-relaxed font-medium">
+                  {{ t({
+                    en: 'Dignifying women\'s life',
+                    fr: 'Dignifier la vie des femmes'
                   }) }}
                 </p>
               </div>

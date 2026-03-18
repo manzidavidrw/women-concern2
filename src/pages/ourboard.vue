@@ -10,22 +10,22 @@
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="closeModal"></div>
         <div
           class="relative bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col z-10">
-          <div class="relative bg-gradient-to-br from-brand-green to-brand-green/80 p-8 flex-shrink-0">
+          <div class="relative bg-gradient-to-br from-brand-green to-brand-green/80 p-6 flex-shrink-0">
             <button @click="closeModal"
               class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-all">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div class="flex items-start gap-6">
-              <div class="w-24 h-24 rounded-2xl overflow-hidden ring-4 ring-white/20 shadow-xl flex-shrink-0">
+            <div class="flex items-start gap-5">
+              <div class="w-20 h-20 rounded-2xl overflow-hidden ring-4 ring-white/20 shadow-xl flex-shrink-0">
                 <img :src="modalMember.photo" :alt="modalMember.name" class="w-full h-full object-cover" />
               </div>
               <div class="pt-1">
                 <p class="text-brand-yellow text-xs font-semibold uppercase tracking-wider mb-1">
                   {{ t(modalMember.title || modalMember.position) }}
                 </p>
-                <h3 class="font-display font-bold text-2xl text-white leading-tight mb-1">{{ modalMember.name }}</h3>
+                <h3 class="font-display font-bold text-xl text-white leading-tight mb-1">{{ modalMember.name }}</h3>
                 <p v-if="modalMember.location" class="text-white/60 text-xs flex items-center gap-1">
                   <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -34,7 +34,7 @@
                   </svg>
                   {{ modalMember.location }}
                 </p>
-                <div class="flex gap-2 mt-3">
+                <div class="flex gap-2 mt-2">
                   <a v-if="modalMember.linkedin" :href="modalMember.linkedin" target="_blank"
                     class="w-8 h-8 rounded-lg bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-all">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -60,8 +60,8 @@
               </div>
             </div>
           </div>
-          <div class="flex-1 overflow-y-auto p-8">
-            <div class="space-y-4">
+          <div class="flex-1 overflow-y-auto p-6">
+            <div class="space-y-3">
               <p v-for="(para, i) in getAllParagraphs(modalMember.bio)" :key="i"
                 class="text-gray-600 text-sm leading-relaxed">{{ para }}</p>
             </div>
@@ -72,26 +72,28 @@
     </transition>
 
     <!-- Board Members Section -->
-    <section class="py-20">
+    <section class="py-10">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="text-center mb-16">
+
+        <!-- Header -->
+        <div class="text-center mb-8">
           <div
-            class="inline-flex items-center gap-2 mb-4 border border-brand-green/20 rounded-full px-4 py-1.5 bg-brand-green/5">
-            <span class="text-xl">🏛️</span>
+            class="inline-flex items-center gap-2 mb-3 border border-brand-green/20 rounded-full px-4 py-1.5 bg-brand-green/5">
+            <span class="text-lg">🏛️</span>
             <span class="text-brand-green text-xs font-medium tracking-widest uppercase">Board of Directors</span>
           </div>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 mb-4">
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-2">
             {{ t({ en: 'Board of Directors', fr: "Conseil d'Administration" }) }}
           </h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p class="text-gray-600 text-base max-w-xl mx-auto">
             {{ t({
               en: `Strategic leaders ensuring we create lasting impact.`, fr: `Leaders stratégiques assurant un
             impact durable.` }) }}
           </p>
         </div>
 
-        <!-- Board controls: arrows left, dots right -->
-        <div class="flex items-center justify-between mb-4">
+        <!-- Board controls -->
+        <div class="flex items-center justify-between mb-3">
           <div class="flex gap-2">
             <button @click="slideCarousel(boardCarousel, -1)"
               class="w-9 h-9 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all">
@@ -114,31 +116,31 @@
 
         <!-- Board carousel -->
         <div ref="boardCarousel"
-          class="carousel flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 lg:-mx-10 lg:px-10">
+          class="carousel flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 lg:-mx-10 lg:px-10">
           <div v-for="member in boardMembers" :key="member.name"
-            class="card-item group relative bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer flex-shrink-0 snap-start w-[75vw] sm:w-[45vw] lg:w-[calc(25%-18px)]">
+            class="card-item group relative bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer flex-shrink-0 snap-start w-[75vw] sm:w-[45vw] lg:w-[calc(25%-15px)]">
             <div class="relative aspect-[3/4] overflow-hidden">
               <img :src="member.photo" :alt="member.name"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div
-                class="absolute bottom-0 left-0 right-0 p-5 z-10 transition-opacity duration-300 group-hover:opacity-0">
+                class="absolute bottom-0 left-0 right-0 p-4 z-10 transition-opacity duration-300 group-hover:opacity-0">
                 <p class="text-brand-yellow text-xs font-semibold uppercase tracking-wider mb-1">{{ t(member.title) }}
                 </p>
                 <h3 class="font-display font-bold text-white text-lg leading-tight">{{ member.name }}</h3>
               </div>
               <div
-                class="absolute inset-0 bg-brand-green/90 flex flex-col items-center justify-center gap-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
+                class="absolute inset-0 bg-brand-green/90 flex flex-col items-center justify-center gap-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
                 <p class="text-brand-yellow text-xs font-semibold uppercase tracking-wider">{{ t(member.title) }}</p>
                 <h3 class="font-display font-bold text-white text-xl leading-tight">{{ member.name }}</h3>
                 <button @click="openModal(member)"
-                  class="mt-2 inline-flex items-center gap-2 bg-brand-yellow text-brand-green font-bold text-xs px-5 py-2.5 rounded-full hover:brightness-105 transition-all shadow-lg">
+                  class="mt-1 inline-flex items-center gap-2 bg-brand-yellow text-brand-green font-bold text-xs px-5 py-2.5 rounded-full hover:brightness-105 transition-all shadow-lg">
                   <span>{{ t({ en: 'Read Bio', fr: 'Lire la Bio' }) }}</span>
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
-                <div class="flex gap-2 mt-1">
+                <div class="flex gap-2">
                   <a v-if="member.linkedin" :href="member.linkedin" target="_blank"
                     class="w-8 h-8 rounded-lg bg-white/15 hover:bg-white/30 text-white flex items-center justify-center"
                     @click.stop>
@@ -170,35 +172,31 @@
     </div>
 
     <!-- Team Members Section -->
-    <section class="py-20">
+    <section class="py-10">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="text-center mb-16">
+
+        <!-- Header -->
+        <div class="text-center mb-8">
           <div
-            class="inline-flex items-center gap-2 mb-4 border border-brand-green/20 rounded-full px-4 py-1.5 bg-brand-green/5">
-            <span class="text-xl">👥</span>
+            class="inline-flex items-center gap-2 mb-3 border border-brand-green/20 rounded-full px-4 py-1.5 bg-brand-green/5">
+            <span class="text-lg">👥</span>
             <span class="text-brand-green text-xs font-medium tracking-widest uppercase">Our Team</span>
           </div>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-900 mb-4">
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-2">
             {{ t({ en: 'Meet Our Team', fr: "Rencontrez Notre Équipe" }) }}
           </h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto mb-4">
+          <p class="text-gray-600 text-base max-w-2xl mx-auto">
             {{ t({
-              en: `The passionate individuals working every day on the ground.`, fr: `Les personnes passionnées qui
-            travaillent chaque jour sur le terrain.` }) }}
-          </p>
-          <p class="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-            {{ t({
-              en: `At Women Concern, our staff are more than colleagues—they are the driving force behind every success,
-            every empowered woman, and every positive change in the communities we serve.`,
-              fr: `Chez Women Concern, notre personnel est bien plus que des collègues—ils sont la force motrice derrière
-            chaque réussite, chaque femme autonomisée et chaque changement positif dans les communautés que nous
-            servons.`
+              en: `The passionate individuals working every day on the ground to empower women and girls across Eastern
+            DRC.`,
+              fr: `Les personnes passionnées qui travaillent chaque jour sur le terrain pour autonomiser les femmes et les
+            filles dans l\'est de la RDC.`
             }) }}
           </p>
         </div>
 
-        <!-- Team controls: arrows left, dots right -->
-        <div class="flex items-center justify-between mb-4">
+        <!-- Team controls -->
+        <div class="flex items-center justify-between mb-3">
           <div class="flex gap-2">
             <button @click="slideCarousel(teamCarousel, -1)"
               class="w-9 h-9 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all">
@@ -221,15 +219,15 @@
 
         <!-- Team carousel -->
         <div ref="teamCarousel"
-          class="carousel flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 lg:-mx-10 lg:px-10">
+          class="carousel flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 lg:-mx-10 lg:px-10">
           <div v-for="member in teamMembers" :key="member.name"
-            class="card-item group relative bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer flex-shrink-0 snap-start w-[75vw] sm:w-[45vw] lg:w-[calc(25%-18px)]">
+            class="card-item group relative bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer flex-shrink-0 snap-start w-[75vw] sm:w-[45vw] lg:w-[calc(25%-15px)]">
             <div class="relative aspect-[3/4] overflow-hidden">
               <img :src="member.photo" :alt="member.name"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div
-                class="absolute bottom-0 left-0 right-0 p-5 z-10 transition-opacity duration-300 group-hover:opacity-0">
+                class="absolute bottom-0 left-0 right-0 p-4 z-10 transition-opacity duration-300 group-hover:opacity-0">
                 <span
                   class="inline-flex items-center gap-1 px-2.5 py-1 bg-white/15 backdrop-blur-sm rounded-full text-white text-xs font-medium mb-2">
                   <span>{{ member.emoji }}</span>
@@ -248,13 +246,13 @@
                 <h3 class="font-display font-bold text-white text-xl leading-tight">{{ member.name }}</h3>
                 <p class="text-brand-yellow text-xs font-semibold">{{ t(member.position) }}</p>
                 <button @click="openModal(member)"
-                  class="mt-2 inline-flex items-center gap-2 bg-brand-yellow text-brand-green font-bold text-xs px-5 py-2.5 rounded-full hover:brightness-105 transition-all shadow-lg">
+                  class="mt-1 inline-flex items-center gap-2 bg-brand-yellow text-brand-green font-bold text-xs px-5 py-2.5 rounded-full hover:brightness-105 transition-all shadow-lg">
                   <span>{{ t({ en: 'Read Bio', fr: 'Lire la Bio' }) }}</span>
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
-                <p v-if="member.location" class="text-white/50 text-xs flex items-center gap-1 mt-1">
+                <p v-if="member.location" class="text-white/50 text-xs flex items-center gap-1">
                   <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -315,7 +313,7 @@ const getAllParagraphs = (bio) => {
 const getCardWidth = (el) => {
   const card = el?.querySelector('.card-item')
   if (!card) return 300
-  const gap = parseFloat(window.getComputedStyle(el).gap) || 24
+  const gap = parseFloat(window.getComputedStyle(el).gap) || 20
   return card.offsetWidth + gap
 }
 
@@ -426,10 +424,11 @@ Je m'intéresse particulièrement aux droits et au bien-être des femmes. J'anim
     photo: Freddy,
     bio: {
       en: `Freddy is a seasoned development leader with 15 years of experience across the Great Lakes region, specializing in gender equality, women's empowerment, and community-led development. Before joining Women Concern permanently, he held a key role at World Vision International, leading initiatives that strengthened local capacities and transformed lives.
-A consultant, professional trainer, and strategist, Freddy excels in organizational development, program design, research, and project management. He is recognized for creating innovative, evidence-based interventions that empower women and girls, build resilient communities, and drive sustainable, inclusive development.`,
-      fr: `Freddy est un leader chevronné du développement, avec 15 ans d'expérience dans la région des Grands Lacs, spécialisé dans l'égalité de genre, l'autonomisation des femmes et le développement communautaire. Avant de rejoindre Women Concern de manière permanente, il a occupé un poste clé à World Vision International, où il a dirigé des initiatives qui ont renforcé les capacités locales et transformé des vies.
 
-Consultant, formateur professionnel et stratège, Freddy excelle dans le développement organisationnel, la conception de programmes, la recherche et la gestion de projets. Il est reconnu pour la création d'interventions innovantes, fondées sur des preuves, qui autonomisent les femmes et les filles, renforcent la résilience des communautés et favorisent un développement durable et inclusif.`
+A consultant, professional trainer, and strategist, Freddy excels in organizational development, program design, research, and project management. He is recognized for creating innovative, evidence-based interventions that empower women and girls, build resilient communities, and drive sustainable, inclusive development.`,
+      fr: `Freddy est un leader chevronné du développement, avec 15 ans d'expérience dans la région des Grands Lacs, spécialisé dans l'égalité de genre, l'autonomisation des femmes et le développement communautaire.
+
+Consultant, formateur professionnel et stratège, Freddy excelle dans le développement organisationnel, la conception de programmes, la recherche et la gestion de projets.`
     },
     linkedin: '', email: ''
   }
