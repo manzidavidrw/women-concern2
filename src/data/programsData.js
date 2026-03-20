@@ -1,264 +1,181 @@
 // src/data/programsData.js
 
 export const programsData = {
-  'program-basic-needs': {
-    emoji: '🍽️',
+
+  // ══════════════════════════════════════════
+  // PROGRAM 1: WOMEN'S ECONOMIC EMPOWERMENT
+  // ══════════════════════════════════════════
+
+  'program-identifying-vulnerable': {
+    emoji: '🔍',
     category: { en: 'Economic Empowerment', fr: 'Autonomisation Économique' },
-    title: { en: 'Basic Needs Support', fr: 'Soutien aux Besoins de Base' },
+    title: { en: 'Identifying the Most Vulnerable Women', fr: 'Identifier les Femmes les Plus Vulnérables' },
     subtitle: {
-      en: 'Addressing urgent vulnerabilities with dignity',
-      fr: 'Répondre aux vulnérabilités urgentes avec dignité'
+      en: 'Community-led targeting of women in extreme poverty',
+      fr: 'Ciblage communautaire des femmes en extrême pauvreté'
     },
     tagColor: 'bg-emerald-100 text-emerald-700',
     accentBg: 'bg-emerald-50',
     accentText: 'text-emerald-600',
     hero: new URL('../assets/programs/basic.png', import.meta.url).href,
     overview: {
-      en: 'Our Basic Needs Support program provides immediate assistance to women and families facing extreme poverty. We address urgent vulnerabilities through food assistance, hygiene products, and essential health care to restore dignity and create readiness for development.',
-      fr: 'Notre programme de Soutien aux Besoins de Base fournit une assistance immédiate aux femmes et aux familles confrontées à l\'extrême pauvreté. Nous répondons aux vulnérabilités urgentes par une aide alimentaire, des produits d\'hygiène et des soins de santé essentiels pour restaurer la dignité et créer une préparation au développement.'
+      en: 'Our work begins by identifying women living in extreme poverty through community consultations and local verification processes. Priority is given to widows, displaced women, survivors of violence, and women heading households with limited access to income or assets. This participatory process ensures that support reaches those who need it most.',
+      fr: 'Notre travail commence par l\'identification des femmes vivant dans l\'extrême pauvreté grâce à des consultations communautaires et des processus de vérification locaux. La priorité est donnée aux veuves, aux femmes déplacées, aux survivantes de violences et aux femmes cheffes de ménage ayant un accès limité aux revenus ou aux actifs.'
     },
     objectives: {
       en: [
-        'Provide immediate food security and nutrition support to ultra-poor households',
-        'Ensure access to essential hygiene products and sanitation supplies',
-        'Connect families with basic health services and emergency medical care',
-        'Restore dignity and stability as foundation for economic empowerment'
+        'Identify women living in extreme poverty through community-based processes',
+        'Prioritize widows, displaced women, survivors of violence, and female-headed households',
+        'Use participatory verification to ensure targeting accuracy',
+        'Build community trust and ownership from the start of the program'
       ],
       fr: [
-        'Fournir une sécurité alimentaire et un soutien nutritionnel immédiats aux ménages ultra-pauvres',
-        'Assurer l\'accès aux produits d\'hygiène essentiels et aux fournitures sanitaires',
-        'Connecter les familles aux services de santé de base et aux soins médicaux d\'urgence',
-        'Restaurer la dignité et la stabilité comme fondement de l\'autonomisation économique'
+        'Identifier les femmes vivant dans l\'extrême pauvreté par des processus communautaires',
+        'Prioriser les veuves, les femmes déplacées, les survivantes de violences et les ménages dirigés par des femmes',
+        'Utiliser une vérification participative pour assurer la précision du ciblage',
+        'Renforcer la confiance et l\'appropriation communautaire dès le début du programme'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Emergency Food Distribution',
-          description: 'Monthly food parcels containing rice, beans, oil, and other staples for vulnerable families'
-        },
-        {
-          title: 'Hygiene Kit Provision',
-          description: 'Distribution of soap, sanitary products, and basic hygiene supplies'
-        },
-        {
-          title: 'Health Care Access',
-          description: 'Referrals and support for essential medical services and treatments'
-        },
-        {
-          title: 'Dignity Restoration',
-          description: 'Psychosocial support and counseling to rebuild confidence and hope'
-        }
+        { title: 'Community Consultations', description: 'Engage local leaders, community members, and women\'s groups to identify the most vulnerable households' },
+        { title: 'Local Verification', description: 'Cross-check findings through community-based verification to ensure support reaches those most in need' },
+        { title: 'Vulnerability Criteria', description: 'Apply clear criteria including widowhood, displacement, GBV survival, and limited income or assets' },
+        { title: 'Participatory Mapping', description: 'Map vulnerable women within communities to build an accurate and inclusive program enrollment list' }
       ],
       fr: [
-        {
-          title: 'Distribution Alimentaire d\'Urgence',
-          description: 'Colis alimentaires mensuels contenant du riz, des haricots, de l\'huile et d\'autres produits de base pour les familles vulnérables'
-        },
-        {
-          title: 'Fourniture de Kits d\'Hygiène',
-          description: 'Distribution de savon, produits sanitaires et fournitures d\'hygiène de base'
-        },
-        {
-          title: 'Accès aux Soins de Santé',
-          description: 'Orientations et soutien pour les services et traitements médicaux essentiels'
-        },
-        {
-          title: 'Restauration de la Dignité',
-          description: 'Soutien psychosocial et conseil pour reconstruire la confiance et l\'espoir'
-        }
+        { title: 'Consultations Communautaires', description: 'Engager les leaders locaux, membres de la communauté et groupes de femmes pour identifier les ménages les plus vulnérables' },
+        { title: 'Vérification Locale', description: 'Croiser les résultats via une vérification communautaire pour s\'assurer que le soutien atteint ceux qui en ont le plus besoin' },
+        { title: 'Critères de Vulnérabilité', description: 'Appliquer des critères clairs incluant le veuvage, le déplacement, la survie à des violences, et un accès limité aux revenus ou actifs' },
+        { title: 'Cartographie Participative', description: 'Cartographier les femmes vulnérables dans les communautés pour construire une liste d\'inscription précise et inclusive' }
       ]
     },
     impact: {
       en: [
-        { value: '3,500+', label: 'Families Supported Annually' },
-        { value: '95%', label: 'Report Improved Food Security' },
-        { value: '100%', label: 'Access to Hygiene Products' }
+        { value: '3,800+', label: 'Women Identified & Enrolled' },
+        { value: '100%', label: 'Community-Led Targeting' },
+        { value: '12+', label: 'Communities Reached' }
       ],
       fr: [
-        { value: '3 500+', label: 'Familles Soutenues Annuellement' },
-        { value: '95%', label: 'Signalent une Sécurité Alimentaire Améliorée' },
-        { value: '100%', label: 'Accès aux Produits d\'Hygiène' }
-      ]
-    },
-    stories: {
-      en: [
-        {
-          name: 'Marie K.',
-          location: 'Bukavu, South Kivu',
-          quote: 'When I received the food parcel, I cried tears of joy. My children had not eaten properly in days. This support gave us hope and the strength to keep going.'
-        }
-      ],
-      fr: [
-        {
-          name: 'Marie K.',
-          location: 'Bukavu, Sud-Kivu',
-          quote: 'Quand j\'ai reçu le colis alimentaire, j\'ai pleuré de joie. Mes enfants n\'avaient pas mangé correctement depuis des jours. Ce soutien nous a donné de l\'espoir et la force de continuer.'
-        }
+        { value: '3 800+', label: 'Femmes Identifiées et Inscrites' },
+        { value: '100%', label: 'Ciblage Communautaire' },
+        { value: '12+', label: 'Communautés Atteintes' }
       ]
     }
   },
 
   'program-skills-training': {
-    emoji: '🪡',
+    emoji: '💪',
     category: { en: 'Economic Empowerment', fr: 'Autonomisation Économique' },
-    title: { en: 'Skills & Livelihood Training', fr: 'Formation aux Compétences et Moyens de Subsistance' },
+    title: { en: 'Building Skills and Confidence', fr: 'Renforcer les Compétences et la Confiance' },
     subtitle: {
-      en: 'Practical vocational training for sustainable livelihoods',
-      fr: 'Formation professionnelle pratique pour des moyens de subsistance durables'
+      en: 'Practical and personal capacity training for vulnerable women',
+      fr: 'Formation pratique et personnelle pour les femmes vulnérables'
     },
     tagColor: 'bg-emerald-100 text-emerald-700',
     accentBg: 'bg-emerald-50',
     accentText: 'text-emerald-600',
     hero: new URL('../assets/programs/skills.jpeg', import.meta.url).href,
     overview: {
-      en: 'Women receive practical vocational training based on market demand — including agriculture, improved cookstove production, tailoring, and other non-farm income-generating activities. Our training combines technical skills with business management and financial literacy.',
-      fr: 'Les femmes reçoivent une formation professionnelle pratique basée sur la demande du marché — incluant l\'agriculture, la production de cuisinières améliorées, la couture et d\'autres activités génératrices de revenus non agricoles. Notre formation combine compétences techniques avec gestion d\'entreprise et littératie financière.'
+      en: 'Women participate in training sessions designed to strengthen both practical and personal capacities. These trainings include small business and livelihood development, financial literacy and savings management, leadership and decision-making skills, and community participation. The goal is not only to build income-generating skills but also to strengthen self-confidence and agency.',
+      fr: 'Les femmes participent à des sessions de formation conçues pour renforcer leurs capacités pratiques et personnelles. Ces formations comprennent le développement des moyens de subsistance et des petites entreprises, la gestion financière, le leadership et les compétences de prise de décision, et la participation communautaire.'
     },
     objectives: {
       en: [
-        'Provide market-relevant vocational skills training to ultra-poor women',
-        'Build business management and entrepreneurship capabilities',
-        'Connect trainees with income-generating opportunities',
-        'Foster confidence and economic independence'
+        'Strengthen practical income-generating and business skills',
+        'Build financial literacy and savings management capacity',
+        'Develop leadership, decision-making, and self-confidence',
+        'Promote community participation and collective action'
       ],
       fr: [
-        'Fournir une formation aux compétences professionnelles pertinente pour le marché aux femmes ultra-pauvres',
-        'Développer les capacités de gestion d\'entreprise et d\'entrepreneuriat',
-        'Connecter les stagiaires aux opportunités génératrices de revenus',
-        'Favoriser la confiance et l\'indépendance économique'
+        'Renforcer les compétences pratiques de génération de revenus et de gestion d\'entreprise',
+        'Développer la capacité de littératie financière et de gestion de l\'épargne',
+        'Développer le leadership, la prise de décision et la confiance en soi',
+        'Promouvoir la participation communautaire et l\'action collective'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Agricultural Training',
-          description: 'Climate-smart farming, crop diversification, and sustainable practices'
-        },
-        {
-          title: 'Artisan Skills',
-          description: 'Tailoring, weaving, soap-making, and handicraft production'
-        },
-        {
-          title: 'Cookstove Production',
-          description: 'Technical training in manufacturing energy-efficient stoves'
-        },
-        {
-          title: 'Business Development',
-          description: 'Financial literacy, record-keeping, marketing, and customer service'
-        }
+        { title: 'Small Business & Livelihood Training', description: 'Practical skills in agriculture, trade, artisanship, and other locally relevant income-generating activities' },
+        { title: 'Financial Literacy', description: 'Training in savings management, budgeting, record-keeping, and responsible borrowing' },
+        { title: 'Leadership Development', description: 'Workshops on decision-making, public speaking, community organizing, and advocacy' },
+        { title: 'Collective Action', description: 'Group activities that build solidarity, peer learning, and community participation' }
       ],
       fr: [
-        {
-          title: 'Formation Agricole',
-          description: 'Agriculture intelligente face au climat, diversification des cultures et pratiques durables'
-        },
-        {
-          title: 'Compétences Artisanales',
-          description: 'Couture, tissage, fabrication de savon et production artisanale'
-        },
-        {
-          title: 'Production de Cuisinières',
-          description: 'Formation technique à la fabrication de poêles économes en énergie'
-        },
-        {
-          title: 'Développement d\'Entreprise',
-          description: 'Littératie financière, tenue de registres, marketing et service client'
-        }
+        { title: 'Formation en Petite Entreprise et Moyens de Subsistance', description: 'Compétences pratiques en agriculture, commerce, artisanat et autres activités génératrices de revenus localement pertinentes' },
+        { title: 'Littératie Financière', description: 'Formation en gestion de l\'épargne, budgétisation, tenue de registres et emprunt responsable' },
+        { title: 'Développement du Leadership', description: 'Ateliers sur la prise de décision, la prise de parole en public, l\'organisation communautaire et le plaidoyer' },
+        { title: 'Action Collective', description: 'Activités de groupe qui renforcent la solidarité, l\'apprentissage par les pairs et la participation communautaire' }
       ]
     },
     impact: {
       en: [
-        { value: '2,000+', label: 'Women Trained Annually' },
-        { value: '85%', label: 'Start Income-Generating Activities' },
-        { value: '70%', label: 'Achieve Financial Independence' }
+        { value: '3,800', label: 'Women Trained' },
+        { value: '85%', label: 'Report Increased Confidence' },
+        { value: '18', label: 'Cooperatives Supported' }
       ],
       fr: [
-        { value: '2 000+', label: 'Femmes Formées Annuellement' },
-        { value: '85%', label: 'Démarrent des Activités Génératrices de Revenus' },
-        { value: '70%', label: 'Atteignent l\'Indépendance Financière' }
+        { value: '3 800', label: 'Femmes Formées' },
+        { value: '85%', label: 'Signalent une Confiance Accrue' },
+        { value: '18', label: 'Coopératives Soutenues' }
       ]
     }
   },
 
-  'program-asset-transfers': {
-    emoji: '🌾',
+  'program-livelihood-development': {
+    emoji: '🌱',
     category: { en: 'Economic Empowerment', fr: 'Autonomisation Économique' },
-    title: { en: 'Productive Asset Transfers', fr: 'Transferts d\'Actifs Productifs' },
+    title: { en: 'Supporting Livelihood Development', fr: 'Soutenir le Développement des Moyens de Subsistance' },
     subtitle: {
-      en: 'Seed capital and equipment for self-sufficiency',
-      fr: 'Capital de démarrage et équipement pour l\'autosuffisance'
+      en: 'Start-up capital, assets, and technical support for economic activities',
+      fr: 'Capital de démarrage, actifs et soutien technique pour les activités économiques'
     },
     tagColor: 'bg-emerald-100 text-emerald-700',
     accentBg: 'bg-emerald-50',
     accentText: 'text-emerald-600',
     hero: new URL('../assets/programs/productive.jpeg', import.meta.url).href,
     overview: {
-      en: 'We provide seed capital or equipment to launch small businesses or agricultural activities, empowering women to be self-sufficient. Assets include livestock, agricultural inputs, business inventory, and production tools tailored to each woman\'s skills and market opportunities.',
-      fr: 'Nous fournissons du capital de démarrage ou de l\'équipement pour lancer de petites entreprises ou des activités agricoles, permettant aux femmes d\'être autosuffisantes. Les actifs comprennent du bétail, des intrants agricoles, des stocks commerciaux et des outils de production adaptés aux compétences de chaque femme et aux opportunités du marché.'
+      en: 'To help women start or expand economic activities, WOCO provides support tailored to their chosen livelihoods. This may include small start-up capital or productive assets, technical support in agriculture, small trade, or other local activities, access to markets and value chains, and continuous coaching to strengthen business management. Women are encouraged to develop activities that respond to local economic opportunities and community needs.',
+      fr: 'Pour aider les femmes à démarrer ou développer des activités économiques, WOCO fournit un soutien adapté à leurs moyens de subsistance choisis. Cela peut inclure un petit capital de démarrage ou des actifs productifs, un soutien technique en agriculture ou petit commerce, l\'accès aux marchés et aux chaînes de valeur, et un coaching continu.'
     },
     objectives: {
       en: [
-        'Transfer productive assets matched to women\'s skills and market demand',
-        'Enable women to generate sustainable income and build wealth',
-        'Reduce dependency on external aid through self-reliance',
-        'Create multiplier effects through income reinvestment'
+        'Provide start-up capital or productive assets matched to women\'s chosen livelihoods',
+        'Offer technical support in agriculture, small trade, and other local activities',
+        'Connect women to markets, value chains, and economic opportunities',
+        'Deliver continuous business coaching for sustainable income generation'
       ],
       fr: [
-        'Transférer des actifs productifs adaptés aux compétences des femmes et à la demande du marché',
-        'Permettre aux femmes de générer des revenus durables et de créer de la richesse',
-        'Réduire la dépendance à l\'aide externe grâce à l\'autonomie',
-        'Créer des effets multiplicateurs par le réinvestissement des revenus'
+        'Fournir du capital de démarrage ou des actifs productifs adaptés aux moyens de subsistance choisis',
+        'Offrir un soutien technique en agriculture, petit commerce et autres activités locales',
+        'Connecter les femmes aux marchés, chaînes de valeur et opportunités économiques',
+        'Assurer un coaching commercial continu pour une génération durable de revenus'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Livestock Provision',
-          description: 'Goats, chickens, and rabbits for breeding and income generation'
-        },
-        {
-          title: 'Agricultural Inputs',
-          description: 'Seeds, fertilizers, and farming tools for crop production'
-        },
-        {
-          title: 'Business Inventory',
-          description: 'Start-up stock for trading activities and small retail businesses'
-        },
-        {
-          title: 'Production Equipment',
-          description: 'Sewing machines, cooking equipment, and artisan tools'
-        }
+        { title: 'Productive Asset Transfer', description: 'Provision of livestock, seeds, tools, equipment, or business inventory to launch income-generating activities' },
+        { title: 'Agricultural Technical Support', description: 'Climate-smart farming, crop diversification, agroforestry, and sustainable land practices' },
+        { title: 'Market Linkages', description: 'Connecting women producers to local markets, cooperatives, and value chains' },
+        { title: 'Business Coaching', description: 'Ongoing guidance on business management, customer relations, and growth strategies' }
       ],
       fr: [
-        {
-          title: 'Provision de Bétail',
-          description: 'Chèvres, poulets et lapins pour l\'élevage et la génération de revenus'
-        },
-        {
-          title: 'Intrants Agricoles',
-          description: 'Semences, engrais et outils agricoles pour la production agricole'
-        },
-        {
-          title: 'Stock Commercial',
-          description: 'Stock de démarrage pour les activités commerciales et les petites entreprises de vente au détail'
-        },
-        {
-          title: 'Équipement de Production',
-          description: 'Machines à coudre, équipement de cuisine et outils artisanaux'
-        }
+        { title: 'Transfert d\'Actifs Productifs', description: 'Fourniture de bétail, semences, outils, équipements ou stocks commerciaux pour lancer des activités génératrices de revenus' },
+        { title: 'Soutien Technique Agricole', description: 'Agriculture intelligente face au climat, diversification des cultures, agroforesterie et pratiques durables' },
+        { title: 'Liens avec les Marchés', description: 'Connecter les femmes productrices aux marchés locaux, coopératives et chaînes de valeur' },
+        { title: 'Coaching Commercial', description: 'Accompagnement continu sur la gestion d\'entreprise, les relations clients et les stratégies de croissance' }
       ]
     },
     impact: {
       en: [
-        { value: '1,800+', label: 'Women Received Assets' },
-        { value: '92%', label: 'Successfully Generate Income' },
-        { value: '$450', label: 'Average Annual Income Increase' }
+        { value: '8', label: 'Tree Nurseries by Women\'s Groups' },
+        { value: '12K+', label: 'Trees Planted & Monitored' },
+        { value: '18', label: 'Cooperatives Created & Supported' }
       ],
       fr: [
-        { value: '1 800+', label: 'Femmes Ont Reçu des Actifs' },
-        { value: '92%', label: 'Génèrent des Revenus avec Succès' },
-        { value: '450$', label: 'Augmentation Moyenne Annuelle des Revenus' }
+        { value: '8', label: 'Pépinières par des Groupes de Femmes' },
+        { value: '12K+', label: 'Arbres Plantés et Surveillés' },
+        { value: '18', label: 'Coopératives Créées et Soutenues' }
       ]
     }
   },
@@ -268,79 +185,55 @@ export const programsData = {
     category: { en: 'Economic Empowerment', fr: 'Autonomisation Économique' },
     title: { en: 'Savings & Financial Inclusion', fr: 'Épargne et Inclusion Financière' },
     subtitle: {
-      en: 'Village savings groups for economic stability',
-      fr: 'Groupes d\'épargne villageois pour la stabilité économique'
+      en: 'Community savings groups for economic resilience',
+      fr: 'Groupes d\'épargne communautaires pour la résilience économique'
     },
     tagColor: 'bg-emerald-100 text-emerald-700',
     accentBg: 'bg-emerald-50',
     accentText: 'text-emerald-600',
     hero: new URL('../assets/programs/savings.jpg', import.meta.url).href,
     overview: {
-      en: 'Through Village Savings and Loan Associations (VSLAs), women access savings and credit services, allowing reinvestment in businesses and building financial resilience. VSLAs provide a safe space for women to save money, access loans, and develop financial management skills.',
-      fr: 'Grâce aux Associations Villageoises d\'Épargne et de Crédit (AVEC), les femmes accèdent aux services d\'épargne et de crédit, permettant le réinvestissement dans les entreprises et le renforcement de la résilience financière. Les AVEC offrent un espace sûr pour que les femmes économisent de l\'argent, accèdent aux prêts et développent des compétences en gestion financière.'
+      en: 'Women are supported to organize themselves into community savings groups where they can save regularly, access small loans, and support one another financially. These groups help women build financial resilience, develop saving habits, and gradually accumulate productive capital.',
+      fr: 'Les femmes sont soutenues pour s\'organiser en groupes d\'épargne communautaires où elles peuvent épargner régulièrement, accéder à de petits prêts et se soutenir financièrement. Ces groupes aident les femmes à renforcer leur résilience financière, développer des habitudes d\'épargne et accumuler progressivement du capital productif.'
     },
     objectives: {
       en: [
-        'Establish and strengthen community-based savings groups',
-        'Provide access to credit for women without formal banking',
-        'Build financial literacy and money management skills',
-        'Create safety nets and mutual support systems'
+        'Organize women into community savings groups (VSLAs)',
+        'Enable regular saving and access to small loans',
+        'Build financial resilience and healthy money management habits',
+        'Gradually accumulate productive capital for reinvestment'
       ],
       fr: [
-        'Établir et renforcer des groupes d\'épargne communautaires',
-        'Fournir un accès au crédit pour les femmes sans services bancaires formels',
-        'Développer la littératie financière et les compétences en gestion de l\'argent',
-        'Créer des filets de sécurité et des systèmes de soutien mutuel'
+        'Organiser les femmes en groupes d\'épargne communautaires (AVEC)',
+        'Permettre l\'épargne régulière et l\'accès aux petits prêts',
+        'Renforcer la résilience financière et les bonnes habitudes de gestion de l\'argent',
+        'Accumuler progressivement du capital productif pour le réinvestissement'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'VSLA Formation',
-          description: 'Organize and train women\'s savings groups with democratic governance'
-        },
-        {
-          title: 'Financial Literacy Training',
-          description: 'Teach budgeting, saving, borrowing, and investment principles'
-        },
-        {
-          title: 'Loan Access',
-          description: 'Enable members to borrow from group funds for business or emergency needs'
-        },
-        {
-          title: 'Linkages to Formal Banking',
-          description: 'Connect successful groups with microfinance institutions and banks'
-        }
+        { title: 'VSLA Formation & Training', description: 'Establish and train Village Savings and Loan Associations with democratic governance and transparent processes' },
+        { title: 'Regular Savings Cycles', description: 'Weekly or monthly savings meetings where members contribute and build a collective fund' },
+        { title: 'Loan Access', description: 'Members borrow from group funds at low interest for business, emergency, or productive needs' },
+        { title: 'Financial Literacy Training', description: 'Teach budgeting, savings, borrowing principles, and investment planning' }
       ],
       fr: [
-        {
-          title: 'Formation AVEC',
-          description: 'Organiser et former des groupes d\'épargne de femmes avec une gouvernance démocratique'
-        },
-        {
-          title: 'Formation en Littératie Financière',
-          description: 'Enseigner les principes de budgétisation, d\'épargne, d\'emprunt et d\'investissement'
-        },
-        {
-          title: 'Accès aux Prêts',
-          description: 'Permettre aux membres d\'emprunter sur les fonds du groupe pour les besoins commerciaux ou d\'urgence'
-        },
-        {
-          title: 'Liens avec le Secteur Bancaire Formel',
-          description: 'Connecter les groupes prospères avec les institutions de microfinance et les banques'
-        }
+        { title: 'Formation et Création d\'AVEC', description: 'Établir et former des Associations Villageoises d\'Épargne et de Crédit avec une gouvernance démocratique' },
+        { title: 'Cycles d\'Épargne Réguliers', description: 'Réunions d\'épargne hebdomadaires ou mensuelles où les membres contribuent et construisent un fonds collectif' },
+        { title: 'Accès aux Prêts', description: 'Les membres empruntent sur les fonds du groupe à faible intérêt pour des besoins commerciaux, d\'urgence ou productifs' },
+        { title: 'Formation en Littératie Financière', description: 'Enseigner la budgétisation, l\'épargne, les principes d\'emprunt et la planification des investissements' }
       ]
     },
     impact: {
       en: [
-        { value: '150+', label: 'Active VSLAs' },
-        { value: '4,500+', label: 'Women Members' },
-        { value: '$280K', label: 'Total Savings Mobilized' }
+        { value: '8', label: 'Savings Groups (VSLAs) Established' },
+        { value: '3,800+', label: 'Women Members' },
+        { value: '100%', label: 'Financial Inclusion for Participants' }
       ],
       fr: [
-        { value: '150+', label: 'AVEC Actives' },
-        { value: '4 500+', label: 'Femmes Membres' },
-        { value: '280K$', label: 'Épargne Totale Mobilisée' }
+        { value: '8', label: 'Groupes d\'Épargne (AVEC) Établis' },
+        { value: '3 800+', label: 'Femmes Membres' },
+        { value: '100%', label: 'Inclusion Financière pour les Participantes' }
       ]
     }
   },
@@ -348,162 +241,118 @@ export const programsData = {
   'program-coaching-mentorship': {
     emoji: '🤝',
     category: { en: 'Economic Empowerment', fr: 'Autonomisation Économique' },
-    title: { en: 'Coaching & Mentorship', fr: 'Coaching et Mentorat' },
+    title: { en: 'Ongoing Mentorship & Community Support', fr: 'Mentorat Continu et Soutien Communautaire' },
     subtitle: {
-      en: 'Personalized support for lasting transformation',
-      fr: 'Soutien personnalisé pour une transformation durable'
+      en: 'Personalized coaching for lasting transformation',
+      fr: 'Coaching personnalisé pour une transformation durable'
     },
     tagColor: 'bg-emerald-100 text-emerald-700',
     accentBg: 'bg-emerald-50',
     accentText: 'text-emerald-600',
     hero: new URL('../assets/programs/caoching.jpg', import.meta.url).href,
     overview: {
-      en: 'Each woman receives personalized mentorship in goal setting, financial literacy, leadership, and confidence-building. Our coaches provide ongoing support, accountability, and encouragement throughout the graduation journey.',
-      fr: 'Chaque femme reçoit un mentorat personnalisé en matière de définition d\'objectifs, de littératie financière, de leadership et de renforcement de la confiance. Nos coaches fournissent un soutien continu, de la responsabilisation et des encouragements tout au long du parcours de graduation.'
+      en: 'Throughout the program, WOCO staff and community facilitators provide regular coaching and mentorship. These visits help women track progress in their livelihoods, address challenges early, strengthen motivation and confidence, and maintain strong participation in savings groups and community initiatives. This continuous accompaniment is key to ensuring lasting change.',
+      fr: 'Tout au long du programme, le personnel de WOCO et les facilitateurs communautaires fournissent un coaching et un mentorat réguliers. Ces visites aident les femmes à suivre leurs progrès, à aborder les défis tôt, à renforcer la motivation et la confiance, et à maintenir une participation active dans les groupes d\'épargne.'
     },
     objectives: {
       en: [
-        'Provide individualized coaching and emotional support',
-        'Build self-confidence and decision-making capacity',
-        'Support goal-setting and personal development planning',
-        'Create peer support networks and role models'
+        'Provide regular household visits and personalized coaching',
+        'Help women track and celebrate progress in their livelihoods',
+        'Address challenges and setbacks with timely support',
+        'Strengthen motivation, confidence, and community participation'
       ],
       fr: [
-        'Fournir un coaching individualisé et un soutien émotionnel',
-        'Développer la confiance en soi et la capacité de prise de décision',
-        'Soutenir la définition d\'objectifs et la planification du développement personnel',
-        'Créer des réseaux de soutien par les pairs et des modèles'
+        'Fournir des visites à domicile régulières et un coaching personnalisé',
+        'Aider les femmes à suivre et célébrer leurs progrès dans leurs moyens de subsistance',
+        'Aborder les défis et les revers avec un soutien en temps utile',
+        'Renforcer la motivation, la confiance et la participation communautaire'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'One-on-One Coaching',
-          description: 'Regular individual sessions addressing personal goals and challenges'
-        },
-        {
-          title: 'Group Mentorship',
-          description: 'Peer learning circles for shared experiences and mutual support'
-        },
-        {
-          title: 'Life Skills Training',
-          description: 'Workshops on communication, problem-solving, and leadership'
-        },
-        {
-          title: 'Goal Tracking',
-          description: 'Progress monitoring and celebration of achievements'
-        }
+        { title: 'Regular Household Visits', description: 'WOCO coaches visit women at home to provide personalized support, guidance, and accountability' },
+        { title: 'Progress Tracking', description: 'Monitor livelihood activities, savings, and personal development milestones with each participant' },
+        { title: 'Psychosocial Support', description: 'Emotional support, confidence-building, and motivation during challenging moments' },
+        { title: 'Peer Learning Groups', description: 'Facilitated group sessions where women share experiences, learn from each other, and build solidarity' }
       ],
       fr: [
-        {
-          title: 'Coaching Individuel',
-          description: 'Sessions individuelles régulières abordant les objectifs et défis personnels'
-        },
-        {
-          title: 'Mentorat de Groupe',
-          description: 'Cercles d\'apprentissage par les pairs pour des expériences partagées et un soutien mutuel'
-        },
-        {
-          title: 'Formation aux Compétences de Vie',
-          description: 'Ateliers sur la communication, la résolution de problèmes et le leadership'
-        },
-        {
-          title: 'Suivi des Objectifs',
-          description: 'Suivi des progrès et célébration des réalisations'
-        }
+        { title: 'Visites à Domicile Régulières', description: 'Les coaches de WOCO rendent visite aux femmes chez elles pour fournir un soutien personnalisé, des conseils et une responsabilisation' },
+        { title: 'Suivi des Progrès', description: 'Surveiller les activités de subsistance, l\'épargne et les étapes de développement personnel avec chaque participante' },
+        { title: 'Soutien Psychosocial', description: 'Soutien émotionnel, renforcement de la confiance et motivation dans les moments difficiles' },
+        { title: 'Groupes d\'Apprentissage par les Pairs', description: 'Sessions de groupe facilitées où les femmes partagent leurs expériences, apprennent les unes des autres et renforcent la solidarité' }
       ]
     },
     impact: {
       en: [
-        { value: '100%', label: 'Women Receive Coaching' },
-        { value: '88%', label: 'Report Increased Confidence' },
+        { value: '3,800', label: 'Women Receiving Mentorship' },
+        { value: '100%', label: 'Receive Ongoing Coaching' },
         { value: '78%', label: 'Become Peer Mentors' }
       ],
       fr: [
-        { value: '100%', label: 'Femmes Reçoivent du Coaching' },
-        { value: '88%', label: 'Signalent une Confiance Accrue' },
+        { value: '3 800', label: 'Femmes Bénéficiant du Mentorat' },
+        { value: '100%', label: 'Reçoivent un Coaching Continu' },
         { value: '78%', label: 'Deviennent Mentors de Pairs' }
       ]
     }
   },
 
+  // ══════════════════════════════════════════
+  // PROGRAM 2: GIRLS LEADERSHIP ACADEMY
+  // ══════════════════════════════════════════
+
   'program-school-sponsorship': {
     emoji: '🎒',
-    category: { en: 'Education', fr: 'Éducation' },
-    title: { en: 'School Sponsorship & Retention', fr: 'Parrainage Scolaire et Rétention' },
+    category: { en: 'Girls Leadership Academy', fr: 'Académie de Leadership pour Filles' },
+    title: { en: 'Education Access & Sponsorship', fr: 'Accès à l\'Éducation et Parrainage' },
     subtitle: {
-      en: 'Keeping girls in school and learning',
-      fr: 'Garder les filles à l\'école et en apprentissage'
+      en: 'Keeping girls in school and opening doors to their futures',
+      fr: 'Garder les filles à l\'école et ouvrir les portes de leur avenir'
     },
     tagColor: 'bg-amber-100 text-amber-700',
     accentBg: 'bg-amber-50',
     accentText: 'text-amber-600',
     hero: new URL('../assets/programs/school.jpeg', import.meta.url).href,
     overview: {
-      en: 'We identify girls at risk of dropping out and provide school fees, uniforms, and learning materials to ensure continuous education. Our holistic approach addresses both financial barriers and the social factors that keep girls out of school.',
-      fr: 'Nous identifions les filles à risque d\'abandon scolaire et fournissons des frais de scolarité, des uniformes et du matériel d\'apprentissage pour assurer une éducation continue. Notre approche holistique aborde à la fois les barrières financières et les facteurs sociaux qui empêchent les filles d\'aller à l\'école.'
+      en: 'Education is the foundation of girls\' empowerment. Women Concern identifies the most vulnerable girls — including those affected by poverty, discrimination, early motherhood, or displacement — and supports them to remain in school or return to education. Girls unable to continue formal education are supported to access vocational training aligned with their interests and opportunities.',
+      fr: 'L\'éducation est le fondement de l\'autonomisation des filles. Women Concern identifie les filles les plus vulnérables — y compris celles affectées par la pauvreté, la discrimination, la maternité précoce ou le déplacement — et les soutient pour rester à l\'école ou retourner à l\'éducation.'
     },
     objectives: {
       en: [
-        'Eliminate financial barriers to girls\' education',
-        'Reduce school dropout rates among vulnerable girls',
-        'Improve academic performance and learning outcomes',
-        'Support transition to secondary and vocational education'
+        'Identify and enroll the most vulnerable girls in the sponsorship program',
+        'Eliminate financial barriers including school fees, uniforms, and materials',
+        'Support school reintegration for girls who have dropped out',
+        'Connect girls unable to attend formal school to vocational training'
       ],
       fr: [
-        'Éliminer les barrières financières à l\'éducation des filles',
-        'Réduire les taux d\'abandon scolaire parmi les filles vulnérables',
-        'Améliorer les performances académiques et les résultats d\'apprentissage',
-        'Soutenir la transition vers l\'enseignement secondaire et professionnel'
+        'Identifier et inscrire les filles les plus vulnérables dans le programme de parrainage',
+        'Éliminer les barrières financières incluant les frais de scolarité, uniformes et matériels',
+        'Soutenir la réintégration scolaire des filles qui ont abandonné l\'école',
+        'Connecter les filles ne pouvant pas fréquenter l\'école formelle à la formation professionnelle'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'School Fees Payment',
-          description: 'Cover tuition, exam fees, and other school-related costs'
-        },
-        {
-          title: 'Scholastic Materials',
-          description: 'Provide uniforms, shoes, books, pens, and learning supplies'
-        },
-        {
-          title: 'Academic Support',
-          description: 'Tutorial sessions and study groups for struggling learners'
-        },
-        {
-          title: 'Parent Engagement',
-          description: 'Work with families to value and prioritize girls\' education'
-        }
+        { title: 'School Fees Assistance', description: 'Cover tuition, exam fees, and other school-related costs for vulnerable girls' },
+        { title: 'Learning Materials', description: 'Provide uniforms, shoes, books, pens, and learning supplies' },
+        { title: 'School Reintegration', description: 'Support girls who dropped out to return and continue their education' },
+        { title: 'Vocational Pathways', description: 'Connect girls unable to attend formal school to vocational training matched to their interests' }
       ],
       fr: [
-        {
-          title: 'Paiement des Frais Scolaires',
-          description: 'Couvrir les frais de scolarité, les frais d\'examen et autres coûts liés à l\'école'
-        },
-        {
-          title: 'Matériel Scolaire',
-          description: 'Fournir des uniformes, des chaussures, des livres, des stylos et des fournitures d\'apprentissage'
-        },
-        {
-          title: 'Soutien Académique',
-          description: 'Sessions de tutorat et groupes d\'étude pour les apprenants en difficulté'
-        },
-        {
-          title: 'Engagement des Parents',
-          description: 'Travailler avec les familles pour valoriser et prioriser l\'éducation des filles'
-        }
+        { title: 'Aide aux Frais de Scolarité', description: 'Couvrir les frais de scolarité, les frais d\'examen et autres coûts scolaires pour les filles vulnérables' },
+        { title: 'Matériel Scolaire', description: 'Fournir des uniformes, chaussures, livres, stylos et fournitures d\'apprentissage' },
+        { title: 'Réintégration Scolaire', description: 'Soutenir les filles qui ont abandonné l\'école pour y retourner et poursuivre leurs études' },
+        { title: 'Filières Professionnelles', description: 'Connecter les filles ne pouvant pas fréquenter l\'école formelle à la formation professionnelle adaptée' }
       ]
     },
     impact: {
       en: [
         { value: '1,200+', label: 'Girls Sponsored' },
-        { value: '96%', label: 'Retention Rate' },
-        { value: '85%', label: 'Pass to Next Grade' }
+        { value: '96%', label: 'School Retention Rate' },
+        { value: '85%', label: 'Progress to Next Grade' }
       ],
       fr: [
         { value: '1 200+', label: 'Filles Parrainées' },
-        { value: '96%', label: 'Taux de Rétention' },
+        { value: '96%', label: 'Taux de Rétention Scolaire' },
         { value: '85%', label: 'Passent au Niveau Suivant' }
       ]
     }
@@ -511,80 +360,56 @@ export const programsData = {
 
   'program-girls-leadership': {
     emoji: '🌟',
-    category: { en: 'Education', fr: 'Éducation' },
-    title: { en: 'Girls\' Leadership Academy', fr: 'Académie de Leadership pour Filles' },
+    category: { en: 'Girls Leadership Academy', fr: 'Académie de Leadership pour Filles' },
+    title: { en: 'Leadership & Life Skills Development', fr: 'Développement du Leadership et des Compétences de Vie' },
     subtitle: {
-      en: 'Inspiring dreams and building leaders',
-      fr: 'Inspirer des rêves et former des leaders'
+      en: 'Equipping girls with knowledge and confidence to lead',
+      fr: 'Équiper les filles avec les connaissances et la confiance pour diriger'
     },
     tagColor: 'bg-amber-100 text-amber-700',
     accentBg: 'bg-amber-50',
     accentText: 'text-amber-600',
     hero: new URL('../assets/programs/career.jpeg', import.meta.url).href,
     overview: {
-      en: 'Our Girls Academy offers life skills, mentorship, and career development to inspire girls\' dreams and leadership pathways. We create safe spaces where girls can explore their potential, develop confidence, and envision their futures.',
-      fr: 'Notre Académie pour Filles offre des compétences de vie, du mentorat et du développement de carrière pour inspirer les rêves et les parcours de leadership des filles. Nous créons des espaces sûrs où les filles peuvent explorer leur potentiel, développer leur confiance et envisager leur avenir.'
+      en: 'The Academy equips girls with the knowledge and confidence needed to lead. Participants join Girls Leadership Clubs, where they receive training in leadership and public speaking, self-confidence and personal development, financial literacy and entrepreneurship, digital literacy, civic engagement, and gender equality. Girls also receive mentorship from female leaders and professionals who help guide their personal and professional aspirations.',
+      fr: 'L\'Académie équipe les filles avec les connaissances et la confiance nécessaires pour diriger. Les participantes rejoignent des Clubs de Leadership pour Filles, où elles reçoivent une formation en leadership, confiance en soi, littératie financière, littératie numérique, engagement civique et égalité des genres.'
     },
     objectives: {
       en: [
-        'Develop leadership skills and self-confidence in adolescent girls',
-        'Provide career guidance and role models',
-        'Build critical thinking and decision-making abilities',
-        'Create peer support networks and mentorship relationships'
+        'Develop leadership, public speaking, and advocacy skills in girls',
+        'Build self-confidence, personal development, and financial literacy',
+        'Promote digital literacy, civic engagement, and gender equality',
+        'Provide mentorship from female leaders and professionals'
       ],
       fr: [
-        'Développer les compétences en leadership et la confiance en soi chez les adolescentes',
-        'Fournir une orientation professionnelle et des modèles',
-        'Développer la pensée critique et les capacités de prise de décision',
-        'Créer des réseaux de soutien par les pairs et des relations de mentorat'
+        'Développer les compétences en leadership, prise de parole en public et plaidoyer chez les filles',
+        'Renforcer la confiance en soi, le développement personnel et la littératie financière',
+        'Promouvoir la littératie numérique, l\'engagement civique et l\'égalité des genres',
+        'Fournir un mentorat de la part de femmes leaders et professionnelles'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Leadership Training',
-          description: 'Workshops on public speaking, advocacy, and community organizing'
-        },
-        {
-          title: 'Career Mentorship',
-          description: 'Exposure to diverse career paths through role model interactions'
-        },
-        {
-          title: 'Life Skills Camps',
-          description: 'Residential camps focusing on confidence, communication, and goal-setting'
-        },
-        {
-          title: 'Girls\' Clubs',
-          description: 'School-based clubs for ongoing peer support and activities'
-        }
+        { title: 'Girls Leadership Clubs', description: 'School-based clubs providing ongoing peer support, learning, and leadership activities' },
+        { title: 'Leadership Training Workshops', description: 'Structured training on public speaking, advocacy, decision-making, and community organizing' },
+        { title: 'Mentorship Programme', description: 'Girls are paired with female role models who guide their personal and professional aspirations' },
+        { title: 'Entrepreneurship & Digital Skills', description: 'Practical training in financial literacy, entrepreneurship, and basic digital tools' }
       ],
       fr: [
-        {
-          title: 'Formation au Leadership',
-          description: 'Ateliers sur la prise de parole en public, le plaidoyer et l\'organisation communautaire'
-        },
-        {
-          title: 'Mentorat de Carrière',
-          description: 'Exposition à divers parcours professionnels à travers des interactions avec des modèles'
-        },
-        {
-          title: 'Camps de Compétences de Vie',
-          description: 'Camps résidentiels axés sur la confiance, la communication et la définition d\'objectifs'
-        },
-        {
-          title: 'Clubs de Filles',
-          description: 'Clubs scolaires pour un soutien continu par les pairs et des activités'
-        }
+        { title: 'Clubs de Leadership pour Filles', description: 'Clubs scolaires offrant un soutien continu par les pairs, des activités d\'apprentissage et de leadership' },
+        { title: 'Ateliers de Formation au Leadership', description: 'Formation structurée en prise de parole en public, plaidoyer, prise de décision et organisation communautaire' },
+        { title: 'Programme de Mentorat', description: 'Les filles sont jumelées avec des modèles féminins qui guident leurs aspirations personnelles et professionnelles' },
+        { title: 'Compétences Entrepreneuriales et Numériques', description: 'Formation pratique en littératie financière, entrepreneuriat et outils numériques de base' }
       ]
     },
     impact: {
       en: [
-        { value: '800+', label: 'Girls in Academy' },
+        { value: '800+', label: 'Girls in Leadership Academy' },
         { value: '92%', label: 'Report Increased Confidence' },
         { value: '65%', label: 'Pursue Higher Education' }
       ],
       fr: [
-        { value: '800+', label: 'Filles dans l\'Académie' },
+        { value: '800+', label: 'Filles dans l\'Académie de Leadership' },
         { value: '92%', label: 'Signalent une Confiance Accrue' },
         { value: '65%', label: 'Poursuivent des Études Supérieures' }
       ]
@@ -593,70 +418,46 @@ export const programsData = {
 
   'program-menstrual-hygiene': {
     emoji: '🌸',
-    category: { en: 'Education', fr: 'Éducation' },
-    title: { en: 'Menstrual Hygiene & Malkia Pads', fr: 'Hygiène Menstruelle et Serviettes Malkia' },
+    category: { en: 'Girls Leadership Academy', fr: 'Académie de Leadership pour Filles' },
+    title: { en: 'Menstrual Health & Dignity', fr: 'Santé Menstruelle et Dignité' },
     subtitle: {
-      en: 'Dignity and school attendance for girls',
-      fr: 'Dignité et assiduité scolaire pour les filles'
+      en: 'Breaking stigma and keeping girls in school',
+      fr: 'Briser la stigmatisation et garder les filles à l\'école'
     },
     tagColor: 'bg-amber-100 text-amber-700',
     accentBg: 'bg-amber-50',
     accentText: 'text-amber-600',
     hero: new URL('../assets/programs/menstrual.jpeg', import.meta.url).href,
     overview: {
-      en: 'We locally produce and distribute washable Malkia Pads to schools and girls\' clubs, ensuring dignity and school attendance. Lack of menstrual products is a major barrier to girls\' education in DRC, causing them to miss up to 5 days of school each month.',
-      fr: 'Nous produisons et distribuons localement des serviettes hygiéniques lavables Malkia aux écoles et aux clubs de filles, garantissant la dignité et l\'assiduité scolaire. Le manque de produits menstruels est un obstacle majeur à l\'éducation des filles en RDC, les amenant à manquer jusqu\'à 5 jours d\'école chaque mois.'
+      en: 'Menstrual stigma and lack of hygiene products remain a major barrier to girls\' education. The Academy promotes menstrual dignity through health education, distribution of reusable menstrual pads such as Safi Pad and Malkia Pad, school awareness campaigns, and safe discussions that break stigma around menstruation. By addressing menstrual health, the program helps girls stay in school with confidence and dignity.',
+      fr: 'La stigmatisation menstruelle et le manque de produits d\'hygiène restent un obstacle majeur à l\'éducation des filles. L\'Académie promeut la dignité menstruelle par l\'éducation, la distribution de serviettes hygiéniques réutilisables comme Safi Pad et Malkia Pad, et des campagnes de sensibilisation scolaire.'
     },
     objectives: {
       en: [
-        'Eliminate period poverty as a barrier to education',
-        'Produce affordable, sustainable menstrual products locally',
-        'Break stigma and promote menstrual health education',
-        'Create employment for women in pad production'
+        'Provide menstrual health education to break stigma and misinformation',
+        'Distribute reusable Safi Pad and Malkia Pad to schools and girls\' clubs',
+        'Run school and community awareness campaigns on menstrual dignity',
+        'Create safe spaces for girls to discuss menstrual health openly'
       ],
       fr: [
-        'Éliminer la précarité menstruelle comme obstacle à l\'éducation',
-        'Produire des produits menstruels abordables et durables localement',
-        'Briser la stigmatisation et promouvoir l\'éducation à la santé menstruelle',
-        'Créer des emplois pour les femmes dans la production de serviettes'
+        'Fournir une éducation à la santé menstruelle pour briser la stigmatisation',
+        'Distribuer des serviettes hygiéniques réutilisables Safi Pad et Malkia Pad aux écoles et clubs de filles',
+        'Mener des campagnes de sensibilisation scolaire et communautaire sur la dignité menstruelle',
+        'Créer des espaces sûrs pour que les filles discutent ouvertement de la santé menstruelle'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Malkia Pad Production',
-          description: 'Manufacture washable, reusable menstrual pads from local materials'
-        },
-        {
-          title: 'School Distribution',
-          description: 'Provide free pads to girls in primary and secondary schools'
-        },
-        {
-          title: 'Menstrual Health Education',
-          description: 'Teach girls about menstruation, hygiene, and body literacy'
-        },
-        {
-          title: 'Community Awareness',
-          description: 'Engage parents and communities to normalize menstruation'
-        }
+        { title: 'Menstrual Health Education', description: 'Age-appropriate education on menstruation, body literacy, and hygiene practices' },
+        { title: 'Safi Pad & Malkia Pad Distribution', description: 'Locally produced reusable menstrual pads distributed free to schools and girls\' clubs' },
+        { title: 'School Awareness Campaigns', description: 'Campaigns targeting teachers, students, and parents to normalize menstruation and reduce stigma' },
+        { title: 'Safe Discussion Spaces', description: 'Facilitated sessions where girls can ask questions and share experiences about menstrual health' }
       ],
       fr: [
-        {
-          title: 'Production de Serviettes Malkia',
-          description: 'Fabriquer des serviettes menstruelles lavables et réutilisables à partir de matériaux locaux'
-        },
-        {
-          title: 'Distribution Scolaire',
-          description: 'Fournir des serviettes gratuites aux filles dans les écoles primaires et secondaires'
-        },
-        {
-          title: 'Éducation à la Santé Menstruelle',
-          description: 'Enseigner aux filles la menstruation, l\'hygiène et la littératie corporelle'
-        },
-        {
-          title: 'Sensibilisation Communautaire',
-          description: 'Engager les parents et les communautés pour normaliser la menstruation'
-        }
+        { title: 'Éducation à la Santé Menstruelle', description: 'Éducation adaptée à l\'âge sur la menstruation, la littératie corporelle et les pratiques d\'hygiène' },
+        { title: 'Distribution de Safi Pad et Malkia Pad', description: 'Serviettes hygiéniques réutilisables produites localement et distribuées gratuitement aux écoles et clubs de filles' },
+        { title: 'Campagnes de Sensibilisation Scolaire', description: 'Campagnes ciblant enseignants, élèves et parents pour normaliser la menstruation et réduire la stigmatisation' },
+        { title: 'Espaces de Discussion Sûrs', description: 'Sessions facilitées où les filles peuvent poser des questions et partager leurs expériences sur la santé menstruelle' }
       ]
     },
     impact: {
@@ -675,164 +476,120 @@ export const programsData = {
 
   'program-srhr': {
     emoji: '💜',
-    category: { en: 'Education', fr: 'Éducation' },
-    title: { en: 'Sexual & Reproductive Health Rights', fr: 'Droits à la Santé Sexuelle et Reproductive' },
+    category: { en: 'Girls Leadership Academy', fr: 'Académie de Leadership pour Filles' },
+    title: { en: 'Sexual & Reproductive Health & Rights (SRHR)', fr: 'Santé et Droits Sexuels et Reproductifs (SDSR)' },
     subtitle: {
-      en: 'Empowering girls with knowledge and choices',
-      fr: 'Autonomiser les filles avec des connaissances et des choix'
+      en: 'Empowering girls with knowledge, rights, and choices',
+      fr: 'Autonomiser les filles avec des connaissances, des droits et des choix'
     },
     tagColor: 'bg-amber-100 text-amber-700',
     accentBg: 'bg-amber-50',
     accentText: 'text-amber-600',
     hero: new URL('../assets/programs/sexual.jpeg', import.meta.url).href,
     overview: {
-      en: 'Through peer education and school clubs, we create safe spaces where girls learn about their bodies, rights, and choices. Our comprehensive sexuality education program addresses physical health, emotional wellbeing, and gender-based violence prevention.',
-      fr: 'Grâce à l\'éducation par les pairs et aux clubs scolaires, nous créons des espaces sûrs où les filles apprennent sur leur corps, leurs droits et leurs choix. Notre programme complet d\'éducation à la sexualité aborde la santé physique, le bien-être émotionnel et la prévention de la violence basée sur le genre.'
+      en: 'Many girls lack access to accurate information about their bodies and health. The Academy provides age-appropriate education on reproductive health, prevention of early pregnancy, gender-based violence awareness, bodily autonomy and rights, and healthy relationships. Girls also learn how to access youth-friendly health services in their communities.',
+      fr: 'Beaucoup de filles n\'ont pas accès à des informations précises sur leur corps et leur santé. L\'Académie fournit une éducation adaptée à l\'âge sur la santé reproductive, la prévention de la grossesse précoce, la sensibilisation à la violence basée sur le genre, l\'autonomie corporelle et les droits, et les relations saines.'
     },
     objectives: {
       en: [
-        'Provide age-appropriate comprehensive sexuality education',
-        'Prevent early pregnancy and sexually transmitted infections',
-        'Combat gender-based violence and harmful practices',
-        'Empower girls to make informed decisions about their bodies'
+        'Provide age-appropriate comprehensive SRHR education',
+        'Prevent early pregnancy and gender-based violence through awareness',
+        'Empower girls with knowledge of their bodily autonomy and rights',
+        'Connect girls to youth-friendly health services in their communities'
       ],
       fr: [
-        'Fournir une éducation sexuelle complète adaptée à l\'âge',
-        'Prévenir les grossesses précoces et les infections sexuellement transmissibles',
-        'Combattre la violence basée sur le genre et les pratiques néfastes',
-        'Autonomiser les filles pour prendre des décisions éclairées sur leur corps'
+        'Fournir une éducation SDSR complète adaptée à l\'âge',
+        'Prévenir la grossesse précoce et la violence basée sur le genre par la sensibilisation',
+        'Autonomiser les filles avec la connaissance de leur autonomie corporelle et de leurs droits',
+        'Connecter les filles aux services de santé adaptés aux jeunes dans leurs communautés'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Peer Education',
-          description: 'Train girls as peer educators on SRHR topics'
-        },
-        {
-          title: 'School-Based Clubs',
-          description: 'Safe spaces for discussion, support, and learning'
-        },
-        {
-          title: 'Health Services Access',
-          description: 'Link girls to youth-friendly health services and counseling'
-        },
-        {
-          title: 'GBV Prevention',
-          description: 'Workshops on consent, boundaries, and reporting mechanisms'
-        }
+        { title: 'Reproductive Health Education', description: 'Comprehensive, age-appropriate lessons on puberty, reproductive health, and sexual wellbeing' },
+        { title: 'GBV Awareness & Prevention', description: 'Workshops on recognizing, preventing, and responding to gender-based violence and harmful practices' },
+        { title: 'Bodily Autonomy & Rights', description: 'Sessions on consent, healthy relationships, personal boundaries, and the right to say no' },
+        { title: 'Health Services Linkages', description: 'Referrals and guidance on accessing youth-friendly health services and counseling' }
       ],
       fr: [
-        {
-          title: 'Éducation par les Pairs',
-          description: 'Former les filles comme éducatrices de pairs sur les sujets de DSSR'
-        },
-        {
-          title: 'Clubs Scolaires',
-          description: 'Espaces sûrs pour la discussion, le soutien et l\'apprentissage'
-        },
-        {
-          title: 'Accès aux Services de Santé',
-          description: 'Lier les filles aux services de santé adaptés aux jeunes et au conseil'
-        },
-        {
-          title: 'Prévention de la VBG',
-          description: 'Ateliers sur le consentement, les limites et les mécanismes de signalement'
-        }
+        { title: 'Éducation à la Santé Reproductive', description: 'Cours complets et adaptés à l\'âge sur la puberté, la santé reproductive et le bien-être sexuel' },
+        { title: 'Sensibilisation et Prévention de la VBG', description: 'Ateliers sur la reconnaissance, la prévention et la réponse à la violence basée sur le genre et aux pratiques néfastes' },
+        { title: 'Autonomie Corporelle et Droits', description: 'Sessions sur le consentement, les relations saines, les limites personnelles et le droit de dire non' },
+        { title: 'Liens avec les Services de Santé', description: 'Références et conseils pour accéder aux services de santé et aux conseils adaptés aux jeunes' }
       ]
     },
     impact: {
       en: [
-        { value: '5,000+', label: 'Girls Educated' },
+        { value: '5,000+', label: 'Girls Educated on SRHR' },
         { value: '60%', label: 'Reduction in Teen Pregnancy' },
         { value: '95%', label: 'Know How to Access Services' }
       ],
       fr: [
-        { value: '5 000+', label: 'Filles Éduquées' },
+        { value: '5 000+', label: 'Filles Éduquées sur le SDSR' },
         { value: '60%', label: 'Réduction des Grossesses Adolescentes' },
         { value: '95%', label: 'Savent Comment Accéder aux Services' }
       ]
     }
   },
 
+  // ══════════════════════════════════════════
+  // PROGRAM 3: LAND RESTORATION & CLIMATE
+  // ══════════════════════════════════════════
+
   'program-ruzizi': {
     emoji: '🌱',
     category: { en: 'Climate & Environment', fr: 'Climat et Environnement' },
-    title: { en: 'Ruzizi Plain Greening Project', fr: 'Projet de Verdissement de la Plaine de Ruzizi' },
+    title: { en: 'Ruzizi Greening Project', fr: 'Projet de Verdissement de Ruzizi' },
     subtitle: {
-      en: 'Women-led land restoration and agroforestry',
-      fr: 'Restauration des terres dirigée par les femmes et agroforesterie'
+      en: 'Community-led restoration of the Ruzizi Plain landscape',
+      fr: 'Restauration communautaire du paysage de la Plaine de Ruzizi'
     },
     tagColor: 'bg-green-100 text-green-700',
     accentBg: 'bg-green-50',
     accentText: 'text-green-600',
     hero: new URL('../assets/programs/ruzizi.jpeg', import.meta.url).href,
     overview: {
-      en: 'Women-led cooperatives establish nurseries, plant agroforestry trees, and adopt climate-smart farming practices to restore degraded lands in the Ruzizi Plain. This project combines environmental restoration with economic empowerment and food security.',
-      fr: 'Des coopératives dirigées par des femmes établissent des pépinières, plantent des arbres agroforestiers et adoptent des pratiques agricoles intelligentes face au climat pour restaurer les terres dégradées dans la Plaine de Ruzizi. Ce projet combine restauration environnementale avec autonomisation économique et sécurité alimentaire.'
+      en: 'Women Concern leads the Ruzizi Greening Project, a flagship landscape restoration initiative focused on the Ruzizi Plain in Eastern DRC. The project works with communities to restore ecosystems while strengthening climate-resilient livelihoods, particularly for women farmers and rural households. Women\'s cooperatives are supported to adopt regenerative agricultural practices, establish agroforestry nurseries, and develop green enterprises.',
+      fr: 'Women Concern dirige le Projet de Verdissement de Ruzizi, une initiative phare de restauration des paysages axée sur la Plaine de Ruzizi en RDC orientale. Le projet travaille avec les communautés pour restaurer les écosystèmes tout en renforçant les moyens de subsistance résilients au climat, particulièrement pour les femmes agricultrices.'
     },
     objectives: {
       en: [
-        'Restore degraded agricultural lands through tree planting',
-        'Improve soil fertility and water retention',
-        'Increase agricultural productivity and food security',
-        'Generate income through agroforestry products'
+        'Restore degraded ecosystems through agroforestry and community tree planting',
+        'Strengthen climate-resilient livelihoods for women farmers',
+        'Establish community tree nurseries managed by women\'s cooperatives',
+        'Promote soil conservation, watershed protection, and regenerative horticulture'
       ],
       fr: [
-        'Restaurer les terres agricoles dégradées par la plantation d\'arbres',
-        'Améliorer la fertilité des sols et la rétention d\'eau',
-        'Augmenter la productivité agricole et la sécurité alimentaire',
-        'Générer des revenus grâce aux produits agroforestiers'
+        'Restaurer les écosystèmes dégradés par l\'agroforesterie et la plantation communautaire d\'arbres',
+        'Renforcer les moyens de subsistance résilients au climat pour les femmes agricultrices',
+        'Établir des pépinières communautaires gérées par les coopératives de femmes',
+        'Promouvoir la conservation des sols, la protection des bassins versants et l\'horticulture régénérative'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Tree Nurseries',
-          description: 'Women establish and manage tree nurseries with indigenous species'
-        },
-        {
-          title: 'Agroforestry Training',
-          description: 'Integrate trees with crops for improved yields and soil health'
-        },
-        {
-          title: 'Climate-Smart Agriculture',
-          description: 'Conservation farming, composting, and water management techniques'
-        },
-        {
-          title: 'Value Chain Development',
-          description: 'Market linkages for fruits, timber, and non-timber forest products'
-        }
+        { title: 'Agroforestry & Tree Planting', description: 'Community tree planting campaigns integrating agroforestry with food crop production' },
+        { title: 'Community Tree Nurseries', description: 'Women\'s cooperatives establish and manage nurseries using indigenous species' },
+        { title: 'Soil & Water Conservation', description: 'Training in conservation farming, composting, and watershed protection practices' },
+        { title: 'Regenerative Horticulture', description: 'Women-led regenerative vegetable and food production using organic techniques' }
       ],
       fr: [
-        {
-          title: 'Pépinières d\'Arbres',
-          description: 'Les femmes établissent et gèrent des pépinières d\'arbres avec des espèces indigènes'
-        },
-        {
-          title: 'Formation en Agroforesterie',
-          description: 'Intégrer les arbres avec les cultures pour améliorer les rendements et la santé des sols'
-        },
-        {
-          title: 'Agriculture Intelligente Face au Climat',
-          description: 'Agriculture de conservation, compostage et techniques de gestion de l\'eau'
-        },
-        {
-          title: 'Développement de la Chaîne de Valeur',
-          description: 'Liens de marché pour les fruits, le bois et les produits forestiers non ligneux'
-        }
+        { title: 'Agroforesterie et Plantation d\'Arbres', description: 'Campagnes communautaires de plantation d\'arbres intégrant l\'agroforesterie avec la production alimentaire' },
+        { title: 'Pépinières Communautaires', description: 'Les coopératives de femmes établissent et gèrent des pépinières avec des espèces indigènes' },
+        { title: 'Conservation des Sols et de l\'Eau', description: 'Formation en agriculture de conservation, compostage et pratiques de protection des bassins versants' },
+        { title: 'Horticulture Régénérative', description: 'Production végétale et alimentaire régénérative dirigée par des femmes utilisant des techniques biologiques' }
       ]
     },
     impact: {
       en: [
-        { value: '200K+', label: 'Trees Planted' },
-        { value: '500', label: 'Hectares Restored' },
-        { value: '1,000+', label: 'Women Farmers' }
+        { value: '12K+', label: 'Trees Planted & Monitored' },
+        { value: '8', label: 'Tree Nurseries by Women\'s Groups' },
+        { value: '1,000+', label: 'Women Farmers Engaged' }
       ],
       fr: [
-        { value: '200K+', label: 'Arbres Plantés' },
-        { value: '500', label: 'Hectares Restaurés' },
-        { value: '1 000+', label: 'Femmes Agricultrices' }
+        { value: '12K+', label: 'Arbres Plantés et Surveillés' },
+        { value: '8', label: 'Pépinières par des Groupes de Femmes' },
+        { value: '1 000+', label: 'Femmes Agricultrices Engagées' }
       ]
     }
   },
@@ -840,243 +597,175 @@ export const programsData = {
   'program-jiko': {
     emoji: '🔥',
     category: { en: 'Climate & Environment', fr: 'Climat et Environnement' },
-    title: { en: 'Jiko Life: Family & Forest', fr: 'Jiko Life : Famille et Forêt' },
+    title: { en: 'Clean Cooking Solutions', fr: 'Solutions de Cuisine Propre' },
     subtitle: {
-      en: 'Clean cookstoves for health and forests',
-      fr: 'Cuisinières propres pour la santé et les forêts'
+      en: 'Improved cookstoves for forests, health, and livelihoods',
+      fr: 'Cuisinières améliorées pour les forêts, la santé et les moyens de subsistance'
     },
     tagColor: 'bg-green-100 text-green-700',
     accentBg: 'bg-green-50',
     accentText: 'text-green-600',
     hero: new URL('../assets/programs/jiko.jpeg', import.meta.url).href,
     overview: {
-      en: 'Jiko Life promotes improved cookstoves that reduce charcoal use by 60%, cutting indoor air pollution and deforestation while creating sustainable income for local producers. Women are trained to produce and market these stoves.',
-      fr: 'Jiko Life promeut des cuisinières améliorées qui réduisent l\'utilisation de charbon de bois de 60%, réduisant la pollution de l\'air intérieur et la déforestation tout en créant des revenus durables pour les producteurs locaux. Les femmes sont formées pour produire et commercialiser ces cuisinières.'
+      en: 'Traditional cooking methods rely heavily on firewood, contributing to deforestation and indoor air pollution. Through GLFx Kivu, Women Concern promotes clean cooking solutions that combine environmental protection, indigenous knowledge, and livelihood opportunities. The program trains communities to produce improved cookstoves locally, promoting indigenous knowledge in sustainable cooking practices and supporting artisans to transform cookstove production into income-generating activities.',
+      fr: 'Les méthodes de cuisine traditionnelles dépendent fortement du bois de chauffe, contribuant à la déforestation et à la pollution de l\'air intérieur. À travers GLFx Kivu, Women Concern promeut des solutions de cuisine propre combinant protection environnementale, savoirs indigènes et opportunités de moyens de subsistance.'
     },
     objectives: {
       en: [
-        'Reduce household charcoal consumption and deforestation',
-        'Improve indoor air quality and family health',
-        'Create income opportunities in cookstove production',
-        'Build awareness of climate change and clean energy'
+        'Reduce household firewood and charcoal consumption to protect forests',
+        'Improve indoor air quality and family health outcomes',
+        'Train communities to produce improved cookstoves locally',
+        'Support artisans to transform cookstove production into income-generating activities'
       ],
       fr: [
-        'Réduire la consommation de charbon de bois des ménages et la déforestation',
-        'Améliorer la qualité de l\'air intérieur et la santé familiale',
-        'Créer des opportunités de revenus dans la production de cuisinières',
-        'Sensibiliser au changement climatique et à l\'énergie propre'
+        'Réduire la consommation de bois de chauffe et de charbon des ménages pour protéger les forêts',
+        'Améliorer la qualité de l\'air intérieur et les résultats sanitaires des familles',
+        'Former les communautés à produire des cuisinières améliorées localement',
+        'Soutenir les artisans pour transformer la production de cuisinières en activités génératrices de revenus'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Stove Production Training',
-          description: 'Women learn to manufacture energy-efficient cookstoves'
-        },
-        {
-          title: 'Household Distribution',
-          description: 'Subsidized stoves provided to vulnerable families'
-        },
-        {
-          title: 'Marketing Support',
-          description: 'Business development for women producers and retailers'
-        },
-        {
-          title: 'Environmental Education',
-          description: 'Community awareness on deforestation and clean cooking'
-        }
+        { title: 'Cookstove Production Training', description: 'Hands-on training for community artisans, particularly indigenous populations, to produce energy-efficient stoves' },
+        { title: 'Indigenous Knowledge Integration', description: 'Promote and preserve traditional sustainable cooking knowledge alongside improved technologies' },
+        { title: 'Community Distribution', description: 'Distribute improved cookstoves to households, especially the most vulnerable families' },
+        { title: 'Environmental Awareness', description: 'Community campaigns linking deforestation, cooking practices, and climate change' }
       ],
       fr: [
-        {
-          title: 'Formation à la Production de Cuisinières',
-          description: 'Les femmes apprennent à fabriquer des cuisinières économes en énergie'
-        },
-        {
-          title: 'Distribution aux Ménages',
-          description: 'Cuisinières subventionnées fournies aux familles vulnérables'
-        },
-        {
-          title: 'Soutien au Marketing',
-          description: 'Développement d\'entreprise pour les femmes productrices et détaillantes'
-        },
-        {
-          title: 'Éducation Environnementale',
-          description: 'Sensibilisation communautaire sur la déforestation et la cuisine propre'
-        }
+        { title: 'Formation à la Production de Cuisinières', description: 'Formation pratique pour les artisans communautaires, notamment les populations indigènes, pour produire des poêles économes en énergie' },
+        { title: 'Intégration des Savoirs Indigènes', description: 'Promouvoir et préserver les savoirs traditionnels en cuisine durable aux côtés des technologies améliorées' },
+        { title: 'Distribution Communautaire', description: 'Distribuer des cuisinières améliorées aux ménages, en particulier les familles les plus vulnérables' },
+        { title: 'Sensibilisation Environnementale', description: 'Campagnes communautaires reliant déforestation, pratiques culinaires et changement climatique' }
       ]
     },
     impact: {
       en: [
         { value: '8,000+', label: 'Stoves Distributed' },
-        { value: '60%', label: 'Reduction in Charcoal Use' },
-        { value: '200+', label: 'Women Producers' }
+        { value: '60%', label: 'Reduction in Firewood Use' },
+        { value: '200+', label: 'Artisan Producers Supported' }
       ],
       fr: [
         { value: '8 000+', label: 'Cuisinières Distribuées' },
-        { value: '60%', label: 'Réduction de l\'Utilisation de Charbon' },
-        { value: '200+', label: 'Femmes Productrices' }
+        { value: '60%', label: 'Réduction de l\'Utilisation de Bois' },
+        { value: '200+', label: 'Artisans Producteurs Soutenus' }
       ]
     }
   },
 
-  'program-peace-plot': {
-    emoji: '🕊️',
-    category: { en: 'Climate & Peace', fr: 'Climat et Paix' },
-    title: { en: 'Peace Plot Project', fr: 'Projet de Parcelle de Paix' },
+  'program-green-enterprise': {
+    emoji: '♻️',
+    category: { en: 'Climate & Environment', fr: 'Climat et Environnement' },
+    title: { en: 'Green Enterprise & Regenerative Agriculture', fr: 'Entreprise Verte et Agriculture Régénérative' },
     subtitle: {
-      en: 'Cultivating peace through shared farming',
-      fr: 'Cultiver la paix à travers l\'agriculture partagée'
+      en: 'Environmental restoration generating sustainable livelihoods',
+      fr: 'Restauration environnementale générant des moyens de subsistance durables'
     },
     tagColor: 'bg-green-100 text-green-700',
     accentBg: 'bg-green-50',
     accentText: 'text-green-600',
     hero: new URL('../assets/programs/peace.jpeg', import.meta.url).href,
     overview: {
-      en: 'Communities cultivate shared farmland, practice climate-smart farming, and build trust — sowing seeds of both peace and prosperity. Former combatants, displaced persons, and host communities work together on peace plots.',
-      fr: 'Les communautés cultivent des terres agricoles partagées, pratiquent une agriculture intelligente face au climat et construisent la confiance — semant des graines de paix et de prospérité. Les anciens combattants, les personnes déplacées et les communautés d\'accueil travaillent ensemble sur des parcelles de paix.'
+      en: 'Environmental restoration can generate new economic opportunities. The program supports women and youth to develop green enterprises linked to sustainable landscape management, including agroforestry businesses, tree nursery enterprises, climate-resilient horticulture, and organic food production. Through training, mentorship, and financial inclusion initiatives, communities transform restoration efforts into sustainable livelihoods.',
+      fr: 'La restauration environnementale peut générer de nouvelles opportunités économiques. Le programme soutient les femmes et les jeunes pour développer des entreprises vertes liées à la gestion durable des paysages, incluant les entreprises agroforestières, les pépinières d\'arbres, l\'horticulture résiliente au climat et la production alimentaire biologique.'
     },
     objectives: {
       en: [
-        'Use agriculture as a platform for peacebuilding and reconciliation',
-        'Generate food security and income for conflict-affected communities',
-        'Build social cohesion between formerly divided groups',
-        'Promote sustainable farming and environmental stewardship'
+        'Support women and youth to develop green enterprises linked to restoration',
+        'Promote regenerative agriculture practices that restore soil health',
+        'Build green entrepreneurship skills and market access',
+        'Connect restoration activities to financial inclusion through savings groups'
       ],
       fr: [
-        'Utiliser l\'agriculture comme plateforme pour la consolidation de la paix et la réconciliation',
-        'Générer la sécurité alimentaire et des revenus pour les communautés touchées par les conflits',
-        'Construire la cohésion sociale entre des groupes autrefois divisés',
-        'Promouvoir l\'agriculture durable et la gestion environnementale'
+        'Soutenir les femmes et les jeunes pour développer des entreprises vertes liées à la restauration',
+        'Promouvoir des pratiques agricoles régénératives qui restaurent la santé des sols',
+        'Développer les compétences en entrepreneuriat vert et l\'accès aux marchés',
+        'Connecter les activités de restauration à l\'inclusion financière par les groupes d\'épargne'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Shared Farming',
-          description: 'Mixed groups work together on communal agricultural plots'
-        },
-        {
-          title: 'Dialogue Sessions',
-          description: 'Facilitated conversations on reconciliation and shared futures'
-        },
-        {
-          title: 'Harvest Sharing',
-          description: 'Equitable distribution of produce and profits among participants'
-        },
-        {
-          title: 'Community Events',
-          description: 'Celebrations and ceremonies to strengthen social bonds'
-        }
+        { title: 'Green Enterprise Training', description: 'Business development training in agroforestry, tree nurseries, organic food production, and restoration services' },
+        { title: 'Regenerative Agriculture', description: 'Agroecological farming, organic soil management, crop diversification, and water conservation' },
+        { title: 'Women\'s Land Rights', description: 'Awareness and advocacy on women\'s land rights and gender-inclusive land governance' },
+        { title: 'Youth Climate Leadership', description: 'Engaging young people in restoration, climate advocacy, and green entrepreneurship through GLFx Kivu' }
       ],
       fr: [
-        {
-          title: 'Agriculture Partagée',
-          description: 'Des groupes mixtes travaillent ensemble sur des parcelles agricoles communautaires'
-        },
-        {
-          title: 'Sessions de Dialogue',
-          description: 'Conversations facilitées sur la réconciliation et les avenirs partagés'
-        },
-        {
-          title: 'Partage des Récoltes',
-          description: 'Distribution équitable des produits et des bénéfices entre les participants'
-        },
-        {
-          title: 'Événements Communautaires',
-          description: 'Célébrations et cérémonies pour renforcer les liens sociaux'
-        }
+        { title: 'Formation en Entreprise Verte', description: 'Formation en développement d\'entreprise en agroforesterie, pépinières, production alimentaire biologique et services de restauration' },
+        { title: 'Agriculture Régénérative', description: 'Agriculture agroécologique, gestion biologique des sols, diversification des cultures et conservation de l\'eau' },
+        { title: 'Droits Fonciers des Femmes', description: 'Sensibilisation et plaidoyer sur les droits fonciers des femmes et la gouvernance foncière inclusive en matière de genre' },
+        { title: 'Leadership Climatique des Jeunes', description: 'Engager les jeunes dans la restauration, le plaidoyer climatique et l\'entrepreneuriat vert à travers GLFx Kivu' }
       ]
     },
     impact: {
       en: [
-        { value: '25', label: 'Peace Plots Established' },
-        { value: '600+', label: 'Community Members' },
-        { value: '85%', label: 'Report Improved Relations' }
+        { value: '500+', label: 'Hectares Under Restoration' },
+        { value: '18', label: 'Women\'s Cooperatives Supported' },
+        { value: '100+', label: 'Green Enterprises Launched' }
       ],
       fr: [
-        { value: '25', label: 'Parcelles de Paix Établies' },
-        { value: '600+', label: 'Membres de la Communauté' },
-        { value: '85%', label: 'Signalent des Relations Améliorées' }
+        { value: '500+', label: 'Hectares en Restauration' },
+        { value: '18', label: 'Coopératives de Femmes Soutenues' },
+        { value: '100+', label: 'Entreprises Vertes Lancées' }
       ]
     }
   },
 
+  // ══════════════════════════════════════════
+  // PROGRAM 4: PEACEBUILDING & DISARMAMENT
+  // ══════════════════════════════════════════
+
   'program-salw': {
-    emoji: '🔫',
+    emoji: '🛡️',
     category: { en: 'Peace & Security', fr: 'Paix et Sécurité' },
-    title: { en: 'Combating Small Arms & Light Weapons', fr: 'Lutte contre les Armes Légères et de Petit Calibre' },
+    title: { en: 'Reducing the Spread of Small Arms (SALW)', fr: 'Réduire la Prolifération des Armes Légères (ALPC)' },
     subtitle: {
-      en: 'Community-led disarmament advocacy',
-      fr: 'Plaidoyer pour le désarmement dirigé par la communauté'
+      en: 'Community-owned security models led by women',
+      fr: 'Modèles de sécurité communautaires dirigés par les femmes'
     },
     tagColor: 'bg-blue-100 text-blue-700',
     accentBg: 'bg-blue-50',
     accentText: 'text-blue-600',
     hero: new URL('../assets/programs/Combating.jpeg', import.meta.url).href,
     overview: {
-      en: 'Community awareness campaigns on small arms proliferation, advocacy with local leaders, and links to national/international disarmament frameworks. Women lead grassroots movements to reduce weapons circulation.',
-      fr: 'Campagnes de sensibilisation communautaire sur la prolifération des armes légères, plaidoyer auprès des dirigeants locaux et liens avec les cadres de désarmement nationaux/internationaux. Les femmes dirigent des mouvements de base pour réduire la circulation des armes.'
+      en: 'The widespread presence of Small Arms and Light Weapons (SALW) fuels fear, instability, and cycles of violence — disproportionately affecting women and youth. WOCO implements a community-owned security model that places women at the forefront through Community Protection Brigades, Women-Led Safety Networks, and Collaborative Security Platforms that transform disarmament from a top-down process into a community-driven system.',
+      fr: 'La présence généralisée des Armes Légères et de Petit Calibre (ALPC) alimente la peur, l\'instabilité et les cycles de violence — affectant de manière disproportionnée les femmes et les jeunes. WOCO met en œuvre un modèle de sécurité communautaire qui place les femmes en première ligne.'
     },
     objectives: {
       en: [
-        'Raise awareness on the dangers of weapons proliferation',
-        'Mobilize communities to support disarmament efforts',
-        'Advocate for stricter weapons control policies',
-        'Link local action to national and international frameworks'
+        'Establish Community Protection Brigades with women, youth, and community leaders',
+        'Build Women-Led Safety Networks to identify risks and promote non-violent solutions',
+        'Create collaborative security platforms between communities and authorities',
+        'Transform disarmament into a community-driven, women-led process'
       ],
       fr: [
-        'Sensibiliser aux dangers de la prolifération des armes',
-        'Mobiliser les communautés pour soutenir les efforts de désarmement',
-        'Plaider pour des politiques de contrôle des armes plus strictes',
-        'Lier l\'action locale aux cadres nationaux et internationaux'
+        'Établir des Brigades de Protection Communautaire avec des femmes, des jeunes et des leaders communautaires',
+        'Construire des Réseaux de Sécurité Dirigés par les Femmes pour identifier les risques et promouvoir des solutions non violentes',
+        'Créer des plateformes de sécurité collaborative entre communautés et autorités',
+        'Transformer le désarmement en un processus communautaire dirigé par les femmes'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Community Sensitization',
-          description: 'Door-to-door campaigns and community meetings on weapons risks'
-        },
-        {
-          title: 'Women\'s Advocacy Networks',
-          description: 'Organize women to advocate for disarmament with local authorities'
-        },
-        {
-          title: 'Voluntary Surrender',
-          description: 'Support community-led voluntary weapons collection initiatives'
-        },
-        {
-          title: 'Policy Engagement',
-          description: 'Advocate for implementation of SALW control policies'
-        }
+        { title: 'Community Protection Brigades (CPBs)', description: 'Locally trained groups of women, youth, and leaders who lead awareness campaigns and monitor arms movements' },
+        { title: 'Women-Led Safety Networks', description: 'Organized women\'s groups identifying risks, influencing community norms, and promoting non-violent solutions' },
+        { title: 'Early Warning Systems', description: 'Community-based mechanisms to monitor and report suspicious arms movements to authorities' },
+        { title: 'Collaborative Security Platforms', description: 'Structured engagement between communities, local authorities, and security actors to co-produce safety' }
       ],
       fr: [
-        {
-          title: 'Sensibilisation Communautaire',
-          description: 'Campagnes de porte-à-porte et réunions communautaires sur les risques des armes'
-        },
-        {
-          title: 'Réseaux de Plaidoyer de Femmes',
-          description: 'Organiser les femmes pour plaider en faveur du désarmement auprès des autorités locales'
-        },
-        {
-          title: 'Remise Volontaire',
-          description: 'Soutenir les initiatives de collecte volontaire d\'armes dirigées par la communauté'
-        },
-        {
-          title: 'Engagement Politique',
-          description: 'Plaider pour la mise en œuvre des politiques de contrôle des ALPC'
-        }
+        { title: 'Brigades de Protection Communautaire (BPC)', description: 'Groupes formés localement de femmes, jeunes et leaders qui mènent des campagnes de sensibilisation et surveillent les mouvements d\'armes' },
+        { title: 'Réseaux de Sécurité Dirigés par les Femmes', description: 'Groupes organisés de femmes identifiant les risques, influençant les normes communautaires et promouvant des solutions non violentes' },
+        { title: 'Systèmes d\'Alerte Précoce', description: 'Mécanismes communautaires pour surveiller et signaler les mouvements suspects d\'armes aux autorités' },
+        { title: 'Plateformes de Sécurité Collaborative', description: 'Engagement structuré entre communautés, autorités locales et acteurs de sécurité pour co-produire la sûreté' }
       ]
     },
     impact: {
       en: [
-        { value: '50+', label: 'Communities Reached' },
+        { value: '50+', label: 'Communities Covered' },
         { value: '10,000+', label: 'People Sensitized' },
         { value: '300+', label: 'Weapons Surrendered' }
       ],
       fr: [
-        { value: '50+', label: 'Communautés Touchées' },
+        { value: '50+', label: 'Communautés Couvertes' },
         { value: '10 000+', label: 'Personnes Sensibilisées' },
         { value: '300+', label: 'Armes Rendues' }
       ]
@@ -1084,71 +773,47 @@ export const programsData = {
   },
 
   'program-dialogue': {
-    emoji: '💬',
+    emoji: '🕊️',
     category: { en: 'Peace & Security', fr: 'Paix et Sécurité' },
-    title: { en: 'Community Dialogue & Mediation', fr: 'Dialogue Communautaire et Médiation' },
+    title: { en: 'Women-Led Peace Dialogues', fr: 'Dialogues de Paix Dirigés par les Femmes' },
     subtitle: {
-      en: 'Building bridges through conversation',
-      fr: 'Construire des ponts à travers la conversation'
+      en: 'Permanent dialogue systems for conflict prevention and peacebuilding',
+      fr: 'Systèmes de dialogue permanents pour la prévention des conflits et la consolidation de la paix'
     },
     tagColor: 'bg-blue-100 text-blue-700',
     accentBg: 'bg-blue-50',
     accentText: 'text-blue-600',
     hero: new URL('../assets/programs/Dialogue.jpeg', import.meta.url).href,
     overview: {
-      en: 'Safe spaces for women and community members to discuss tensions, mediate disputes, and build mutual understanding. Our trained mediators facilitate constructive dialogue to prevent violence and promote peaceful coexistence.',
-      fr: 'Des espaces sûrs pour que les femmes et les membres de la communauté discutent des tensions, médient les différends et construisent une compréhension mutuelle. Nos médiateurs formés facilitent un dialogue constructif pour prévenir la violence et promouvoir la coexistence pacifique.'
+      en: 'Sustainable peace requires spaces where all voices are heard — and where women actively shape decisions. WOCO establishes inclusive and permanent dialogue systems including Community Dialogue Platforms, Women Mediators Circles, and Peace Labs — safe and innovative spaces where women and youth co-create solutions to emerging conflicts. The goal is to move from one-off dialogues to lasting peace infrastructures led by women.',
+      fr: 'La paix durable nécessite des espaces où toutes les voix sont entendues — et où les femmes façonnent activement les décisions. WOCO établit des systèmes de dialogue inclusifs et permanents incluant des Plateformes de Dialogue Communautaire, des Cercles de Médiatrices et des Laboratoires de Paix.'
     },
     objectives: {
       en: [
-        'Create safe spaces for open dialogue on community conflicts',
-        'Train women as peace mediators and conflict resolvers',
-        'Prevent escalation of disputes through early intervention',
-        'Strengthen community cohesion and trust'
+        'Create permanent Community Dialogue Platforms for conflict prevention and consensus-building',
+        'Train and support Women Mediators Circles as recognized community peace leaders',
+        'Establish Peace Labs as safe spaces for women and youth to co-create solutions',
+        'Build lasting peace infrastructure led by women rather than one-off interventions'
       ],
       fr: [
-        'Créer des espaces sûrs pour un dialogue ouvert sur les conflits communautaires',
-        'Former les femmes comme médiatrices de paix et résoluteurs de conflits',
-        'Prévenir l\'escalade des différends par une intervention précoce',
-        'Renforcer la cohésion et la confiance communautaires'
+        'Créer des Plateformes de Dialogue Communautaire permanentes pour la prévention des conflits',
+        'Former et soutenir des Cercles de Médiatrices comme leaders de paix communautaires reconnus',
+        'Établir des Laboratoires de Paix comme espaces sûrs pour les femmes et les jeunes',
+        'Construire une infrastructure de paix durable dirigée par les femmes'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Mediation Training',
-          description: 'Train women in conflict analysis, facilitation, and mediation skills'
-        },
-        {
-          title: 'Dialogue Forums',
-          description: 'Regular community meetings to address tensions and grievances'
-        },
-        {
-          title: 'Dispute Resolution',
-          description: 'Mediate land conflicts, family disputes, and community tensions'
-        },
-        {
-          title: 'Peace Committees',
-          description: 'Establish local peace committees with women\'s participation'
-        }
+        { title: 'Community Dialogue Platforms', description: 'Continuous spaces for conflict prevention, mediation, and consensus-building at community level' },
+        { title: 'Women Mediators Circles', description: 'Training and supporting women as recognized and skilled community mediators and peace leaders' },
+        { title: 'Peace Labs', description: 'Innovative, safe spaces where women and youth collaboratively develop solutions to emerging tensions' },
+        { title: 'Mediation & Dispute Resolution', description: 'Direct mediation of land conflicts, family disputes, and inter-community tensions' }
       ],
       fr: [
-        {
-          title: 'Formation en Médiation',
-          description: 'Former les femmes à l\'analyse des conflits, à la facilitation et aux compétences de médiation'
-        },
-        {
-          title: 'Forums de Dialogue',
-          description: 'Réunions communautaires régulières pour aborder les tensions et les griefs'
-        },
-        {
-          title: 'Résolution de Différends',
-          description: 'Médier les conflits fonciers, les différends familiaux et les tensions communautaires'
-        },
-        {
-          title: 'Comités de Paix',
-          description: 'Établir des comités de paix locaux avec la participation des femmes'
-        }
+        { title: 'Plateformes de Dialogue Communautaire', description: 'Espaces continus pour la prévention des conflits, la médiation et la construction du consensus au niveau communautaire' },
+        { title: 'Cercles de Médiatrices', description: 'Former et soutenir les femmes comme médiatrices et leaders de paix communautaires reconnues et compétentes' },
+        { title: 'Laboratoires de Paix', description: 'Espaces innovants et sûrs où les femmes et les jeunes développent collaborativement des solutions aux tensions émergentes' },
+        { title: 'Médiation et Résolution de Conflits', description: 'Médiation directe des conflits fonciers, des différends familiaux et des tensions intercommunautaires' }
       ]
     },
     impact: {
@@ -1165,329 +830,237 @@ export const programsData = {
     }
   },
 
-  'program-reintegration': {
-    emoji: '🔄',
+  'program-gbv-response': {
+    emoji: '💜',
     category: { en: 'Peace & Security', fr: 'Paix et Sécurité' },
-    title: { en: 'Reintegration of Ex-Combatants', fr: 'Réintégration des Ex-Combattants' },
+    title: { en: 'GBV Prevention & Survivor Support', fr: 'Prévention de la VBG et Soutien aux Survivantes' },
     subtitle: {
-      en: 'From weapons to livelihoods',
-      fr: 'Des armes aux moyens de subsistance'
-    },
-    tagColor: 'bg-blue-100 text-blue-700',
-    accentBg: 'bg-blue-50',
-    accentText: 'text-blue-600',
-    hero: new URL('../assets/programs/Reintegration.jpeg', import.meta.url).href,
-    overview: {
-      en: 'Using the UPG model, we support former combatants with psychosocial counseling, livelihood support, and skills training to facilitate peaceful reintegration into communities. Special focus on women ex-combatants and wives of former fighters.',
-      fr: 'En utilisant le modèle UPG, nous soutenons les anciens combattants avec des conseils psychosociaux, un soutien aux moyens de subsistance et une formation aux compétences pour faciliter la réintégration pacifique dans les communautés. Focus spécial sur les femmes ex-combattantes et les épouses d\'anciens combattants.'
-    },
-    objectives: {
-      en: [
-        'Facilitate successful reintegration of ex-combatants',
-        'Provide trauma healing and psychosocial support',
-        'Build sustainable livelihoods and economic independence',
-        'Promote community acceptance and reconciliation'
-      ],
-      fr: [
-        'Faciliter la réintégration réussie des ex-combattants',
-        'Fournir un soutien psychosocial et de guérison des traumatismes',
-        'Construire des moyens de subsistance durables et l\'indépendance économique',
-        'Promouvoir l\'acceptation communautaire et la réconciliation'
-      ]
-    },
-    activities: {
-      en: [
-        {
-          title: 'Trauma Counseling',
-          description: 'Individual and group therapy for PTSD and conflict-related trauma'
-        },
-        {
-          title: 'Vocational Training',
-          description: 'Skills development in agriculture, trades, and entrepreneurship'
-        },
-        {
-          title: 'Asset Provision',
-          description: 'Startup capital and tools for income-generating activities'
-        },
-        {
-          title: 'Community Sensitization',
-          description: 'Prepare communities to welcome and support returnees'
-        }
-      ],
-      fr: [
-        {
-          title: 'Conseil en Traumatisme',
-          description: 'Thérapie individuelle et de groupe pour le TSPT et les traumatismes liés aux conflits'
-        },
-        {
-          title: 'Formation Professionnelle',
-          description: 'Développement de compétences en agriculture, métiers et entrepreneuriat'
-        },
-        {
-          title: 'Provision d\'Actifs',
-          description: 'Capital de démarrage et outils pour les activités génératrices de revenus'
-        },
-        {
-          title: 'Sensibilisation Communautaire',
-          description: 'Préparer les communautés à accueillir et soutenir les personnes de retour'
-        }
-      ]
-    },
-    impact: {
-      en: [
-        { value: '450+', label: 'Ex-Combatants Supported' },
-        { value: '85%', label: 'Successfully Reintegrated' },
-        { value: '70%', label: 'Achieve Economic Stability' }
-      ],
-      fr: [
-        { value: '450+', label: 'Ex-Combattants Soutenus' },
-        { value: '85%', label: 'Réintégrés avec Succès' },
-        { value: '70%', label: 'Atteignent la Stabilité Économique' }
-      ]
-    }
-  },
-
-  'program-women-peace-leadership': {
-    emoji: '👩‍⚖️',
-    category: { en: 'Peace & Security', fr: 'Paix et Sécurité' },
-    title: { en: 'Women\'s Leadership in Peacebuilding', fr: 'Leadership des Femmes dans la Consolidation de la Paix' },
-    subtitle: {
-      en: 'Women at the peace table',
-      fr: 'Les femmes à la table de la paix'
+      en: 'Holistic, survivor-centered response to gender-based violence',
+      fr: 'Réponse holistique et centrée sur les survivantes à la violence basée sur le genre'
     },
     tagColor: 'bg-blue-100 text-blue-700',
     accentBg: 'bg-blue-50',
     accentText: 'text-blue-600',
     hero: new URL('../assets/programs/Leadership.jpeg', import.meta.url).href,
     overview: {
-      en: 'Women trained in conflict transformation, leadership, and local governance to influence decisions and promote justice and inclusion. We support women\'s participation in peace processes at all levels.',
-      fr: 'Femmes formées à la transformation des conflits, au leadership et à la gouvernance locale pour influencer les décisions et promouvoir la justice et l\'inclusion. Nous soutenons la participation des femmes aux processus de paix à tous les niveaux.'
+      en: 'Gender-based violence remains one of the most pervasive consequences of conflict. WOCO\'s response is holistic, survivor-centered, and transformative through an Integrated Survivor Support Model. Women Empowerment Hubs provide psychosocial support, legal services, and economic empowerment. Mobile Outreach Units bring services to remote areas. Survivor-to-Leader Pathways support survivors to become peer mentors and advocates.',
+      fr: 'La violence basée sur le genre reste l\'une des conséquences les plus répandues des conflits. La réponse de WOCO est holistique, centrée sur les survivantes et transformatrice à travers un Modèle de Soutien Intégré aux Survivantes.'
     },
     objectives: {
       en: [
-        'Increase women\'s participation in peace processes and governance',
-        'Build women\'s capacity as peace leaders and advocates',
-        'Amplify women\'s voices in decision-making spaces',
-        'Promote gender-inclusive peace and security policies'
+        'Provide psychosocial support and trauma-informed care to GBV survivors',
+        'Offer legal orientation and referral services for access to justice',
+        'Support economic empowerment of survivors through skills and savings groups',
+        'Engage men, boys, and community leaders to transform harmful norms'
       ],
       fr: [
-        'Augmenter la participation des femmes aux processus de paix et à la gouvernance',
-        'Renforcer la capacité des femmes comme leaders de paix et défenseurs',
-        'Amplifier les voix des femmes dans les espaces de prise de décision',
-        'Promouvoir des politiques de paix et de sécurité inclusives sur le genre'
+        'Fournir un soutien psychosocial et des soins sensibles au traumatisme aux survivantes de VBG',
+        'Offrir une orientation juridique et des services de référence pour l\'accès à la justice',
+        'Soutenir l\'autonomisation économique des survivantes par les compétences et les groupes d\'épargne',
+        'Engager les hommes, les garçons et les leaders communautaires pour transformer les normes néfastes'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Leadership Training',
-          description: 'Develop skills in advocacy, negotiation, and public speaking'
-        },
-        {
-          title: 'Political Participation',
-          description: 'Support women candidates for local governance positions'
-        },
-        {
-          title: 'Peace Networks',
-          description: 'Build coalitions of women peace advocates across territories'
-        },
-        {
-          title: 'Policy Advocacy',
-          description: 'Campaign for implementation of UNSCR 1325 and gender policies'
-        }
+        { title: 'Women Empowerment Hubs', description: 'Safe, accessible spaces where survivors receive psychosocial support, legal orientation, and economic empowerment' },
+        { title: 'Mobile Outreach Units', description: 'Services brought to remote, displaced, and underserved populations who cannot access hubs directly' },
+        { title: 'Survivor-to-Leader Pathways', description: 'Support survivors to heal, rebuild, and become peer mentors, advocates, and leaders in prevention' },
+        { title: 'Community Norms Transformation', description: 'Engaging men, boys, and leaders to challenge harmful norms and strengthen community protection systems' }
       ],
       fr: [
-        {
-          title: 'Formation au Leadership',
-          description: 'Développer des compétences en plaidoyer, négociation et prise de parole en public'
-        },
-        {
-          title: 'Participation Politique',
-          description: 'Soutenir les candidates femmes aux postes de gouvernance locale'
-        },
-        {
-          title: 'Réseaux de Paix',
-          description: 'Construire des coalitions de femmes défenseures de la paix à travers les territoires'
-        },
-        {
-          title: 'Plaidoyer Politique',
-          description: 'Campagne pour la mise en œuvre de la RCSNU 1325 et des politiques de genre'
-        }
+        { title: 'Centres d\'Autonomisation des Femmes', description: 'Espaces sûrs et accessibles où les survivantes reçoivent un soutien psychosocial, une orientation juridique et une autonomisation économique' },
+        { title: 'Unités de Sensibilisation Mobile', description: 'Services apportés aux populations éloignées, déplacées et mal desservies qui ne peuvent pas accéder directement aux centres' },
+        { title: 'Parcours de Survivante à Leader', description: 'Soutenir les survivantes pour guérir, se reconstruire et devenir mentors de pairs, défenseures et leaders dans la prévention' },
+        { title: 'Transformation des Normes Communautaires', description: 'Engager les hommes, garçons et leaders pour remettre en question les normes néfastes et renforcer les systèmes de protection' }
       ]
     },
     impact: {
       en: [
-        { value: '300+', label: 'Women Leaders Trained' },
-        { value: '45', label: 'Elected to Local Councils' },
-        { value: '20', label: 'Peace Coalitions Formed' }
+        { value: '500+', label: 'Survivors Supported' },
+        { value: '5', label: 'Women Empowerment Hubs' },
+        { value: '85%', label: 'Report Improved Wellbeing' }
       ],
       fr: [
-        { value: '300+', label: 'Femmes Leaders Formées' },
-        { value: '45', label: 'Élues aux Conseils Locaux' },
-        { value: '20', label: 'Coalitions de Paix Formées' }
+        { value: '500+', label: 'Survivantes Soutenues' },
+        { value: '5', label: 'Centres d\'Autonomisation des Femmes' },
+        { value: '85%', label: 'Signalent un Mieux-Être Amélioré' }
       ]
     }
   },
 
-  'program-action-research': {
-    emoji: '🔍',
-    category: { en: 'Research & Learning', fr: 'Recherche et Apprentissage' },
-    title: { en: 'Action Research & Knowledge Generation', fr: 'Recherche-Action et Génération de Connaissances' },
+  'program-reintegration': {
+    emoji: '🔄',
+    category: { en: 'Peace & Security', fr: 'Paix et Sécurité' },
+    title: { en: 'Reintegration Through Inclusive Recovery', fr: 'Réintégration par une Reprise Inclusive' },
     subtitle: {
-      en: 'Evidence for grassroots advocacy',
-      fr: 'Preuves pour le plaidoyer de base'
+      en: 'Community-centered reintegration rebuilding trust and livelihoods',
+      fr: 'Réintégration centrée sur la communauté reconstruisant la confiance et les moyens de subsistance'
+    },
+    tagColor: 'bg-blue-100 text-blue-700',
+    accentBg: 'bg-blue-50',
+    accentText: 'text-blue-600',
+    hero: new URL('../assets/programs/Reintegration.jpeg', import.meta.url).href,
+    overview: {
+      en: 'Reintegration is not only about individuals — it is about rebuilding trust and restoring social balance. WOCO applies a community-centered and gender-inclusive reintegration model with a Dual Reintegration Approach supporting both ex-combatants and conflict-affected women, Community Acceptance Dialogues facilitated by women leaders, and Economic Reintegration Ecosystems connecting beneficiaries to cooperatives and markets.',
+      fr: 'La réintégration ne concerne pas seulement les individus — elle implique la reconstruction de la confiance et la restauration de l\'équilibre social. WOCO applique un modèle de réintégration centré sur la communauté et inclusif en matière de genre.'
+    },
+    objectives: {
+      en: [
+        'Support both ex-combatants and conflict-affected women through the Dual Reintegration Approach',
+        'Facilitate Community Acceptance Dialogues led by women to rebuild trust',
+        'Connect reintegrated individuals to cooperatives, savings groups, and local markets',
+        'Ensure reintegration is socially embedded, economically viable, and community-led'
+      ],
+      fr: [
+        'Soutenir à la fois les ex-combattants et les femmes touchées par les conflits par l\'Approche de Réintégration Duale',
+        'Faciliter des Dialogues d\'Acceptation Communautaire dirigés par les femmes pour reconstruire la confiance',
+        'Connecter les individus réintégrés aux coopératives, groupes d\'épargne et marchés locaux',
+        'Assurer que la réintégration est socialement enracinée, économiquement viable et dirigée par la communauté'
+      ]
+    },
+    activities: {
+      en: [
+        { title: 'Dual Reintegration Approach', description: 'Simultaneous support for ex-combatants and conflict-affected women through livelihoods, psychosocial care, and economic inclusion' },
+        { title: 'Community Acceptance Dialogues', description: 'Women-led facilitated dialogues to rebuild social trust, accountability, and peaceful coexistence' },
+        { title: 'Economic Reintegration', description: 'Connection to cooperatives, savings groups, vocational training, and local market opportunities' },
+        { title: 'Psychosocial Recovery', description: 'Trauma counseling, group therapy, and mental health support for both ex-combatants and survivors' }
+      ],
+      fr: [
+        { title: 'Approche de Réintégration Duale', description: 'Soutien simultané aux ex-combattants et aux femmes touchées par les conflits par les moyens de subsistance et l\'inclusion économique' },
+        { title: 'Dialogues d\'Acceptation Communautaire', description: 'Dialogues facilités par les femmes pour reconstruire la confiance sociale, la responsabilité et la coexistence pacifique' },
+        { title: 'Réintégration Économique', description: 'Connexion aux coopératives, groupes d\'épargne, formation professionnelle et opportunités de marché local' },
+        { title: 'Rétablissement Psychosocial', description: 'Conseil en traumatisme, thérapie de groupe et soutien en santé mentale pour les ex-combattants et les survivantes' }
+      ]
+    },
+    impact: {
+      en: [
+        { value: '450+', label: 'Individuals Reintegrated' },
+        { value: '85%', label: 'Successfully Reintegrated' },
+        { value: '70%', label: 'Achieve Economic Stability' }
+      ],
+      fr: [
+        { value: '450+', label: 'Individus Réintégrés' },
+        { value: '85%', label: 'Réintégrés avec Succès' },
+        { value: '70%', label: 'Atteignent la Stabilité Économique' }
+      ]
+    }
+  },
+
+  // ══════════════════════════════════════════
+  // PROGRAM 5: RESEARCH & ADVOCACY
+  // ══════════════════════════════════════════
+
+  'program-action-research': {
+    emoji: '🔬',
+    category: { en: 'Research & Advocacy', fr: 'Recherche et Plaidoyer' },
+    title: { en: 'Community-Based Research & Evidence Generation', fr: 'Recherche Communautaire et Génération de Preuves' },
+    subtitle: {
+      en: 'Women-inclusive research reflecting real priorities and experiences',
+      fr: 'Recherche inclusive des femmes reflétant les priorités et expériences réelles'
     },
     tagColor: 'bg-purple-100 text-purple-700',
     accentBg: 'bg-purple-50',
     accentText: 'text-purple-600',
     hero: new URL('../assets/programs/Action.jpeg', import.meta.url).href,
     overview: {
-      en: 'Participatory field research to identify gender issues, track program impact, and develop localized toolkits, manuals, and reports. Our research is led by and for communities to inform advocacy and programming.',
-      fr: 'Recherche participative sur le terrain pour identifier les problèmes de genre, suivre l\'impact des programmes et développer des boîtes à outils, manuels et rapports localisés. Notre recherche est dirigée par et pour les communautés pour informer le plaidoyer et la programmation.'
+      en: 'WOCO conducts research that reflects the realities, priorities, and experiences of women, youth, and conflict-affected communities. This includes baseline and endline studies, needs assessments, vulnerability analyses, and thematic research on peacebuilding, GBV, livelihoods, and reintegration. Women are not only subjects of research — they are actively engaged in the knowledge generation process, ensuring their realities are accurately represented and validated.',
+      fr: 'WOCO mène des recherches qui reflètent les réalités, les priorités et les expériences des femmes, des jeunes et des communautés touchées par les conflits. Les femmes ne sont pas seulement sujettes de la recherche — elles sont activement engagées dans le processus de génération de connaissances.'
     },
     objectives: {
       en: [
-        'Generate locally-relevant evidence on gender and development',
-        'Document program impact and best practices',
-        'Develop tools and resources for practitioners',
-        'Build research capacity in grassroots organizations'
+        'Conduct baseline, endline, and thematic research on priority gender issues',
+        'Engage women as active participants in data collection and analysis',
+        'Ensure research accurately reflects women\'s realities and priorities',
+        'Generate locally relevant evidence to inform programming and advocacy'
       ],
       fr: [
-        'Générer des preuves localement pertinentes sur le genre et le développement',
-        'Documenter l\'impact des programmes et les meilleures pratiques',
-        'Développer des outils et des ressources pour les praticiens',
-        'Renforcer la capacité de recherche dans les organisations de base'
+        'Mener des recherches de base, de fin et thématiques sur les problèmes de genre prioritaires',
+        'Engager les femmes comme participantes actives dans la collecte et l\'analyse des données',
+        'S\'assurer que la recherche reflète fidèlement les réalités et priorités des femmes',
+        'Générer des preuves localement pertinentes pour informer la programmation et le plaidoyer'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Participatory Research',
-          description: 'Community-led data collection and analysis on priority issues'
-        },
-        {
-          title: 'Impact Evaluation',
-          description: 'Assess outcomes of UPG and other programs using mixed methods'
-        },
-        {
-          title: 'Knowledge Products',
-          description: 'Develop toolkits, case studies, and research reports'
-        },
-        {
-          title: 'Capacity Building',
-          description: 'Train community researchers and data collectors'
-        }
+        { title: 'Participatory Research', description: 'Community-led data collection and analysis with women as active contributors, not just subjects' },
+        { title: 'Baseline & Endline Studies', description: 'Rigorous evaluations of program outcomes and community impact over time' },
+        { title: 'Thematic Research', description: 'Deep-dive studies on peacebuilding, GBV, livelihoods, reintegration, and women\'s leadership' },
+        { title: 'Vulnerability Analyses', description: 'Needs assessments identifying priority issues and gaps for targeted programming' }
       ],
       fr: [
-        {
-          title: 'Recherche Participative',
-          description: 'Collecte et analyse de données dirigées par la communauté sur les problèmes prioritaires'
-        },
-        {
-          title: 'Évaluation d\'Impact',
-          description: 'Évaluer les résultats de l\'UPG et d\'autres programmes en utilisant des méthodes mixtes'
-        },
-        {
-          title: 'Produits de Connaissance',
-          description: 'Développer des boîtes à outils, des études de cas et des rapports de recherche'
-        },
-        {
-          title: 'Renforcement des Capacités',
-          description: 'Former les chercheurs communautaires et les collecteurs de données'
-        }
+        { title: 'Recherche Participative', description: 'Collecte et analyse de données dirigées par la communauté avec les femmes comme contributrices actives, pas seulement sujettes' },
+        { title: 'Études de Référence et Finales', description: 'Évaluations rigoureuses des résultats des programmes et de l\'impact communautaire dans le temps' },
+        { title: 'Recherche Thématique', description: 'Études approfondies sur la consolidation de la paix, la VBG, les moyens de subsistance, la réintégration et le leadership des femmes' },
+        { title: 'Analyses de Vulnérabilité', description: 'Évaluations des besoins identifiant les problèmes prioritaires et les lacunes pour une programmation ciblée' }
       ]
     },
     impact: {
       en: [
         { value: '25+', label: 'Research Studies Completed' },
-        { value: '15', label: 'Toolkits Developed' },
-        { value: '100+', label: 'Community Researchers Trained' }
+        { value: '100+', label: 'Community Researchers Trained' },
+        { value: '15', label: 'Knowledge Products Developed' }
       ],
       fr: [
         { value: '25+', label: 'Études de Recherche Complétées' },
-        { value: '15', label: 'Boîtes à Outils Développées' },
-        { value: '100+', label: 'Chercheurs Communautaires Formés' }
+        { value: '100+', label: 'Chercheurs Communautaires Formés' },
+        { value: '15', label: 'Produits de Connaissance Développés' }
       ]
     }
   },
 
   'program-policy-engagement': {
     emoji: '📜',
-    category: { en: 'Research & Learning', fr: 'Recherche et Apprentissage' },
-    title: { en: 'Policy Engagement & Legal Reform', fr: 'Engagement Politique et Réforme Juridique' },
+    category: { en: 'Research & Advocacy', fr: 'Recherche et Plaidoyer' },
+    title: { en: 'Knowledge Production for Strategic Influence', fr: 'Production de Connaissances pour l\'Influence Stratégique' },
     subtitle: {
-      en: 'Laws that protect and empower',
-      fr: 'Des lois qui protègent et autonomisent'
+      en: 'Transforming evidence into advocacy tools for women\'s visibility',
+      fr: 'Transformer les preuves en outils de plaidoyer pour la visibilité des femmes'
     },
     tagColor: 'bg-purple-100 text-purple-700',
     accentBg: 'bg-purple-50',
     accentText: 'text-purple-600',
     hero: new URL('../assets/programs/policy.jpeg', import.meta.url).href,
     overview: {
-      en: 'Advocate for laws and policies that protect women\'s rights and ensure accountability on gender commitments in post-conflict recovery. We bridge grassroots experiences with policy advocacy.',
-      fr: 'Plaider pour des lois et des politiques qui protègent les droits des femmes et assurent la responsabilisation sur les engagements de genre dans la reprise post-conflit. Nous relions les expériences de base au plaidoyer politique.'
+      en: 'WOCO transforms evidence into actionable knowledge that informs programming and advocacy while strengthening women\'s visibility in policy spaces. This includes policy briefs, analytical reports, documentation of lessons learned and best practices, and strategic knowledge products tailored for decision-makers. Knowledge is deliberately packaged to be used as an advocacy tool that supports women\'s voices in influencing decisions and policies.',
+      fr: 'WOCO transforme les preuves en connaissances actionnables qui informent la programmation et le plaidoyer tout en renforçant la visibilité des femmes dans les espaces politiques. La connaissance est délibérément conditionnée pour être utilisée comme outil de plaidoyer.'
     },
     objectives: {
       en: [
-        'Influence gender-responsive policies at local and national levels',
-        'Advocate for implementation of existing gender laws',
-        'Monitor government commitments on women\'s rights',
-        'Strengthen legal frameworks for women\'s protection'
+        'Produce policy briefs, analytical reports, and strategic knowledge products',
+        'Document lessons learned and best practices from program implementation',
+        'Package evidence deliberately as advocacy tools for women\'s voices',
+        'Share knowledge through continuous learning systems to improve effectiveness'
       ],
       fr: [
-        'Influencer les politiques sensibles au genre aux niveaux local et national',
-        'Plaider pour la mise en œuvre des lois sur le genre existantes',
-        'Surveiller les engagements gouvernementaux sur les droits des femmes',
-        'Renforcer les cadres juridiques pour la protection des femmes'
+        'Produire des notes de politique, des rapports analytiques et des produits de connaissance stratégiques',
+        'Documenter les leçons apprises et les meilleures pratiques de la mise en œuvre des programmes',
+        'Conditionner délibérément les preuves comme outils de plaidoyer pour les voix des femmes',
+        'Partager les connaissances par des systèmes d\'apprentissage continu pour améliorer l\'efficacité'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Policy Analysis',
-          description: 'Review and critique existing laws from a gender perspective'
-        },
-        {
-          title: 'Legislative Advocacy',
-          description: 'Campaign for pro-women legal reforms and policies'
-        },
-        {
-          title: 'Monitoring & Accountability',
-          description: 'Track implementation of gender commitments and budgets'
-        },
-        {
-          title: 'Coalition Building',
-          description: 'Form alliances with CSOs for collective advocacy'
-        }
+        { title: 'Policy Briefs & Reports', description: 'Translating research findings into accessible policy documents targeted at decision-makers' },
+        { title: 'Lessons Documentation', description: 'Systematic documentation of what works, what doesn\'t, and how programs can be improved' },
+        { title: 'Advocacy Knowledge Products', description: 'Infographics, case studies, and materials that amplify women\'s voices in policy spaces' },
+        { title: 'Continuous Learning Systems', description: 'Internal mechanisms to capture and apply learning across programs in real time' }
       ],
       fr: [
-        {
-          title: 'Analyse Politique',
-          description: 'Examiner et critiquer les lois existantes d\'une perspective de genre'
-        },
-        {
-          title: 'Plaidoyer Législatif',
-          description: 'Campagne pour des réformes juridiques et des politiques pro-femmes'
-        },
-        {
-          title: 'Suivi et Responsabilisation',
-          description: 'Suivre la mise en œuvre des engagements et budgets de genre'
-        },
-        {
-          title: 'Construction de Coalitions',
-          description: 'Former des alliances avec les OSC pour un plaidoyer collectif'
-        }
+        { title: 'Notes de Politique et Rapports', description: 'Traduction des résultats de recherche en documents politiques accessibles ciblant les décideurs' },
+        { title: 'Documentation des Leçons', description: 'Documentation systématique de ce qui fonctionne, ce qui ne fonctionne pas et comment les programmes peuvent être améliorés' },
+        { title: 'Produits de Connaissance pour le Plaidoyer', description: 'Infographies, études de cas et matériaux qui amplifient les voix des femmes dans les espaces politiques' },
+        { title: 'Systèmes d\'Apprentissage Continu', description: 'Mécanismes internes pour capturer et appliquer les apprentissages dans tous les programmes en temps réel' }
       ]
     },
     impact: {
       en: [
-        { value: '8', label: 'Policy Reforms Influenced' },
         { value: '30+', label: 'Policy Briefs Published' },
+        { value: '8', label: 'Policy Reforms Influenced' },
         { value: '15', label: 'CSO Partners' }
       ],
       fr: [
+        { value: '30+', label: 'Notes de Politique Publiées' },
         { value: '8', label: 'Réformes Politiques Influencées' },
-        { value: '30+', label: 'Notes Politiques Publiées' },
         { value: '15', label: 'Partenaires OSC' }
       ]
     }
@@ -1495,398 +1068,104 @@ export const programsData = {
 
   'program-amplifying-voices': {
     emoji: '📢',
-    category: { en: 'Research & Learning', fr: 'Recherche et Apprentissage' },
-    title: { en: 'Amplifying Rural Women\'s Voices', fr: 'Amplifier les Voix des Femmes Rurales' },
+    category: { en: 'Research & Advocacy', fr: 'Recherche et Plaidoyer' },
+    title: { en: 'Advocacy & Women in Decision-Making', fr: 'Plaidoyer et Femmes dans la Prise de Décision' },
     subtitle: {
-      en: 'From margins to center stage',
-      fr: 'Des marges au devant de la scène'
+      en: 'Positioning women as leaders and influencers in governance spaces',
+      fr: 'Positionner les femmes comme leaders et influenceuses dans les espaces de gouvernance'
     },
     tagColor: 'bg-purple-100 text-purple-700',
     accentBg: 'bg-purple-50',
     accentText: 'text-purple-600',
     hero: new URL('../assets/programs/Amplifying.jpeg', import.meta.url).href,
     overview: {
-      en: 'Facilitate participation of women from remote, conflict-affected areas in national and international forums. We ensure that the voices and priorities of marginalized women shape development and peace agendas.',
-      fr: 'Faciliter la participation des femmes des zones reculées et touchées par les conflits dans les forums nationaux et internationaux. Nous veillons à ce que les voix et les priorités des femmes marginalisées façonnent les agendas de développement et de paix.'
+      en: 'WOCO\'s advocacy goes beyond influencing policies — it focuses on ensuring women are present, heard, and influential in decision-making platforms. This includes supporting women leaders to participate in policy dialogues and governance forums, facilitating women\'s representation at local, national, and regional levels, building coalitions that amplify women\'s collective voice, and engaging institutions to create gender-responsive decision-making environments.',
+      fr: 'Le plaidoyer de WOCO va au-delà de l\'influence sur les politiques — il se concentre sur la présence, l\'écoute et l\'influence des femmes dans les plateformes de prise de décision. Cela inclut le soutien aux femmes leaders pour participer aux dialogues politiques et aux forums de gouvernance.'
     },
     objectives: {
       en: [
-        'Enable grassroots women to participate in high-level forums',
-        'Document and share women\'s experiences and priorities',
-        'Influence global and national development agendas',
-        'Build women\'s confidence as public speakers and advocates'
+        'Support women leaders to participate in policy dialogues and governance forums',
+        'Facilitate women\'s representation at local, national, and regional platforms',
+        'Build coalitions and networks that amplify women\'s collective voice',
+        'Engage institutions to create inclusive, gender-responsive decision-making environments'
       ],
       fr: [
-        'Permettre aux femmes de base de participer aux forums de haut niveau',
-        'Documenter et partager les expériences et priorités des femmes',
-        'Influencer les agendas de développement mondiaux et nationaux',
-        'Renforcer la confiance des femmes comme oratrices publiques et défenseures'
+        'Soutenir les femmes leaders pour participer aux dialogues politiques et aux forums de gouvernance',
+        'Faciliter la représentation des femmes aux niveaux local, national et régional',
+        'Construire des coalitions et réseaux qui amplifient la voix collective des femmes',
+        'Engager les institutions pour créer des environnements de prise de décision inclusifs et sensibles au genre'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Forum Participation',
-          description: 'Sponsor women to attend national and international conferences'
-        },
-        {
-          title: 'Storytelling Training',
-          description: 'Help women articulate and share their experiences powerfully'
-        },
-        {
-          title: 'Media Engagement',
-          description: 'Connect women with journalists and documentary filmmakers'
-        },
-        {
-          title: 'Platform Building',
-          description: 'Create spaces for women to present their ideas and solutions'
-        }
+        { title: 'Policy Dialogue Participation', description: 'Sponsoring and preparing women to meaningfully participate in policy dialogues, consultations, and forums' },
+        { title: 'Women\'s Leadership Platforms', description: 'Creating and connecting spaces where women directly engage with policymakers and stakeholders' },
+        { title: 'Coalition Building', description: 'Forming alliances of women\'s organizations for collective advocacy with greater influence' },
+        { title: 'Institutional Engagement', description: 'Working with government, UN agencies, and CSOs to create gender-responsive decision-making spaces' }
       ],
       fr: [
-        {
-          title: 'Participation aux Forums',
-          description: 'Parrainer les femmes pour qu\'elles assistent aux conférences nationales et internationales'
-        },
-        {
-          title: 'Formation à la Narration',
-          description: 'Aider les femmes à articuler et partager leurs expériences avec force'
-        },
-        {
-          title: 'Engagement Médiatique',
-          description: 'Connecter les femmes avec les journalistes et les cinéastes documentaires'
-        },
-        {
-          title: 'Construction de Plateformes',
-          description: 'Créer des espaces pour que les femmes présentent leurs idées et solutions'
-        }
+        { title: 'Participation aux Dialogues Politiques', description: 'Parrainer et préparer les femmes à participer de manière significative aux dialogues politiques, consultations et forums' },
+        { title: 'Plateformes de Leadership des Femmes', description: 'Créer et connecter des espaces où les femmes s\'engagent directement avec les décideurs et les parties prenantes' },
+        { title: 'Construction de Coalitions', description: 'Former des alliances d\'organisations de femmes pour un plaidoyer collectif avec une plus grande influence' },
+        { title: 'Engagement Institutionnel', description: 'Travailler avec le gouvernement, les agences de l\'ONU et les OSC pour créer des espaces de prise de décision sensibles au genre' }
       ]
     },
     impact: {
       en: [
-        { value: '150+', label: 'Women Represented' },
-        { value: '40+', label: 'Forums Attended' },
-        { value: '20', label: 'Media Features' }
+        { value: '150+', label: 'Women Represented in Forums' },
+        { value: '40+', label: 'Policy Forums Attended' },
+        { value: '20', label: 'Advocacy Coalitions Built' }
       ],
       fr: [
-        { value: '150+', label: 'Femmes Représentées' },
-        { value: '40+', label: 'Forums Participés' },
-        { value: '20', label: 'Reportages Médiatiques' }
+        { value: '150+', label: 'Femmes Représentées dans les Forums' },
+        { value: '40+', label: 'Forums Politiques Participés' },
+        { value: '20', label: 'Coalitions de Plaidoyer Construites' }
       ]
     }
   },
 
   'program-upg-evidence': {
     emoji: '📊',
-    category: { en: 'Research & Learning', fr: 'Recherche et Apprentissage' },
-    title: { en: 'Evidence for Scaling UPG', fr: 'Preuves pour l\'Extension de l\'UPG' },
+    category: { en: 'Research & Advocacy', fr: 'Recherche et Plaidoyer' },
+    title: { en: 'Amplifying Women as Knowledge & Policy Actors', fr: 'Amplifier les Femmes comme Actrices de la Connaissance et des Politiques' },
     subtitle: {
-      en: 'Documenting what works for poverty graduation',
-      fr: 'Documenter ce qui fonctionne pour la graduation de la pauvreté'
+      en: 'Elevating women from data subjects to recognized contributors',
+      fr: 'Élever les femmes de sujets de données à contributrices reconnues'
     },
     tagColor: 'bg-purple-100 text-purple-700',
     accentBg: 'bg-purple-50',
     accentText: 'text-purple-600',
     hero: new URL('../assets/programs/Evidence.jpeg', import.meta.url).href,
     overview: {
-      en: 'Research and document the impact of the UPG model and advocate for its adoption by governments and community planners. Our evidence demonstrates that graduation approaches work in conflict settings.',
-      fr: 'Rechercher et documenter l\'impact du modèle UPG et plaider pour son adoption par les gouvernements et les planificateurs communautaires. Nos preuves démontrent que les approches de graduation fonctionnent dans les contextes de conflit.'
+      en: 'WOCO elevates women from being represented in data to becoming recognized contributors to knowledge, policy, and governance. This means supporting women to articulate and present evidence-based perspectives, creating platforms where women directly engage with policymakers, documenting and disseminating women-led insights and solutions, and promoting women as experts and decision-shapers — not only as beneficiaries.',
+      fr: 'WOCO élève les femmes de représentées dans les données à contributrices reconnues à la connaissance, aux politiques et à la gouvernance. Cela signifie soutenir les femmes pour articuler des perspectives fondées sur des preuves et promouvoir les femmes comme expertes et façonneuses de décisions.'
     },
     objectives: {
       en: [
-        'Generate rigorous evidence on UPG effectiveness in DRC',
-        'Document adaptations needed for conflict-affected contexts',
-        'Advocate for government adoption of graduation approaches',
-        'Support other organizations to implement UPG with quality'
+        'Support women to articulate and present evidence-based perspectives in public spaces',
+        'Create platforms where women directly engage with policymakers as equals',
+        'Document and disseminate women-led insights, solutions, and innovations',
+        'Promote women as recognized experts, knowledge holders, and decision-shapers'
       ],
       fr: [
-        'Générer des preuves rigoureuses sur l\'efficacité de l\'UPG en RDC',
-        'Documenter les adaptations nécessaires pour les contextes touchés par les conflits',
-        'Plaider pour l\'adoption gouvernementale des approches de graduation',
-        'Soutenir d\'autres organisations pour mettre en œuvre l\'UPG avec qualité'
+        'Soutenir les femmes pour articuler et présenter des perspectives fondées sur des preuves dans les espaces publics',
+        'Créer des plateformes où les femmes s\'engagent directement avec les décideurs en tant qu\'égales',
+        'Documenter et diffuser les insights, solutions et innovations menés par les femmes',
+        'Promouvoir les femmes comme expertes reconnues, détentrices de connaissances et façonneuses de décisions'
       ]
     },
     activities: {
       en: [
-        {
-          title: 'Impact Studies',
-          description: 'Rigorous evaluations of UPG outcomes using control groups'
-        },
-        {
-          title: 'Cost-Benefit Analysis',
-          description: 'Document return on investment for poverty graduation programs'
-        },
-        {
-          title: 'Case Documentation',
-          description: 'Capture success stories and lessons learned'
-        },
-        {
-          title: 'Technical Assistance',
-          description: 'Support other NGOs and governments to implement UPG'
-        }
+        { title: 'Evidence Presentation Training', description: 'Capacity building for women to confidently articulate evidence-based perspectives and present at forums' },
+        { title: 'Women-Expert Platforms', description: 'Creating spaces that position women as invited experts and knowledge contributors, not just participants' },
+        { title: 'Women-Led Insights Documentation', description: 'Capturing and disseminating solutions, innovations, and insights generated by women themselves' },
+        { title: 'Leadership Capacity Building', description: 'Strengthening women\'s confidence and skills for active engagement in governance and policy spaces' }
       ],
       fr: [
-        {
-          title: 'Études d\'Impact',
-          description: 'Évaluations rigoureuses des résultats de l\'UPG en utilisant des groupes témoins'
-        },
-        {
-          title: 'Analyse Coût-Bénéfice',
-          description: 'Documenter le retour sur investissement pour les programmes de graduation de la pauvreté'
-        },
-        {
-          title: 'Documentation de Cas',
-          description: 'Capturer les réussites et les leçons apprises'
-        },
-        {
-          title: 'Assistance Technique',
-          description: 'Soutenir d\'autres ONG et gouvernements pour mettre en œuvre l\'UPG'
-        }
-      ]
-    },
-    impact: {
-      en: [
-        { value: '5', label: 'Impact Studies Published' },
-        { value: '78%', label: 'Graduate from Poverty' },
-        { value: '10+', label: 'Organizations Adopting UPG' }
-      ],
-      fr: [
-        { value: '5', label: 'Études d\'Impact Publiées' },
-        { value: '78%', label: 'Sortent de la Pauvreté' },
-        { value: '10+', label: 'Organisations Adoptant l\'UPG' }
-      ]
-    }
-  },
-
-  'program-leading-campaigns': {
-    emoji: '📣',
-    category: { en: 'Advocacy', fr: 'Plaidoyer' },
-    title: { en: 'Leading Grassroots Campaigns', fr: 'Diriger des Campagnes de Base' },
-    subtitle: {
-      en: 'Women-led movements for change',
-      fr: 'Mouvements dirigés par les femmes pour le changement'
-    },
-    tagColor: 'bg-yellow-100 text-yellow-700',
-    accentBg: 'bg-yellow-50',
-    accentText: 'text-yellow-600',
-    hero: new URL('../assets/programs/Leading.jpeg', import.meta.url).href,
-    overview: {
-      en: 'Women and girls spearhead campaigns on gender justice, access to services, and legal rights within their communities. We support grassroots women to organize, strategize, and lead advocacy initiatives.',
-      fr: 'Les femmes et les filles dirigent des campagnes sur la justice de genre, l\'accès aux services et les droits légaux au sein de leurs communautés. Nous soutenons les femmes de base pour qu\'elles organisent, stratégisent et dirigent des initiatives de plaidoyer.'
-    },
-    objectives: {
-      en: [
-        'Build women\'s capacity to organize and lead campaigns',
-        'Address community-prioritized issues through collective action',
-        'Achieve concrete improvements in services and rights',
-        'Create sustainable advocacy movements'
-      ],
-      fr: [
-        'Renforcer la capacité des femmes à organiser et diriger des campagnes',
-        'Aborder les problèmes priorisés par la communauté par l\'action collective',
-        'Obtenir des améliorations concrètes dans les services et les droits',
-        'Créer des mouvements de plaidoyer durables'
-      ]
-    },
-    activities: {
-      en: [
-        {
-          title: 'Campaign Planning',
-          description: 'Support women to identify issues and design advocacy strategies'
-        },
-        {
-          title: 'Community Mobilization',
-          description: 'Organize petitions, marches, and public awareness activities'
-        },
-        {
-          title: 'Social Media Advocacy',
-          description: 'Amplify campaigns through digital platforms and media'
-        },
-        {
-          title: 'Victory Celebration',
-          description: 'Document and celebrate campaign successes to inspire others'
-        }
-      ],
-      fr: [
-        {
-          title: 'Planification de Campagne',
-          description: 'Soutenir les femmes pour identifier les problèmes et concevoir des stratégies de plaidoyer'
-        },
-        {
-          title: 'Mobilisation Communautaire',
-          description: 'Organiser des pétitions, des marches et des activités de sensibilisation publique'
-        },
-        {
-          title: 'Plaidoyer sur les Médias Sociaux',
-          description: 'Amplifier les campagnes à travers les plateformes numériques et les médias'
-        },
-        {
-          title: 'Célébration de la Victoire',
-          description: 'Documenter et célébrer les succès de campagne pour inspirer les autres'
-        }
-      ]
-    },
-    impact: {
-      en: [
-        { value: '50+', label: 'Campaigns Led' },
-        { value: '35', label: 'Policy Changes Achieved' },
-        { value: '10,000+', label: 'Women Mobilized' }
-      ],
-      fr: [
-        { value: '50+', label: 'Campagnes Dirigées' },
-        { value: '35', label: 'Changements Politiques Obtenus' },
-        { value: '10 000+', label: 'Femmes Mobilisées' }
-      ]
-    }
-  },
-
-  'program-duty-bearers': {
-    emoji: '🏛️',
-    category: { en: 'Advocacy', fr: 'Plaidoyer' },
-    title: { en: 'Engaging Duty-Bearers', fr: 'Engager les Détenteurs d\'Obligations' },
-    subtitle: {
-      en: 'Accountability from those in power',
-      fr: 'Responsabilité de ceux au pouvoir'
-    },
-    tagColor: 'bg-yellow-100 text-yellow-700',
-    accentBg: 'bg-yellow-50',
-    accentText: 'text-yellow-600',
-    hero: new URL('../assets/programs/Engaging.jpeg', import.meta.url).href,
-    overview: {
-      en: 'Engage with local authorities, customary leaders, and policy-makers to advocate for policies that uphold women\'s rights. We facilitate direct dialogue between women and decision-makers.',
-      fr: 'Engager avec les autorités locales, les chefs coutumiers et les décideurs pour plaider en faveur de politiques qui défendent les droits des femmes. Nous facilitons le dialogue direct entre les femmes et les décideurs.'
-    },
-    objectives: {
-      en: [
-        'Hold duty-bearers accountable to gender commitments',
-        'Create channels for women to access decision-makers',
-        'Influence budget allocations for women\'s priorities',
-        'Monitor service delivery and quality'
-      ],
-      fr: [
-        'Tenir les détenteurs d\'obligations responsables des engagements de genre',
-        'Créer des canaux pour que les femmes accèdent aux décideurs',
-        'Influencer les allocations budgétaires pour les priorités des femmes',
-        'Surveiller la prestation et la qualité des services'
-      ]
-    },
-    activities: {
-      en: [
-        {
-          title: 'Public Dialogues',
-          description: 'Organize town halls where women engage directly with officials'
-        },
-        {
-          title: 'Budget Advocacy',
-          description: 'Campaign for gender-responsive budgeting and resource allocation'
-        },
-        {
-          title: 'Service Monitoring',
-          description: 'Track quality of health, education, and justice services'
-        },
-        {
-          title: 'Scorecard Development',
-          description: 'Create community scorecards to assess government performance'
-        }
-      ],
-      fr: [
-        {
-          title: 'Dialogues Publics',
-          description: 'Organiser des assemblées publiques où les femmes s\'engagent directement avec les officiels'
-        },
-        {
-          title: 'Plaidoyer Budgétaire',
-          description: 'Campagne pour une budgétisation sensible au genre et une allocation de ressources'
-        },
-        {
-          title: 'Suivi des Services',
-          description: 'Suivre la qualité des services de santé, d\'éducation et de justice'
-        },
-        {
-          title: 'Développement de Fiches d\'Évaluation',
-          description: 'Créer des fiches d\'évaluation communautaires pour évaluer la performance gouvernementale'
-        }
-      ]
-    },
-    impact: {
-      en: [
-        { value: '80+', label: 'Dialogues Held' },
-        { value: '$2M', label: 'Redirected to Women\'s Programs' },
-        { value: '25', label: 'Service Improvements' }
-      ],
-      fr: [
-        { value: '80+', label: 'Dialogues Tenus' },
-        { value: '2M$', label: 'Redirigés vers les Programmes pour Femmes' },
-        { value: '25', label: 'Améliorations de Services' }
-      ]
-    }
-  },
-
-  'program-evidence-change': {
-    emoji: '📈',
-    category: { en: 'Advocacy', fr: 'Plaidoyer' },
-    title: { en: 'Using Evidence for Change', fr: 'Utiliser les Preuves pour le Changement' },
-    subtitle: {
-      en: 'Data-driven advocacy that works',
-      fr: 'Plaidoyer basé sur les données qui fonctionne'
-    },
-    tagColor: 'bg-yellow-100 text-yellow-700',
-    accentBg: 'bg-yellow-50',
-    accentText: 'text-yellow-600',
-    hero: new URL('../assets/programs/Using.jpeg', import.meta.url).href,
-    overview: {
-      en: 'Harness evidence from lived experiences to influence decision-making and create tangible improvements in policies and social norms. We translate research into actionable advocacy.',
-      fr: 'Exploiter les preuves des expériences vécues pour influencer la prise de décision et créer des améliorations tangibles dans les politiques et les normes sociales. Nous traduisons la recherche en plaidoyer actionnable.'
-    },
-    objectives: {
-      en: [
-        'Use research findings to inform advocacy strategies',
-        'Present compelling evidence to policy-makers',
-        'Document policy wins and replicate successful models',
-        'Build data literacy among grassroots advocates'
-      ],
-      fr: [
-        'Utiliser les résultats de recherche pour informer les stratégies de plaidoyer',
-        'Présenter des preuves convaincantes aux décideurs',
-        'Documenter les victoires politiques et répliquer les modèles réussis',
-        'Développer la littératie des données parmi les défenseurs de base'
-      ]
-    },
-    activities: {
-      en: [
-        {
-          title: 'Evidence Translation',
-          description: 'Convert research into policy briefs and advocacy materials'
-        },
-        {
-          title: 'Data Visualization',
-          description: 'Create infographics and presentations for decision-makers'
-        },
-        {
-          title: 'Testimonies & Stories',
-          description: 'Combine data with powerful personal narratives'
-        },
-        {
-          title: 'Impact Tracking',
-          description: 'Monitor how evidence leads to policy and practice changes'
-        }
-      ],
-      fr: [
-        {
-          title: 'Traduction de Preuves',
-          description: 'Convertir la recherche en notes politiques et matériaux de plaidoyer'
-        },
-        {
-          title: 'Visualisation de Données',
-          description: 'Créer des infographies et des présentations pour les décideurs'
-        },
-        {
-          title: 'Témoignages et Histoires',
-          description: 'Combiner les données avec des récits personnels puissants'
-        },
-        {
-          title: 'Suivi d\'Impact',
-          description: 'Surveiller comment les preuves conduisent aux changements de politique et de pratique'
-        }
+        { title: 'Formation à la Présentation de Preuves', description: 'Renforcement des capacités pour que les femmes articulent avec confiance des perspectives fondées sur des preuves et présentent dans les forums' },
+        { title: 'Plateformes d\'Expertes Femmes', description: 'Créer des espaces qui positionnent les femmes comme expertes invitées et contributrices de connaissances, pas seulement participantes' },
+        { title: 'Documentation des Insights Menés par les Femmes', description: 'Capturer et diffuser les solutions, innovations et insights générés par les femmes elles-mêmes' },
+        { title: 'Renforcement des Capacités de Leadership', description: 'Renforcer la confiance et les compétences des femmes pour un engagement actif dans les espaces de gouvernance et de politique' }
       ]
     },
     impact: {

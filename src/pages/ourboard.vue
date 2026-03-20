@@ -285,6 +285,8 @@ import faustine from '../assets/faustine.jpeg'
 import Blaise from '../assets/Blaise.jpeg'
 import ange from '../assets/ange.jpeg'
 import aline from '../assets/aline.jpeg'
+import new1 from '../assets/new.jpeg'
+
 
 const { t } = useLang()
 
@@ -513,6 +515,18 @@ const teamMembers = [
     department: { en: 'Administration & Finance', fr: 'Administration et Finance' },
     emoji: '💼',
     photo: aline,
+    location: 'Bukavu, DRC',
+    bio: {
+      en: 'Manages financial operations and administrative processes to ensure transparency and efficiency in organizational management.',
+      fr: "Gère les opérations financières et les processus administratifs pour garantir la transparence et l'efficacité."
+    }
+  },
+  {
+    name: 'Nashimwe N. Amour',
+    position: { en: 'Community Mobilization Officer', fr: 'Chargé de mobilisation communautaire' },
+    department: { en: 'Community Mobilization', fr: 'Mobilisation Communautaire' },
+    emoji: '💼',
+    photo: new1,
     location: 'Bukavu, DRC',
     bio: {
       en: 'Manages financial operations and administrative processes to ensure transparency and efficiency in organizational management.',
