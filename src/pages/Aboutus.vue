@@ -229,7 +229,7 @@
         <!-- Section header -->
         <div class="text-center mb-16">
           <span
-            class="inline-block bg-purple-100 text-purple-700 text-xs font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-4">The
+            class="inline-block bg-purple-100 text-purple-700 text-xs font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-4">Our
             People</span>
           <h2 class="font-display text-4xl lg:text-5xl font-black text-gray-900">Our Board & Team</h2>
           <p class="text-gray-400 mt-3 text-base max-w-2xl mx-auto">Meet the dedicated leaders and passionate
@@ -377,6 +377,95 @@
       </div>
     </section>
 
+
+    <!-- ══════════════════════════════════════════
+         OUR APPROACH — id: our-approach
+    ══════════════════════════════════════════ -->
+    <section id="our-approach" class="max-w-7xl mx-auto px-6 lg:px-10 py-10 scroll-mt-24">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block bg-emerald-100 text-emerald-700 text-xs font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-4">How
+          We Work</span>
+        <h2 class="font-display text-4xl lg:text-5xl font-black text-gray-900">Programmatic Model and Delivery Approach
+        </h2>
+        <p class="text-gray-400 mt-3 text-base max-w-2xl mx-auto">
+          At Women Concern, fighting poverty means more than increasing income — it means restoring dignity, choice, and
+          voice.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <!-- UPG -->
+        <div
+          class="relative bg-white border-2 border-brand-green/20 rounded-3xl p-8 overflow-hidden group hover:border-brand-green/50 hover:shadow-xl transition-all duration-300">
+          <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-green to-emerald-400 rounded-t-3xl">
+          </div>
+          <div
+            class="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-green/5 rounded-full group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center text-2xl shadow-md">🌱
+              </div>
+              <div>
+                <p class="text-xs font-black uppercase tracking-widest text-brand-green">Model 01</p>
+                <h3 class="font-display font-black text-gray-900 text-xl leading-none">Ultra-Poor Graduation</h3>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+              A holistic, two-year approach that empowers ultra-poor women with productive assets, financial literacy,
+              entrepreneurship support, coaching, and access to savings to achieve lasting self-reliance.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="tag in ['Productive Assets', 'Financial Literacy', 'Coaching', 'Savings', 'Entrepreneurship']"
+                :key="tag" class="text-xs bg-brand-green/10 text-brand-green font-semibold px-3 py-1 rounded-full">{{
+                  tag }}</span>
+            </div>
+          </div>
+        </div>
+        <!-- CBM -->
+        <div
+          class="relative bg-brand-green rounded-3xl p-8 overflow-hidden group hover:shadow-xl transition-all duration-300">
+          <div
+            class="absolute -top-10 -left-10 w-48 h-48 bg-white/10 rounded-full group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="absolute bottom-4 right-6 text-white/10 font-black text-[100px] leading-none select-none">02</div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl shadow-md">🤝</div>
+              <div>
+                <p class="text-xs font-black uppercase tracking-widest text-brand-yellow">Model 02</p>
+                <h3 class="font-display font-black text-white text-xl leading-none">Community-Based Model</h3>
+              </div>
+            </div>
+            <p class="text-white/85 text-sm leading-relaxed mb-5">
+              A participatory, bottom-up approach that engages local women, authorities, and organizations in
+              co-creating solutions, fostering ownership, accountability, and long-term sustainability.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="tag in ['Participatory', 'Local Ownership', 'Accountability', 'Co-creation', 'Sustainability']"
+                :key="tag" class="text-xs bg-white/20 text-white font-semibold px-3 py-1 rounded-full">{{ tag }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- How they work together -->
+      <div
+        class="bg-gradient-to-r from-brand-green/5 via-brand-yellow/10 to-brand-green/5 border border-brand-green/15 rounded-3xl p-8 text-center">
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <div class="w-8 h-8 bg-brand-green rounded-lg flex items-center justify-center text-white text-sm font-black">
+            ↔</div>
+          <h3 class="font-display font-black text-gray-900 text-xl">How the Models Work Together</h3>
+        </div>
+        <p class="text-gray-600 text-base leading-relaxed max-w-2xl mx-auto">
+          <strong class="text-brand-green">UPG</strong> equips women with tools, knowledge, and assets, while <strong
+            class="text-brand-green">CBM</strong> ensures these efforts are grounded in local realities. Together, they
+          create <em>sustainable empowerment from within the community.</em>
+        </p>
+      </div>
+    </section>
+
     <!-- ══════════════════════════════════════════
          DONORS & PARTNERS — id: donors-partners
     ══════════════════════════════════════════ -->
@@ -429,93 +518,6 @@
             </svg>
           </a>
         </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════
-         OUR APPROACH — id: our-approach
-    ══════════════════════════════════════════ -->
-    <section id="our-approach" class="max-w-7xl mx-auto px-6 lg:px-10 py-20 scroll-mt-24">
-      <div class="text-center mb-14">
-        <span
-          class="inline-block bg-emerald-100 text-emerald-700 text-xs font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-4">How
-          We Work</span>
-        <h2 class="font-display text-4xl lg:text-5xl font-black text-gray-900">Our Approach</h2>
-        <p class="text-gray-400 mt-3 text-base max-w-2xl mx-auto">
-          At Women Concern, fighting poverty means more than increasing income — it means restoring dignity, choice, and
-          voice.
-        </p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <!-- UPG -->
-        <div
-          class="relative bg-white border-2 border-brand-green/20 rounded-3xl p-8 overflow-hidden group hover:border-brand-green/50 hover:shadow-xl transition-all duration-300">
-          <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-green to-emerald-400 rounded-t-3xl">
-          </div>
-          <div
-            class="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-green/5 rounded-full group-hover:scale-110 transition-transform duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-5">
-              <div class="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center text-2xl shadow-md">🌱
-              </div>
-              <div>
-                <p class="text-xs font-black uppercase tracking-widest text-brand-green">Model 01</p>
-                <h3 class="font-display font-black text-gray-900 text-xl leading-none">Ultra-Poor Graduation</h3>
-              </div>
-            </div>
-            <p class="text-gray-600 text-sm leading-relaxed mb-5">
-              A holistic, two-year approach that empowers ultra-poor women with productive assets, financial literacy,
-              entrepreneurship support, coaching, and access to savings to achieve lasting self-reliance.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                v-for="tag in ['Productive Assets', 'Financial Literacy', 'Coaching', 'Savings', 'Entrepreneurship']"
-                :key="tag" class="text-xs bg-brand-green/10 text-brand-green font-semibold px-3 py-1 rounded-full">{{
-                tag }}</span>
-            </div>
-          </div>
-        </div>
-        <!-- CBM -->
-        <div
-          class="relative bg-brand-green rounded-3xl p-8 overflow-hidden group hover:shadow-xl transition-all duration-300">
-          <div
-            class="absolute -top-10 -left-10 w-48 h-48 bg-white/10 rounded-full group-hover:scale-110 transition-transform duration-500">
-          </div>
-          <div class="absolute bottom-4 right-6 text-white/10 font-black text-[100px] leading-none select-none">02</div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-5">
-              <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl shadow-md">🤝</div>
-              <div>
-                <p class="text-xs font-black uppercase tracking-widest text-brand-yellow">Model 02</p>
-                <h3 class="font-display font-black text-white text-xl leading-none">Community-Based Model</h3>
-              </div>
-            </div>
-            <p class="text-white/85 text-sm leading-relaxed mb-5">
-              A participatory, bottom-up approach that engages local women, authorities, and organizations in
-              co-creating solutions, fostering ownership, accountability, and long-term sustainability.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                v-for="tag in ['Participatory', 'Local Ownership', 'Accountability', 'Co-creation', 'Sustainability']"
-                :key="tag" class="text-xs bg-white/20 text-white font-semibold px-3 py-1 rounded-full">{{ tag }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- How they work together -->
-      <div
-        class="bg-gradient-to-r from-brand-green/5 via-brand-yellow/10 to-brand-green/5 border border-brand-green/15 rounded-3xl p-8 text-center">
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <div class="w-8 h-8 bg-brand-green rounded-lg flex items-center justify-center text-white text-sm font-black">
-            ↔</div>
-          <h3 class="font-display font-black text-gray-900 text-xl">How the Models Work Together</h3>
-        </div>
-        <p class="text-gray-600 text-base leading-relaxed max-w-2xl mx-auto">
-          <strong class="text-brand-green">UPG</strong> equips women with tools, knowledge, and assets, while <strong
-            class="text-brand-green">CBM</strong> ensures these efforts are grounded in local realities. Together, they
-          create <em>sustainable empowerment from within the community.</em>
-        </p>
       </div>
     </section>
 

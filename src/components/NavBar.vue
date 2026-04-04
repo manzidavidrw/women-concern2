@@ -330,6 +330,17 @@ const involvedItems = [
   { page: 'partnerships', emoji: '🌍', en: 'Partnerships', fr: 'Partenariats', sub: { en: 'Organisations we work with', fr: 'Organisations partenaires' } },
   { page: 'donate', emoji: '💛', en: 'Donate', fr: 'Faire un Don', sub: { en: 'Support our programmes', fr: 'Soutenir nos programmes' } },
   { page: 'contact-us', emoji: '✉️', en: 'Contact Us', fr: 'Contactez-Nous', sub: { en: 'Get in touch with us', fr: 'Prenez contact avec nous' } },
+  {
+    page: 'career',
+    emoji: '💼',
+    en: 'Career',
+    fr: 'Carrière',
+    sub: {
+      en: 'Explore opportunities with us',
+      fr: 'Découvrez des opportunités avec nous'
+    }
+  },
+
 ]
 
 // ── Navigation helpers ───────────────────────────────────────

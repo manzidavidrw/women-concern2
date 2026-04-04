@@ -10,6 +10,7 @@
   <BlogIndex v-else-if="page === 'blog'" @navigate="goTo" />
   <BlogPost v-else-if="page.startsWith('blog-')" :post-id="Number(page.replace('blog-', ''))" @navigate="goTo" />
   <WhatWeDo v-else-if="page === 'what-we-do'" @navigate="goTo" />
+  <MalkiaPadsPage v-else-if="page === 'malkia-pads'" @navigate="goTo" />
 
   <!-- Program Detail Pages -->
   <ProgramDetail v-else-if="page.startsWith('program-')" :program-id="page" @navigate="goTo" />
@@ -50,6 +51,7 @@ import ProgramDetail from './components/ProgramDetail.vue'
 import WhatWeDo from './pages/Whatwedo.vue'
 import BlogIndex from './pages/BlogIndex.vue'
 import BlogPost from './pages/BlogPost.vue'
+import MalkiaPadsPage from './pages/MalkiaPads.vue'
 import { ref } from 'vue'
 
 const page = ref('home')

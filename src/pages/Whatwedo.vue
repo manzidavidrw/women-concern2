@@ -44,9 +44,8 @@
         <SectionHeader emoji="💼" tag="Economic Empowerment" tagColor="bg-emerald-100 text-emerald-700"
           title="Women's Economic Empowerment" subtitle="Ultra-Poor Graduation (UPG) & Community-Based Model" />
 
-        <!-- Intro left / Impact right -->
-        <div class="mt-10 mb-12 grid lg:grid-cols-2 gap-8 items-stretch">
-
+        <!-- CHANGE 1: Replace impact card with image on the right, like other sections -->
+        <div class="mt-10 mb-12 grid lg:grid-cols-2 gap-8 items-center">
           <!-- LEFT: intro text -->
           <div class="flex flex-col justify-center gap-6">
             <div
@@ -81,109 +80,28 @@
               independence.` }}
             </p>
           </div>
-
-          <!-- RIGHT: impact card -->
-          <div
-            class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-900 to-emerald-700 p-7 flex flex-col shadow-2xl">
-            <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full border border-white/10 pointer-events-none" />
-            <div
-              class="absolute -bottom-8 -left-8 w-36 h-36 rounded-full border border-emerald-400/20 pointer-events-none" />
-            <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-emerald-500/20 pointer-events-none" />
-
-            <div class="relative z-10 flex items-center justify-between mb-6">
-              <div>
-                <p class="text-white font-black text-lg leading-none">
-                  {{ lang === 'fr' ? `Impact en un Coup d'Œil` : `Impact at a Glance` }}
-                </p>
-                <p class="text-emerald-300 text-xs mt-1">
-                  {{ lang === 'fr' ? `Résultats cumulés du programme` : `Cumulative program results` }}
-                </p>
-              </div>
-              <div
-                class="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-xl flex-shrink-0">
-                📊
-              </div>
-            </div>
-
-            <div class="relative z-10 flex flex-col gap-3 flex-1">
-              <div v-for="stat in weeImpact" :key="stat.number"
-                class="group flex items-center gap-4 bg-white/8 hover:bg-white/14 border border-white/10 hover:border-emerald-400/40 rounded-2xl px-5 py-3.5 transition-all duration-200">
-                <div
-                  class="w-10 h-10 rounded-xl bg-emerald-500/30 flex items-center justify-center text-lg flex-shrink-0">
-                  {{ stat.emoji }}
-                </div>
-                <div class="flex-1 min-w-0">
-                  <p class="font-display font-black text-white text-xl leading-none">{{ stat.number }}</p>
-                  <p class="text-emerald-200/80 text-xs leading-snug mt-0.5 truncate">
-                    {{ lang === 'fr' ? stat.fr : stat.en }}
-                  </p>
-                </div>
-                <svg class="w-4 h-4 text-emerald-400/50 group-hover:text-emerald-300 transition-colors flex-shrink-0"
-                  fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
-
-            <div
-              class="relative z-10 mt-6 h-1 rounded-full bg-gradient-to-r from-emerald-400 via-yellow-300 to-emerald-400 opacity-60" />
-          </div>
+          <!-- RIGHT: image like other sections -->
+          <PlaceholderImage label="Women's Economic Empowerment — Section Image" color="emerald" />
         </div>
 
         <CarouselSection :cards="weeCards" accent="emerald" :emit-fn="(p) => $emit('navigate', p)" />
 
-        <!-- Closing message -->
-        <div class="mt-10 bg-emerald-50 border border-emerald-100 rounded-2xl px-8 pt-8 pb-5 md:px-12 md:pt-10 md:pb-6">
-          <div class="flex flex-col md:flex-row md:items-start gap-8">
-            <div class="md:w-2/5 flex-shrink-0 flex flex-col gap-3">
-              <div class="flex items-center gap-2">
-                <div class="w-1 h-8 rounded-full bg-emerald-500"></div>
-                <span class="text-emerald-600 text-xs font-black uppercase tracking-widest">
-                  {{ lang === 'fr' ? `Notre Engagement` : `Key Takeaway` }}
-                </span>
-              </div>
-              <p class="text-emerald-900 font-display font-bold text-xl md:text-2xl leading-snug">
-                {{ lang === 'fr'
-                  ? `Cet accompagnement continu est essentiel pour garantir un changement durable.`
-                  : `This continuous accompaniment is key to ensuring lasting change.` }}
-              </p>
-            </div>
-            <div class="hidden md:block w-px self-stretch bg-emerald-200 flex-shrink-0" />
-            <div class="flex flex-col gap-3 flex-1">
-              <div class="flex items-center gap-2 mb-1">
-                <span class="text-lg">👑</span>
-                <h4 class="font-display font-black text-emerald-900 text-base">
-                  {{ lang === 'fr' ? `De la Vulnérabilité au Leadership` : `From Vulnerability to Leadership` }}
-                </h4>
-              </div>
-              <p class="text-emerald-800/70 text-sm leading-relaxed">
-                {{ lang === 'fr'
-                  ? `À mesure que les femmes renforcent leur stabilité économique, beaucoup deviennent des leaders actives
-                au sein de leurs communautés. Elles participent à des initiatives coopératives, encadrent d'autres
-                femmes et contribuent aux efforts de développement local.`
-                  : `As women strengthen their economic stability, many become active leaders within their communities.
-                They participate in cooperative initiatives, mentor other women, and contribute to local development
-                efforts.` }}
-              </p>
-              <p class="text-emerald-800/70 text-sm leading-relaxed">
-                {{ lang === 'fr'
-                  ? `Grâce à ce processus, les femmes dépassent la simple survie pour accéder à des moyens de subsistance
-                durables, à la dignité et au leadership.`
-                  : `Through this process, women move beyond survival toward sustainable livelihoods, dignity, and
-                leadership.` }}
-              </p>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span
-                  v-for="tag in (lang === 'fr' ? [`Moyens de subsistance durables`, `Dignité`, `Leadership`] : [`Sustainable Livelihoods`, `Dignity`, `Leadership`])"
-                  :key="tag"
-                  class="inline-flex items-center gap-1.5 bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  {{ tag }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- CHANGE 2: Key Takeaway LEFT + Success Story / Testimony RIGHT -->
+        <TestimonyBlock accent="emerald" :lang="lang"
+          :takeaway-en="`This continuous accompaniment is key to ensuring lasting change.`"
+          :takeaway-fr="`Cet accompagnement continu est essentiel pour garantir un changement durable.`"
+          :heading-en="`From Vulnerability to Leadership`" :heading-fr="`De la Vulnérabilité au Leadership`"
+          :body-en="`As women strengthen their economic stability, many become active leaders within their communities. They participate in cooperative initiatives, mentor other women, and contribute to local development efforts. Through this process, women move beyond survival toward sustainable livelihoods, dignity, and leadership.`"
+          :body-fr="`À mesure que les femmes renforcent leur stabilité économique, beaucoup deviennent des leaders actives au sein de leurs communautés. Elles participent à des initiatives coopératives, encadrent d'autres femmes et contribuent aux efforts de développement local.`"
+          :tags-en="['Sustainable Livelihoods', 'Dignity', 'Leadership']"
+          :tags-fr="['Moyens de subsistance durables', 'Dignité', 'Leadership']" :story="{
+            quote_en: `I never thought I could run my own business. After joining WOCO's program, I not only started a small trade but helped five other women do the same. Today I am the leader of our cooperative — something I never imagined possible.`,
+            quote_fr: `Je n'aurais jamais pensé pouvoir gérer ma propre entreprise. Après avoir rejoint le programme de WOCO, j'ai non seulement lancé un commerce, mais j'ai aidé cinq autres femmes à faire de même. Aujourd'hui, je suis la leader de notre coopérative.`,
+            name: 'Marie K.',
+            location_en: 'South Kivu',
+            location_fr: 'Sud-Kivu',
+            img: null
+          }" />
       </section>
 
       <Divider color="emerald" />
@@ -220,18 +138,36 @@
         </div>
 
         <CarouselSection :cards="eduCards" accent="amber" :emit-fn="(p) => $emit('navigate', p)" />
+
+        <!-- CHANGE 2: Testimony block for Girls Academy -->
+        <TestimonyBlock accent="amber" :lang="lang"
+          :takeaway-en="`When girls stay in school and lead, entire communities transform.`"
+          :takeaway-fr="`Quand les filles restent à l'école et dirigent, des communautés entières se transforment.`"
+          :heading-en="`Education as Liberation`" :heading-fr="`L'Éducation comme Libération`"
+          :body-en="`The Girls Leadership Academy goes beyond the classroom — it equips girls with the confidence, health knowledge, and leadership skills to become change-makers. Girls who once faced early marriage or dropout are now community advocates and mentors.`"
+          :body-fr="`L'Académie de Leadership pour Filles va au-delà de la salle de classe — elle dote les filles de confiance en soi, de connaissances en santé et de compétences en leadership pour devenir des agents du changement.`"
+          :tags-en="['Education', 'Leadership', 'Health & Dignity']"
+          :tags-fr="['Éducation', 'Leadership', 'Santé & Dignité']" :story="{
+            quote_en: `Before joining the Academy, I was about to drop out of school. The Leadership Club changed everything — I learned to speak up, to value my health, and to dream bigger. Now I want to become a doctor and come back to help girls like me.`,
+            quote_fr: `Avant de rejoindre l'Académie, j'allais abandonner l'école. Le Club de Leadership a tout changé — j'ai appris à m'exprimer, à valoriser ma santé et à rêver plus grand. Maintenant je veux devenir médecin et revenir aider des filles comme moi.`,
+            name: 'Esperance M.',
+            location_en: 'North Kivu',
+            location_fr: 'Nord-Kivu',
+            img: null
+          }" />
       </section>
 
       <Divider color="green" />
 
       <!-- ══════════════════════════════════════════
            3. LAND RESTORATION & CLIMATE RESILIENCE
+           CHANGE 4: Introduction framing + Read More → glfx-kivu nav
       ══════════════════════════════════════════ -->
       <section id="land-restoration-climate" class="scroll-mt-40">
         <SectionHeader emoji="🌱" tag="Climate & Environment" tagColor="bg-green-100 text-green-700"
           title="Land Restoration & Climate Resilience" subtitle="GLFx Kivu — Community-Led Landscape Action" />
 
-        <div class="mt-8 grid lg:grid-cols-2 gap-12 items-center mb-12">
+        <div class="mt-8 grid lg:grid-cols-2 gap-12 items-center mb-8">
           <div class="space-y-4">
             <p class="text-gray-600 leading-relaxed text-base">
               <strong class="text-brand-green font-semibold">GLFx Kivu</strong>
@@ -252,11 +188,41 @@
               degraded ecosystems while strengthening climate-resilient livelihoods, connecting local action to global
               conversations.` }}
             </p>
+            <!-- CHANGE 4: Explore GLFx Kivu button → navigate to glfx-kivu -->
+            <div class="pt-2">
+              <button @click="$emit('navigate', 'glfx-kivu')"
+                class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-full text-sm transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                <span>🌍</span>
+                <span>{{ lang === 'fr' ? `Explorer GLFx Kivu` : `Explore GLFx Kivu` }}</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
           <PlaceholderImage label="GLFx Kivu — Climate Section Image" color="green" />
         </div>
 
-        <CarouselSection :cards="climateCards" accent="green" :emit-fn="(p) => $emit('navigate', p)" />
+        <!-- CHANGE 4: Highlight cards as intro teasers — Read More on each redirects to glfx-kivu -->
+        <CarouselSection :cards="climateCardsWithNav" accent="green" :emit-fn="(p) => $emit('navigate', p)" />
+
+        <!-- CHANGE 2: Testimony block for Climate -->
+        <TestimonyBlock accent="green" :lang="lang"
+          :takeaway-en="`Restoring land means restoring lives — and women are leading the way.`"
+          :takeaway-fr="`Restaurer la terre signifie restaurer des vies — et les femmes montrent la voie.`"
+          :heading-en="`From Degraded Land to Thriving Landscape`"
+          :heading-fr="`Des Terres Dégradées aux Paysages Prospères`"
+          :body-en="`GLFx Kivu connects grassroots community action in Eastern DRC to global climate conversations. Women and youth are not just participants — they are the scientists, entrepreneurs, and leaders of a green recovery.`"
+          :body-fr="`GLFx Kivu relie l'action communautaire locale en RDC orientale aux conversations climatiques mondiales. Les femmes et les jeunes ne sont pas seulement des participants — ils sont les scientifiques, entrepreneurs et leaders d'une reprise verte.`"
+          :tags-en="['Reforestation', 'Climate Resilience', 'Green Livelihoods']"
+          :tags-fr="['Reboisement', 'Résilience Climatique', 'Moyens de Subsistance Verts']" :story="{
+            quote_en: `My cooperative used to struggle to find firewood and water. After joining the Ruzizi Greening project, we planted over 500 trees on our land. The soil is recovering, our harvests improved, and we now sell tree seedlings to other villages.`,
+            quote_fr: `Ma coopérative avait du mal à trouver du bois de chauffage et de l'eau. Après avoir rejoint le projet de verdissement de la Ruzizi, nous avons planté plus de 500 arbres. Le sol se remet, nos récoltes se sont améliorées et nous vendons maintenant des plants à d'autres villages.`,
+            name: 'Consolée B.',
+            location_en: 'Ruzizi Plain, South Kivu',
+            location_fr: 'Plaine de la Ruzizi, Sud-Kivu',
+            img: null
+          }" />
       </section>
 
       <Divider color="blue" />
@@ -293,6 +259,23 @@
         </div>
 
         <CarouselSection :cards="peaceCards" accent="blue" :emit-fn="(p) => $emit('navigate', p)" />
+
+        <!-- CHANGE 2: Testimony block for Peacebuilding -->
+        <TestimonyBlock accent="blue" :lang="lang"
+          :takeaway-en="`Women are not on the margins of peace — they are at its center.`"
+          :takeaway-fr="`Les femmes ne sont pas en marge de la paix — elles en sont le centre.`"
+          :heading-en="`From Survivor to Peacemaker`" :heading-fr="`De Survivante à Artisane de Paix`"
+          :body-en="`Through dialogue platforms, disarmament networks, and survivor-led healing circles, WOCO's peacebuilding work addresses both the root causes and consequences of violence — with women as the primary architects of lasting peace.`"
+          :body-fr="`Grâce aux plateformes de dialogue, aux réseaux de désarmement et aux cercles de guérison dirigés par des survivantes, le travail de WOCO en matière de consolidation de la paix s'attaque aux causes et aux conséquences de la violence.`"
+          :tags-en="['Conflict Resolution', 'GBV Prevention', 'Community Security']"
+          :tags-fr="['Résolution de conflits', 'Prévention des VBG', 'Sécurité communautaire']" :story="{
+            quote_en: `I lost my husband in the conflict and lived in fear for years. WOCO's Women Mediators Circle gave me tools and a voice. I helped negotiate a ceasefire between two rival groups in our village. Peace is possible when women lead.`,
+            quote_fr: `J'ai perdu mon mari dans le conflit et j'ai vécu dans la peur pendant des années. Le Cercle des Médiatrices de WOCO m'a donné des outils et une voix. J'ai contribué à négocier un cessez-le-feu entre deux groupes rivaux dans notre village. La paix est possible quand les femmes dirigent.`,
+            name: 'Amina N.',
+            location_en: 'Uvira Territory, South Kivu',
+            location_fr: 'Territoire d\'Uvira, Sud-Kivu',
+            img: null
+          }" />
       </section>
 
       <Divider color="purple" />
@@ -327,6 +310,23 @@
         </div>
 
         <CarouselSection :cards="researchCards" accent="purple" :emit-fn="(p) => $emit('navigate', p)" />
+
+        <!-- CHANGE 2: Testimony block for Research & Advocacy -->
+        <TestimonyBlock accent="purple" :lang="lang"
+          :takeaway-en="`Evidence becomes power when women hold it and wield it.`"
+          :takeaway-fr="`La preuve devient un pouvoir lorsque les femmes la détiennent et l'utilisent.`"
+          :heading-en="`Research That Opens Doors`" :heading-fr="`La Recherche Qui Ouvre des Portes`"
+          :body-en="`WOCO's research program doesn't just produce reports — it produces advocates. Women who once had no seat at the table are now presenting findings at regional forums, informing government policy, and shaping agendas that affect millions of lives.`"
+          :body-fr="`Le programme de recherche de WOCO ne produit pas seulement des rapports — il produit des défenseurs. Des femmes qui n'avaient autrefois pas leur place à la table présentent maintenant des résultats lors de forums régionaux et influencent les politiques gouvernementales.`"
+          :tags-en="['Evidence-Based Policy', 'Women\'s Voice', 'Decision-Making']"
+          :tags-fr="['Politiques fondées sur des preuves', 'Voix des Femmes', 'Prise de Décision']" :story="{
+            quote_en: `I was trained to lead a community research study on GBV in our area. When I presented the findings to local authorities, they listened — and changed a policy. I realized that data in the hands of women is a powerful tool for change.`,
+            quote_fr: `J'ai été formée pour mener une étude de recherche communautaire sur les VBG dans notre région. Quand j'ai présenté les résultats aux autorités locales, ils ont écouté — et modifié une politique. J'ai réalisé que les données entre les mains des femmes sont un outil puissant pour le changement.`,
+            name: 'Joëlle M.',
+            location_en: 'Goma, North Kivu',
+            location_fr: 'Goma, Nord-Kivu',
+            img: null
+          }" />
       </section>
 
     </div>
@@ -357,15 +357,42 @@
       </div>
     </div>
 
+    <!-- ══════════════════════════════════════════
+         CHANGE 3: Sub-program Full Description Modal/Page
+    ══════════════════════════════════════════ -->
+    <Transition name="page-slide">
+      <div v-if="activeProgramPage" class="fixed inset-0 z-50 bg-white overflow-y-auto">
+        <ProgramDetailPage :program="activeProgramPage" :lang="lang" @close="activeProgramPage = null" />
+      </div>
+    </Transition>
+
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, defineComponent, h } from 'vue'
+import { ref, computed, onMounted, onUnmounted, defineComponent, h } from 'vue'
 import { useLang } from '../composables/useLang.js'
 
 const emit = defineEmits(['navigate'])
 const { lang } = useLang()
+
+// ── Active sub-program page (CHANGE 3) ──────────────────────
+const activeProgramPage = ref(null)
+
+const navigateToProgram = (pageKey) => {
+  // Check if it's a glfx-kivu redirect
+  if (pageKey === 'glfx-kivu') {
+    emit('navigate', 'glfx-kivu')
+    return
+  }
+  // Find program data
+  const allCards = [...weeCards, ...eduCards, ...climateCards, ...peaceCards, ...researchCards]
+  const found = allCards.find(c => c.page === pageKey)
+  if (found) {
+    activeProgramPage.value = found
+    window.scrollTo({ top: 0 })
+  }
+}
 
 // ── Sticky nav ──────────────────────────────────────────────
 const sectionNavs = [
@@ -431,6 +458,159 @@ const PlaceholderImage = defineComponent({
       h('p', { class: `text-xs font-semibold ${txt} text-center px-6` }, props.label),
       h('p', { class: 'text-xs text-gray-300' }, 'Replace with your photo'),
     ])
+  }
+})
+
+// ── CHANGE 2: TestimonyBlock ─────────────────────────────────
+const TestimonyBlock = defineComponent({
+  props: ['accent', 'lang', 'takeawayEn', 'takeawayFr', 'headingEn', 'headingFr', 'bodyEn', 'bodyFr', 'tagsEn', 'tagsFr', 'story'],
+  setup(props) {
+    const accentMap = {
+      emerald: {
+        wrap: 'bg-emerald-50 border-emerald-100',
+        bar: 'bg-emerald-500',
+        label: 'text-emerald-600',
+        heading: 'text-emerald-900',
+        divider: 'bg-emerald-200',
+        body: 'text-emerald-800/70',
+        tag: 'bg-emerald-100 border-emerald-200 text-emerald-700',
+        tagDot: 'bg-emerald-500',
+        storyWrap: 'bg-emerald-900',
+        storyQuoteColor: 'text-emerald-300',
+        storyBadge: 'bg-emerald-700 text-emerald-200',
+      },
+      amber: {
+        wrap: 'bg-amber-50 border-amber-100',
+        bar: 'bg-amber-500',
+        label: 'text-amber-600',
+        heading: 'text-amber-900',
+        divider: 'bg-amber-200',
+        body: 'text-amber-800/70',
+        tag: 'bg-amber-100 border-amber-200 text-amber-700',
+        tagDot: 'bg-amber-500',
+        storyWrap: 'bg-amber-800',
+        storyQuoteColor: 'text-amber-300',
+        storyBadge: 'bg-amber-700 text-amber-200',
+      },
+      green: {
+        wrap: 'bg-green-50 border-green-100',
+        bar: 'bg-green-500',
+        label: 'text-green-600',
+        heading: 'text-green-900',
+        divider: 'bg-green-200',
+        body: 'text-green-800/70',
+        tag: 'bg-green-100 border-green-200 text-green-700',
+        tagDot: 'bg-green-500',
+        storyWrap: 'bg-green-900',
+        storyQuoteColor: 'text-green-300',
+        storyBadge: 'bg-green-700 text-green-200',
+      },
+      blue: {
+        wrap: 'bg-blue-50 border-blue-100',
+        bar: 'bg-blue-500',
+        label: 'text-blue-600',
+        heading: 'text-blue-900',
+        divider: 'bg-blue-200',
+        body: 'text-blue-800/70',
+        tag: 'bg-blue-100 border-blue-200 text-blue-700',
+        tagDot: 'bg-blue-500',
+        storyWrap: 'bg-blue-900',
+        storyQuoteColor: 'text-blue-300',
+        storyBadge: 'bg-blue-700 text-blue-200',
+      },
+      purple: {
+        wrap: 'bg-purple-50 border-purple-100',
+        bar: 'bg-purple-500',
+        label: 'text-purple-600',
+        heading: 'text-purple-900',
+        divider: 'bg-purple-200',
+        body: 'text-purple-800/70',
+        tag: 'bg-purple-100 border-purple-200 text-purple-700',
+        tagDot: 'bg-purple-500',
+        storyWrap: 'bg-purple-900',
+        storyQuoteColor: 'text-purple-300',
+        storyBadge: 'bg-purple-700 text-purple-200',
+      },
+    }
+    const c = accentMap[props.accent] || accentMap.emerald
+
+    return () => {
+      const isEn = props.lang !== 'fr'
+      const takeaway = isEn ? props.takeawayEn : props.takeawayFr
+      const heading = isEn ? props.headingEn : props.headingFr
+      const body = isEn ? props.bodyEn : props.bodyFr
+      const tags = isEn ? props.tagsEn : props.tagsFr
+      const quote = isEn ? props.story.quote_en : props.story.quote_fr
+      const location = isEn ? props.story.location_en : props.story.location_fr
+
+      return h('div', { class: `mt-10 border rounded-2xl px-8 pt-8 pb-5 md:px-0 md:pt-0 md:pb-0 overflow-hidden ${c.wrap}` },
+        h('div', { class: 'flex flex-col md:flex-row' }, [
+
+          // LEFT: Key Takeaway
+          h('div', { class: 'md:w-2/5 flex-shrink-0 flex flex-col gap-3 md:px-12 md:py-10 px-0 pt-0 pb-6' }, [
+            h('div', { class: 'flex items-center gap-2' }, [
+              h('div', { class: `w-1 h-8 rounded-full ${c.bar}` }),
+              h('span', { class: `text-xs font-black uppercase tracking-widest ${c.label}` },
+                isEn ? 'Key Takeaway' : 'Notre Engagement'),
+            ]),
+            h('p', { class: `font-display font-bold text-xl md:text-2xl leading-snug ${c.heading}` }, takeaway),
+            h('div', { class: `w-px h-px hidden` }),
+            h('div', { class: 'flex items-center gap-2 mt-2' }, [
+              h('span', { class: 'text-lg' }, '👑'),
+              h('h4', { class: `font-display font-black text-base ${c.heading}` }, heading),
+            ]),
+            h('p', { class: `text-sm leading-relaxed ${c.body}` }, body),
+            h('div', { class: 'flex flex-wrap gap-2 mt-2' },
+              (tags || []).map(tag =>
+                h('span', {
+                  key: tag,
+                  class: `inline-flex items-center gap-1.5 border text-xs font-semibold px-3 py-1 rounded-full ${c.tag}`
+                }, [
+                  h('span', { class: `w-1.5 h-1.5 rounded-full ${c.tagDot}` }),
+                  tag
+                ])
+              )
+            ),
+          ]),
+
+          // Vertical divider
+          h('div', { class: `hidden md:block w-px self-stretch ${c.divider} flex-shrink-0` }),
+
+          // RIGHT: Success Story / Testimony
+          h('div', { class: `flex-1 relative overflow-hidden rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none ${c.storyWrap} flex flex-col justify-between p-8 md:p-10` }, [
+            // Decorative background circles
+            h('div', { class: 'absolute -top-10 -right-10 w-40 h-40 rounded-full border border-white/10 pointer-events-none' }),
+            h('div', { class: 'absolute -bottom-6 -left-6 w-28 h-28 rounded-full border border-white/10 pointer-events-none' }),
+
+            // Header
+            h('div', { class: 'relative z-10 flex items-center gap-3 mb-6' }, [
+              h('div', { class: 'w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-base' }, '✨'),
+              h('p', { class: 'text-white font-black text-sm uppercase tracking-widest' },
+                isEn ? 'Success Story' : 'Histoire de Succès'),
+            ]),
+
+            // Quote
+            h('div', { class: 'relative z-10 flex-1' }, [
+              h('span', { class: `text-5xl leading-none font-serif ${c.storyQuoteColor} block mb-2 opacity-60` }, '"'),
+              h('p', { class: 'text-white/90 text-sm leading-relaxed italic' }, quote),
+              h('span', { class: `text-5xl leading-none font-serif ${c.storyQuoteColor} block text-right mt-1 opacity-60` }, '"'),
+            ]),
+
+            // Attribution
+            h('div', { class: 'relative z-10 mt-6 flex items-center gap-3' }, [
+              // Avatar
+              h('div', { class: 'w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-lg flex-shrink-0' }, '👤'),
+              h('div', [
+                h('p', { class: 'text-white font-bold text-sm' }, props.story.name),
+                h('p', { class: `text-xs ${c.storyQuoteColor}` }, location),
+              ]),
+              h('div', { class: `ml-auto text-xs font-semibold px-3 py-1 rounded-full ${c.storyBadge}` },
+                isEn ? 'Placeholder' : 'Témoin'),
+            ]),
+          ]),
+        ])
+      )
+    }
   }
 })
 
@@ -609,16 +789,153 @@ const Divider = defineComponent({
   }
 })
 
+// ── CHANGE 3: ProgramDetailPage ──────────────────────────────
+// Full-page detail view shown when user clicks "Read More" on a subprogram card
+const ProgramDetailPage = defineComponent({
+  props: ['program', 'lang'],
+  emits: ['close'],
+  setup(props, { emit: emitLocal }) {
+    // Extended descriptions per page key
+    const extendedContent = {
+      'program-identifying-vulnerable': {
+        en: {
+          intro: `Identifying the right women to support is the foundation of everything we do at Women Concern. Before any training or resource distribution begins, WOCO invests deeply in understanding who is truly most vulnerable — and why.`,
+          sections: [
+            { heading: 'Community Consultation Process', body: `We use participatory community assessments led by local facilitators and community leaders. These consultations involve village elders, health workers, teachers, and existing women's group members to map vulnerability in each target zone.` },
+            { heading: 'Who We Prioritize', body: `Our targeting focuses on widows, women displaced by conflict, GBV survivors, female-headed households, women living with disabilities, and those excluded from formal economic and social systems. We use a combination of household surveys and community validation to finalize selections.` },
+            { heading: 'Preventing Exclusion Errors', body: `WOCO uses a transparent, community-validated selection process with grievance mechanisms to ensure the process is fair, trusted, and free from elite capture. Women are included as active participants in verifying the list.` },
+            { heading: 'From Identification to Enrollment', body: `Once identified, women undergo an orientation session where they learn about the program, what to expect, and what is expected of them. This begins the relationship of trust that underlies all of WOCO's work.` },
+          ]
+        },
+        fr: {
+          intro: `Identifier les bonnes femmes à soutenir est la base de tout ce que nous faisons chez Women Concern.`,
+          sections: [
+            { heading: 'Processus de Consultation Communautaire', body: `Nous utilisons des évaluations communautaires participatives menées par des facilitateurs locaux et des leaders communautaires.` },
+            { heading: 'Qui Nous Priorisons', body: `Notre ciblage se concentre sur les veuves, les femmes déplacées par le conflit, les survivantes de VBG, les ménages dirigés par des femmes et celles exclues des systèmes économiques formels.` },
+            { heading: 'Prévenir les Erreurs d\'Exclusion', body: `WOCO utilise un processus de sélection transparent et validé par la communauté avec des mécanismes de recours.` },
+            { heading: 'De l\'Identification à l\'Inscription', body: `Une fois identifiées, les femmes participent à une session d\'orientation pour apprendre ce que le programme implique.` },
+          ]
+        }
+      },
+      // Default fallback for other pages
+      default: {
+        en: {
+          intro: `This program is a core pillar of Women Concern's mission to empower women, restore communities, and build lasting peace in Eastern DRC. Our approach is holistic, community-driven, and deeply rooted in the realities women face every day.`,
+          sections: [
+            { heading: 'Our Approach', body: `We design every intervention based on careful listening to the communities we serve. Women are not passive recipients — they are co-designers of solutions, leaders of implementation, and owners of outcomes.` },
+            { heading: 'What We Do', body: `Across multiple districts of Eastern DRC, our trained facilitators work alongside community members to deliver targeted support, skills training, economic resources, and ongoing accompaniment tailored to each woman's needs and context.` },
+            { heading: 'Who Benefits', body: `We prioritize the most marginalized women — those affected by conflict, displacement, poverty, and gender-based violence — while building systems that benefit entire communities over time.` },
+            { heading: 'Long-Term Impact', body: `Our programs are designed for sustainability. We build local capacity, strengthen community institutions, and create feedback loops that allow continuous learning and adaptation as contexts evolve.` },
+          ]
+        },
+        fr: {
+          intro: `Ce programme est un pilier central de la mission de Women Concern pour autonomiser les femmes et construire une paix durable en RDC orientale.`,
+          sections: [
+            { heading: 'Notre Approche', body: `Nous concevons chaque intervention à partir d'une écoute attentive des communautés que nous servons. Les femmes sont des co-conceptrices de solutions.` },
+            { heading: 'Ce Que Nous Faisons', body: `Nos facilitateurs travaillent aux côtés des membres de la communauté pour fournir un soutien ciblé, une formation aux compétences et un accompagnement continu.` },
+            { heading: 'Qui En Bénéficie', body: `Nous priorisons les femmes les plus marginalisées — celles touchées par les conflits, le déplacement, la pauvreté et les violences basées sur le genre.` },
+            { heading: 'Impact à Long Terme', body: `Nos programmes sont conçus pour la durabilité. Nous renforçons les capacités locales et créons des boucles de rétroaction pour un apprentissage continu.` },
+          ]
+        }
+      }
+    }
+
+    return () => {
+      const isEn = props.lang !== 'fr'
+      const contentKey = extendedContent[props.program?.page] ? props.program.page : 'default'
+      const content = isEn ? extendedContent[contentKey].en : extendedContent[contentKey].fr
+
+      return h('div', { class: 'min-h-screen bg-white' }, [
+
+        // ── Back bar ──
+        h('div', { class: 'sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm' },
+          h('div', { class: 'max-w-5xl mx-auto px-6 py-4 flex items-center gap-4' }, [
+            h('button', {
+              onClick: () => emitLocal('close'),
+              class: 'flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-brand-green transition-colors group'
+            }, [
+              h('svg', { class: 'w-4 h-4 transition-transform group-hover:-translate-x-0.5', fill: 'none', stroke: 'currentColor', 'stroke-width': '2.5', viewBox: '0 0 24 24' }, [
+                h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', d: 'M15 19l-7-7 7-7' })
+              ]),
+              isEn ? 'Back to What We Do' : 'Retour à Nos Actions',
+            ]),
+            h('div', { class: 'flex-1 h-px bg-gray-100' }),
+            h('span', { class: 'text-xs text-gray-300 font-medium' }, isEn ? 'Program Detail' : 'Détail du Programme'),
+          ])
+        ),
+
+        // ── Hero ──
+        h('div', { class: 'relative bg-gradient-to-br from-emerald-900 via-brand-green to-emerald-700 pt-16 pb-24 px-6 overflow-hidden' }, [
+          h('div', { class: 'absolute inset-0 opacity-10', style: 'background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px); background-size: 40px 40px;' }),
+          h('div', { class: 'relative z-10 max-w-5xl mx-auto' }, [
+            h('div', { class: 'text-4xl mb-4' }, props.program?.emoji || '📋'),
+            h('h1', { class: 'text-white font-display text-4xl lg:text-5xl font-black leading-tight max-w-2xl' }, props.program?.title || ''),
+            h('p', { class: 'text-white/70 mt-4 text-lg max-w-xl leading-relaxed' }, content.intro),
+          ]),
+          h('div', { class: 'absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent z-10' }),
+        ]),
+
+        // ── Image + first section ──
+        h('div', { class: 'max-w-5xl mx-auto px-6 py-16' }, [
+          h('div', { class: 'grid lg:grid-cols-2 gap-12 items-start mb-16' }, [
+            // Image
+            props.program?.img
+              ? h('div', { class: 'rounded-3xl overflow-hidden shadow-xl' },
+                h('img', { src: props.program.img, alt: props.program.title, class: 'w-full aspect-video object-cover' }))
+              : h('div', { class: 'aspect-video rounded-3xl bg-gradient-to-br from-emerald-50 to-emerald-100 border-2 border-dashed border-emerald-200 flex flex-col items-center justify-center gap-3' }, [
+                h('svg', { class: 'w-12 h-12 text-emerald-300', fill: 'none', stroke: 'currentColor', 'stroke-width': '1.5', viewBox: '0 0 24 24' }, [
+                  h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', d: 'M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18' })
+                ]),
+                h('p', { class: 'text-xs text-emerald-300 font-semibold' }, isEn ? 'Add your program photo here' : 'Ajoutez votre photo ici'),
+              ]),
+            // First content section
+            h('div', { class: 'space-y-4' }, [
+              h('div', { class: 'inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-1.5 mb-2' }, [
+                h('span', { class: 'w-2 h-2 rounded-full bg-emerald-500 animate-pulse' }),
+                h('span', { class: 'text-emerald-700 text-xs font-bold uppercase tracking-widest' }, content.sections[0]?.heading || ''),
+              ]),
+              h('p', { class: 'text-gray-600 leading-relaxed text-base' }, content.sections[0]?.body || ''),
+            ]),
+          ]),
+
+          // ── Remaining sections as text blocks ──
+          h('div', { class: 'space-y-10' },
+            (content.sections.slice(1) || []).map((section, i) =>
+              h('div', { key: i, class: 'border-l-4 border-emerald-200 pl-6' }, [
+                h('h3', { class: 'font-display font-black text-gray-900 text-xl mb-3' }, section.heading),
+                h('p', { class: 'text-gray-600 leading-relaxed' }, section.body),
+              ])
+            )
+          ),
+
+          // ── Back button at bottom ──
+          h('div', { class: 'mt-16 pt-10 border-t border-gray-100 flex justify-start' },
+            h('button', {
+              onClick: () => emitLocal('close'),
+              class: 'inline-flex items-center gap-2 bg-brand-green text-white font-bold px-8 py-3 rounded-full text-sm hover:brightness-110 transition-all shadow-md hover:-translate-y-0.5'
+            }, [
+              h('svg', { class: 'w-4 h-4', fill: 'none', stroke: 'currentColor', 'stroke-width': '2.5', viewBox: '0 0 24 24' }, [
+                h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', d: 'M15 19l-7-7 7-7' })
+              ]),
+              isEn ? 'Back to What We Do' : 'Retour à Nos Actions',
+            ])
+          ),
+        ]),
+      ])
+    }
+  }
+})
+
 // ═══════════════════════════════════════════════════════════════
 // CONTENT DATA
 // ═══════════════════════════════════════════════════════════════
 
 const weeImpact = [
-  { emoji: '👩', number: '3,800', en: 'Women Supported – Empowered through skills training, mentorship, and livelihood support', fr: 'Femmes Soutenues – Autonomisées grâce à la formation, au mentorat et au soutien aux moyens de subsistance' },
-  { emoji: '🤝', number: '18', en: 'Women\'s Cooperatives Created and Supported – Strengthening collective action and market access', fr: 'Coopératives de Femmes Créées et Soutenues – Renforcement de l\'action collective et de l\'accès aux marchés' },
-  { emoji: '💰', number: '8', en: 'Community Savings Groups (VSLA) Established and Supported – Promoting financial inclusion and resilience', fr: 'Groupes d\'Épargne Communautaires (VSLA) Établis et Soutenus – Promotion de l\'inclusion financière et de la résilience' },
-  { emoji: '🌳', number: '8', en: 'Tree Nurseries Managed by Women\'s Groups – Supporting agroforestry and sustainable land use', fr: 'Pépinières d\'Arbres Gérées par des Groupes de Femmes – Soutien à l\'agroforesterie et à l\'utilisation durable des terres' },
-  { emoji: '🌱', number: '12K+', en: 'Trees Planted and Monitored – Contributing to environmental restoration', fr: 'Arbres Plantés et Surveillés – Contribution à la restauration environnementale' },
+  { emoji: '👩', number: '3,800', en: 'Women Supported', fr: 'Femmes Soutenues' },
+  { emoji: '🤝', number: '18', en: 'Women\'s Cooperatives Created', fr: 'Coopératives de Femmes Créées' },
+  { emoji: '💰', number: '8', en: 'Community Savings Groups (VSLA)', fr: 'Groupes d\'Épargne (VSLA)' },
+  { emoji: '🌳', number: '8', en: 'Tree Nurseries Managed by Women', fr: 'Pépinières Gérées par des Femmes' },
+  { emoji: '🌱', number: '12K+', en: 'Trees Planted and Monitored', fr: 'Arbres Plantés et Surveillés' },
 ]
 
 // ── Program 1: Women's Economic Empowerment cards ────────────
@@ -693,29 +1010,33 @@ const eduCards = [
 ]
 
 // ── Program 3: Land Restoration & Climate cards ──────────────
+// CHANGE 4: All cards redirect to glfx-kivu
 const climateCards = [
   {
     emoji: '🌱',
     title: 'Ruzizi Greening Project',
-    page: 'program-ruzizi',
+    page: 'glfx-kivu',
     img: new URL('../assets/programs/ruzizi.jpeg', import.meta.url).href,
     desc: 'Flagship landscape restoration in the Ruzizi Plain — women\'s cooperatives lead agroforestry, tree nurseries, soil conservation, and regenerative horticulture.'
   },
   {
     emoji: '🔥',
     title: 'Clean Cooking Solutions',
-    page: 'program-jiko',
+    page: 'glfx-kivu',
     img: new URL('../assets/programs/jiko.jpeg', import.meta.url).href,
     desc: 'Training communities to produce improved cookstoves locally, reducing deforestation and indoor pollution while creating income for artisans through indigenous knowledge.'
   },
   {
     emoji: '♻️',
     title: 'Green Enterprise & Regenerative Agriculture',
-    page: 'program-green-enterprise',
+    page: 'glfx-kivu',
     img: new URL('../assets/programs/peace.jpeg', import.meta.url).href,
     desc: 'Supporting women and youth to develop green enterprises — agroforestry businesses, organic food, tree nurseries — connected to savings groups and markets.'
   },
 ]
+
+// Alias used in template (same as climateCards, navigation handled via emitFn → navigateToProgram)
+const climateCardsWithNav = climateCards
 
 // ── Program 4: Peacebuilding & Disarmament cards ─────────────
 const peaceCards = [
@@ -781,3 +1102,21 @@ const researchCards = [
   },
 ]
 </script>
+
+<style scoped>
+/* CHANGE 3: Slide-in transition for program detail page */
+.page-slide-enter-active,
+.page-slide-leave-active {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+}
+
+.page-slide-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.page-slide-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+</style>
