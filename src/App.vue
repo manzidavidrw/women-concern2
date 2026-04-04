@@ -51,7 +51,7 @@ import ProgramDetail from './components/ProgramDetail.vue'
 import WhatWeDo from './pages/Whatwedo.vue'
 import BlogIndex from './pages/BlogIndex.vue'
 import BlogPost from './pages/BlogPost.vue'
-import MalkiaPadsPage from './pages/MalkiaPads.vue'
+import MalkiaPadsPage from './pages/Malkiapads.vue'
 import { ref } from 'vue'
 
 const page = ref('home')
