@@ -83,7 +83,7 @@ const ways = [
   {
     emoji: '🤝',
     type: 'navigate',
-    page: 'partnerships',
+    page: 'partnering',
     en_title: 'Partner With Us', fr_title: 'Devenir Partenaire',
     en_desc: 'Are you an organisation, funder, or institution? Reach out to explore a partnership with Women Concern.',
     fr_desc: 'Êtes-vous une organisation, un bailleur ou une institution ? Contactez-nous pour explorer un partenariat.',

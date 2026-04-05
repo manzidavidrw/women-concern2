@@ -12,6 +12,7 @@
   <MalkiaPadsPage v-else-if="page === 'malkia-pads'" @navigate="goTo" />
   <GlfxKivu v-else-if="page === 'glfx-kivu'" @navigate="goTo" />
   <CareerPage v-else-if="page === 'career'" @navigate="goTo" />
+  <PartneringPage v-else-if="page === 'partnerships'" @navigate="goTo" />
 
 
   <!-- Program Detail Pages -->
@@ -56,6 +57,8 @@ import BlogPost from './pages/BlogPost.vue'
 import MalkiaPadsPage from './pages/Malkiapads.vue'
 import GlfxKivu from './pages/Glfxkivu.vue'
 import CareerPage from './pages/Careerpage.vue'
+import PartneringPage from './pages/PartneringPage.vue'
+
 import { ref } from 'vue'
 
 const page = ref('home')

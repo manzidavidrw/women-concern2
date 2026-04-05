@@ -164,72 +164,60 @@
       </div>
     </section>
 
-    <!-- ── SOLUTION ──────────────────────────────────────────── -->
+    <!-- ── DISTRIBUTION MODEL ─────────────────────────────────── -->
     <section class="bg-green-50 py-14">
       <div class="max-w-6xl mx-auto px-6">
+
         <span
           class="inline-block bg-green-100 text-green-700 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
-          💡 {{ t({ en: 'Our Solution', fr: 'Notre Solution' }) }}
+          🚚 {{ t({ en: 'Our Distribution Model', fr: 'Notre Modèle de Distribution' }) }}
         </span>
-        <h2 class="font-serif text-4xl font-black text-gray-900 leading-tight mb-8">
-          {{ t({ en: 'An integrated approach built for', fr: 'Une approche intégrée pour' }) }}<br />
-          <span class="text-green-700 italic">{{ t({ en: 'lasting impact', fr: 'un impact durable' }) }}</span>
+
+        <h2 class="font-serif text-4xl font-black text-gray-900 leading-tight mb-10">
+          {{ t({ en: 'How we reach every girl', fr: 'Comment nous atteignons chaque fille' }) }}<br />
+          <span class="text-green-700 italic">
+            {{ t({ en: 'sustainably & inclusively', fr: 'durablement et inclusivement' }) }}
+          </span>
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- CARD -->
+          <div v-for="(item, index) in distributionModels" :key="index"
             class="bg-white rounded-2xl p-6 border border-green-100 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all">
-            <div class="text-3xl mb-3">🧵</div>
-            <h3 class="font-serif text-lg font-bold text-green-800 mb-2">{{ t({
-              en: `Local Production`, fr: `Production
-              Locale` }) }}</h3>
-            <p class="text-gray-500 text-xs leading-relaxed">
-              {{ t({
-                en: `Reusable, washable sanitary pads — eco-friendly, cost-effective, and manufactured in our own
-              workshop.Adapted to the local context.`, fr: `Serviettes hygiéniques réutilisables et lavables —
-              écologiques, économiques, fabriquées dans notre atelier.Adaptées au contexte local.` }) }}
-            </p>
-          </div>
-          <div
-            class="bg-white rounded-2xl p-6 border border-green-100 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all">
-            <div class="text-3xl mb-3">🚚</div>
-            <h3 class="font-serif text-lg font-bold text-green-800 mb-3">{{ t({
-              en: 'Inclusive Distribution', fr:
-                'Distribution Inclusive'
-            }) }}</h3>
-            <div class="space-y-3">
-              <div v-for="ch in channels" :key="ch.en" class="flex gap-3 items-start">
-                <span class="w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1" :style="{ background: ch.color }" />
-                <div>
-                  <p class="text-green-800 text-xs font-semibold">{{ t(ch) }}</p>
-                  <p class="text-gray-400 text-xs mt-0.5">{{ t(ch.sub) }}</p>
-                </div>
-              </div>
+
+            <div class="text-3xl mb-3">{{ item.emoji }}</div>
+
+            <h3 class="font-serif text-lg font-bold text-green-800 mb-3">
+              {{ t(item.title) }}
+            </h3>
+
+            <!-- ✅ ALWAYS VISIBLE BULLETS -->
+            <ul class="space-y-2 mb-4">
+              <li v-for="(point, i) in item.points" :key="i" class="flex gap-2 text-xs text-gray-600">
+                <span class="text-green-600 mt-[2px]">✓</span>
+                <span>{{ t(point) }}</span>
+              </li>
+            </ul>
+
+            <!-- ✅ READ MORE CONTENT -->
+            <div v-if="expanded[index]" class="mt-3">
+              <p class="text-gray-500 text-xs leading-relaxed">
+                {{ t(item.full) }}
+              </p>
             </div>
+
+            <!-- BUTTON -->
+            <button @click="toggle(index)" class="mt-4 text-green-700 text-xs font-semibold hover:underline">
+              {{
+                expanded[index]
+                  ? t({ en: 'Show Less', fr: 'Voir Moins' })
+                  : t({ en: 'Read More', fr: 'Lire Plus' })
+              }}
+            </button>
+
           </div>
-          <div
-            class="bg-white rounded-2xl p-6 border border-green-100 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all">
-            <div class="text-3xl mb-3">💼</div>
-            <h3 class="font-serif text-lg font-bold text-green-800 mb-2">{{ t({
-              en: 'Social Enterprise Model', fr:
-                'Modèle d\'Entreprise Sociale'
-            }) }}</h3>
-            <p class="text-gray-500 text-xs leading-relaxed mb-3">
-              {{ t({
-                en: `Every purchase directly supports a vulnerable girl or woman.`, fr: `Chaque achat soutient
-              directement une fille ou une femme vulnérable.` }) }}
-            </p>
-            <div
-              class="flex items-center gap-2 bg-green-50 rounded-xl px-3 py-2.5 text-xs font-bold text-green-800 mb-2">
-              <span>{{ t({ en: 'Buy 1 kit', fr: 'Acheter 1 kit' }) }}</span>
-              <span class="text-yellow-500 text-base">→</span>
-              <span>{{ t({ en: 'Support 1 woman', fr: 'Soutenir 1 femme' }) }}</span>
-            </div>
-            <p class="text-gray-400 text-xs">
-              {{ t({
-                en: `Revenue is reinvested into production and free distribution.`, fr: `Les revenus sont
-              réinvestis dans la production et la distribution gratuite.` }) }}
-            </p>
-          </div>
+
         </div>
       </div>
     </section>
@@ -351,6 +339,11 @@
 
 <script setup>
 import { useLang } from '../composables/useLang.js'
+import { ref } from 'vue'
+const expanded = ref([])
+const toggle = (index) => {
+  expanded.value[index] = !expanded.value[index]
+}
 
 const { t } = useLang()
 
@@ -423,5 +416,72 @@ const actions = [
   { emoji: '🤝', en: 'Partner with Us', fr: 'Devenir Partenaire', sub: { en: 'Distribute with us and expand reach', fr: 'Distribuer avec nous et élargir la portée' } },
   { emoji: '💼', en: 'Support Production', fr: 'Soutenir la Production', sub: { en: 'Invest in local manufacturing', fr: 'Investir dans la fabrication locale' } },
   { emoji: '🌍', en: 'Invest in Impact', fr: 'Investir dans l\'Impact', sub: { en: 'Back a high-impact social enterprise', fr: 'Soutenir une entreprise sociale à fort impact' } },
+]
+
+const distributionModels = [
+  {
+    emoji: '🎁',
+    title: { en: 'Free Distribution', fr: 'Distribution Gratuite' },
+
+    points: [
+      { en: 'Schoolgirls in rural areas', fr: 'Écolières en zones rurales' },
+      { en: 'Women in vulnerable conditions', fr: 'Femmes vulnérables' },
+      { en: 'IDPs and refugee camps', fr: 'Camps de déplacés et réfugiés' },
+    ],
+
+    full: {
+      en: `At the heart of our mission, we ensure no girl misses school because of her period.
+We work with schools and communities to identify those most at risk and deliver free kits directly.`,
+      fr: `Au cœur de notre mission, nous garantissons qu'aucune fille ne manque l'école à cause de ses règles.`,
+    },
+  },
+
+  {
+    emoji: '🤝',
+    title: { en: 'NGO Partnerships', fr: 'Partenariats ONG' },
+
+    points: [
+      { en: 'Subsidized kits for NGOs', fr: 'Kits subventionnés pour ONG' },
+      { en: 'Free distribution to beneficiaries', fr: 'Distribution gratuite aux bénéficiaires' },
+      { en: 'Expands reach to remote areas', fr: 'Accès aux zones reculées' },
+    ],
+
+    full: {
+      en: `We collaborate with NGOs to scale impact, allowing wider distribution while reinvesting into production.`,
+      fr: `Nous collaborons avec des ONG pour étendre l'impact et financer la production.`,
+    },
+  },
+
+  {
+    emoji: '🏪',
+    title: { en: 'Pad on the Go', fr: 'Pad on the Go' },
+
+    points: [
+      { en: 'Urban kiosks', fr: 'Kiosques urbains' },
+      { en: 'Affordable access', fr: 'Accès abordable' },
+      { en: 'Promotes awareness', fr: 'Sensibilisation' },
+    ],
+
+    full: {
+      en: `Urban kiosks ensure dignified and easy access while normalizing menstrual health.`,
+      fr: `Les kiosques urbains assurent un accès facile et normalisent la santé menstruelle.`,
+    },
+  },
+
+  {
+    emoji: '💼',
+    title: { en: 'Social Enterprise Model', fr: 'Entreprise Sociale' },
+
+    points: [
+      { en: 'Self-sustaining system', fr: 'Système autonome' },
+      { en: 'Revenue reinvestment', fr: 'Réinvestissement des revenus' },
+      { en: 'Reduces dependency on donors', fr: 'Moins dépendant des dons' },
+    ],
+
+    full: {
+      en: `This model ensures long-term sustainability and continuous free distribution.`,
+      fr: `Ce modèle garantit la durabilité et la distribution continue.`,
+    },
+  },
 ]
 </script>
