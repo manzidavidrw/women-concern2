@@ -13,6 +13,7 @@
   <GlfxKivu v-else-if="page === 'glfx-kivu'" @navigate="goTo" />
   <CareerPage v-else-if="page === 'career'" @navigate="goTo" />
   <PartneringPage v-else-if="page === 'partnerships'" @navigate="goTo" />
+  <VolunteerPage v-else-if="page === 'volunteer'" @navigate="goTo" />
 
 
   <!-- Program Detail Pages -->
@@ -58,6 +59,7 @@ import MalkiaPadsPage from './pages/Malkiapads.vue'
 import GlfxKivu from './pages/Glfxkivu.vue'
 import CareerPage from './pages/Careerpage.vue'
 import PartneringPage from './pages/Partneringpage.vue'
+import VolunteerPage from './pages/VolunteerPage.vue'
 
 import { ref } from 'vue'
 
