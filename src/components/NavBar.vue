@@ -51,7 +51,7 @@
           </transition>
         </div>
 
-        <!-- ② About Us dropdown — scrolls to sections on who-we-are page -->
+        <!-- ② About Us dropdown -->
         <div class="relative" @mouseenter="aboutOpen = true" @mouseleave="aboutOpen = false">
           <button @click="navigateToAbout(null)" :class="['nav-link flex items-center gap-1 text-sm font-medium transition-colors',
             isScrolled ? 'text-gray-600 hover:text-gray-900' : 'text-white hover:text-white/80']">
@@ -87,7 +87,7 @@
           </transition>
         </div>
 
-        <!-- ③ Blogs/News — simple link -->
+        <!-- ③ Blogs/News -->
         <a @click="navigate('blog')" :class="['nav-link text-sm font-medium transition-colors cursor-pointer',
           isScrolled ? 'text-gray-600 hover:text-gray-900' : 'text-white hover:text-white/80']">
           {{ t({ en: 'Blogs/News', fr: 'Blogs/Actualités' }) }}
@@ -129,16 +129,16 @@
           </transition>
         </div>
 
-        <!-- ⑤ Malkia Pads — simple link -->
+        <!-- ⑤ Malkia Pads -->
         <a @click="navigate('malkia-pads')" :class="['nav-link text-sm font-medium transition-colors cursor-pointer',
           isScrolled ? 'text-gray-600 hover:text-gray-900' : 'text-white hover:text-white/80']">
           {{ t({ en: 'Malkia Pads', fr: 'Malkia Pads' }) }}
         </a>
 
-        <!-- ⑥ GLFX — simple link -->
-        <a @click="navigate('glfx')" :class="['nav-link text-sm font-medium transition-colors cursor-pointer',
+        <!-- ⑥ GLFx Kivu — FIXED: was navigate('glfx'), now navigate('glfx-kivu') -->
+        <a @click="navigate('glfx-kivu')" :class="['nav-link text-sm font-medium transition-colors cursor-pointer',
           isScrolled ? 'text-gray-600 hover:text-gray-900' : 'text-white hover:text-white/80']">
-          GLFX
+          GLFx Kivu
         </a>
 
       </nav>
@@ -263,10 +263,10 @@
           {{ t({ en: 'Malkia Pads', fr: 'Malkia Pads' }) }}
         </a>
 
-        <!-- GLFX mobile -->
-        <a @click="navigate('glfx'); mobileOpen = false"
+        <!-- GLFx Kivu mobile — FIXED: was navigate('glfx'), now navigate('glfx-kivu') -->
+        <a @click="navigate('glfx-kivu'); mobileOpen = false"
           class="block py-2.5 text-sm font-medium text-gray-700 border-b border-gray-50 cursor-pointer hover:text-brand-green transition-colors">
-          GLFX
+          GLFx Kivu
         </a>
 
         <a href="#donate" @click="mobileOpen = false"
@@ -302,7 +302,7 @@ const mobileInvolved = ref(false)
 
 const isScrolled = computed(() => scrolledDown.value)
 
-// ── What We Do items (anchor-based) ─────────────────────────
+// ── What We Do items ─────────────────────────────────────────
 const whatItems = [
   { anchor: 'women-economic-empowerment', emoji: '💼', en: 'Women Economic Empowerment', fr: 'Autonomisation Économique des Femmes', sub: { en: 'Livelihoods & financial inclusion', fr: 'Moyens de subsistance & inclusion financière' } },
   { anchor: 'education-girls-empowerment', emoji: '📚', en: 'Education & Girls Empowerment', fr: 'Éducation & Autonomisation des Filles', sub: { en: 'Learning & leadership for girls', fr: 'Apprentissage & leadership pour les filles' } },
@@ -312,8 +312,7 @@ const whatItems = [
   { anchor: 'advocacy', emoji: '📣', en: 'Advocacy', fr: 'Plaidoyer', sub: { en: 'Policy change & rights', fr: 'Changement de politique & droits' } },
 ]
 
-// ── About Us items (anchor-based — all on who-we-are page) ───
-// Each `anchor` matches the section id in WhoWeAre.vue
+// ── About Us items ───────────────────────────────────────────
 const aboutItems = [
   { anchor: 'our-story', emoji: '💚', en: 'Who We Are', fr: 'Qui Nous Sommes', sub: { en: 'Our identity & values', fr: 'Notre identité & valeurs' } },
   { anchor: 'mission-vision', emoji: '🎯', en: 'Vision & Mission', fr: 'Vision & Mission', sub: { en: 'What drives us every day', fr: 'Ce qui nous anime chaque jour' } },
@@ -324,23 +323,13 @@ const aboutItems = [
   { anchor: 'our-approach', emoji: '🗺️', en: 'Our Approach', fr: 'Notre Approche', sub: { en: 'How we work & why it matters', fr: 'Comment nous travaillons & pourquoi' } },
 ]
 
-// ── Get Involved items (page-based) ─────────────────────────
+// ── Get Involved items ───────────────────────────────────────
 const involvedItems = [
   { page: 'volunteer', emoji: '🙌', en: 'Volunteer', fr: 'Bénévolat', sub: { en: 'Give your time & skills', fr: 'Donnez votre temps & compétences' } },
   { page: 'partnerships', emoji: '🌍', en: 'Partnerships', fr: 'Partenariats', sub: { en: 'Organisations we work with', fr: 'Organisations partenaires' } },
   { page: 'donate', emoji: '💛', en: 'Donate', fr: 'Faire un Don', sub: { en: 'Support our programmes', fr: 'Soutenir nos programmes' } },
   { page: 'contact-us', emoji: '✉️', en: 'Contact Us', fr: 'Contactez-Nous', sub: { en: 'Get in touch with us', fr: 'Prenez contact avec nous' } },
-  {
-    page: 'career',
-    emoji: '💼',
-    en: 'Career',
-    fr: 'Carrière',
-    sub: {
-      en: 'Explore opportunities with us',
-      fr: 'Découvrez des opportunités avec nous'
-    }
-  },
-
+  { page: 'career', emoji: '💼', en: 'Career', fr: 'Carrière', sub: { en: 'Explore opportunities with us', fr: 'Découvrez des opportunités avec nous' } },
 ]
 
 // ── Navigation helpers ───────────────────────────────────────
@@ -355,7 +344,6 @@ const scrollToAnchor = (anchor, offset = 90) => {
   }
 }
 
-// What We Do — single page + scroll
 const navigateToWhat = (anchor) => {
   if (props.currentPage === 'what-we-do') {
     scrollToAnchor(anchor)
@@ -365,7 +353,6 @@ const navigateToWhat = (anchor) => {
   }
 }
 
-// About Us — single page (who-we-are) + scroll
 const navigateToAbout = (anchor) => {
   if (props.currentPage === 'who-we-are') {
     scrollToAnchor(anchor)
