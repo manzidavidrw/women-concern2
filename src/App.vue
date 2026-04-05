@@ -54,7 +54,7 @@ import WhatWeDo from './pages/Whatwedo.vue'
 import BlogIndex from './pages/BlogIndex.vue'
 import BlogPost from './pages/BlogPost.vue'
 import MalkiaPadsPage from './pages/Malkiapads.vue'
-import GlfxKivu from './pages/GlfxKivu.vue'
+import GlfxKivu from './pages/Glfxkivu.vue'
 import CareerPage from './pages/CareerPage.vue'
 import { ref } from 'vue'
 
