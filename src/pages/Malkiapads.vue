@@ -184,6 +184,73 @@
 
           <!-- CARD -->
           <div v-for="(item, index) in distributionModels" :key="index"
+            class="bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all">
+
+            <!-- 🖼️ IMAGE -->
+            <div class="relative h-44 overflow-hidden group">
+              <img :src="item.image" alt="distribution image"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+
+            <!-- 📦 CONTENT -->
+            <div class="p-6">
+
+              <div class="text-3xl mb-3">{{ item.emoji }}</div>
+
+              <h3 class="font-serif text-lg font-bold text-green-800 mb-3">
+                {{ t(item.title) }}
+              </h3>
+
+              <!-- BULLETS -->
+              <ul class="space-y-2 mb-4">
+                <li v-for="(point, i) in item.points" :key="i" class="flex gap-2 text-xs text-gray-600">
+                  <span class="text-green-600 mt-[2px]">✓</span>
+                  <span>{{ t(point) }}</span>
+                </li>
+              </ul>
+
+              <!-- READ MORE -->
+              <div v-if="expanded[index]" class="mt-3">
+                <p class="text-gray-500 text-xs leading-relaxed">
+                  {{ t(item.full) }}
+                </p>
+              </div>
+
+              <!-- BUTTON -->
+              <button @click="toggle(index)" class="mt-4 text-green-700 text-xs font-semibold hover:underline">
+                {{
+                  expanded[index]
+                    ? t({ en: 'Show Less', fr: 'Voir Moins' })
+                    : t({ en: 'Read More', fr: 'Lire Plus' })
+                }}
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="bg-green-50 py-14">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <span
+          class="inline-block bg-green-100 text-green-700 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+          🚚 {{ t({ en: 'Our Distribution Model', fr: 'Notre Modèle de Distribution' }) }}
+        </span>
+
+        <h2 class="font-serif text-4xl font-black text-gray-900 leading-tight mb-10">
+          {{ t({ en: 'How we reach every girl', fr: 'Comment nous atteignons chaque fille' }) }}<br />
+          <span class="text-green-700 italic">
+            {{ t({ en: 'sustainably & inclusively', fr: 'durablement et inclusivement' }) }}
+          </span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- CARD -->
+          <div v-for="(item, index) in distributionModels" :key="index"
             class="bg-white rounded-2xl p-6 border border-green-100 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all">
 
             <div class="text-3xl mb-3">{{ item.emoji }}</div>
@@ -340,6 +407,10 @@
 <script setup>
 import { useLang } from '../composables/useLang.js'
 import { ref } from 'vue'
+import malkia from '../assets/malkia.jpeg'
+import sexual from '../assets/programs/sexual.jpeg'
+import skills from '../assets/skills.jpeg'
+
 const expanded = ref([])
 const toggle = (index) => {
   expanded.value[index] = !expanded.value[index]
@@ -422,6 +493,7 @@ const distributionModels = [
   {
     emoji: '🎁',
     title: { en: 'Free Distribution', fr: 'Distribution Gratuite' },
+    image: sexual,
 
     points: [
       { en: 'Schoolgirls in rural areas', fr: 'Écolières en zones rurales' },
@@ -430,8 +502,7 @@ const distributionModels = [
     ],
 
     full: {
-      en: `At the heart of our mission, we ensure no girl misses school because of her period.
-We work with schools and communities to identify those most at risk and deliver free kits directly.`,
+      en: `At the heart of our mission, we ensure no girl misses school because of her period. We work with schools and communities to identify those most at risk and deliver free kits directly.`,
       fr: `Au cœur de notre mission, nous garantissons qu'aucune fille ne manque l'école à cause de ses règles.`,
     },
   },
@@ -439,6 +510,7 @@ We work with schools and communities to identify those most at risk and deliver 
   {
     emoji: '🤝',
     title: { en: 'NGO Partnerships', fr: 'Partenariats ONG' },
+    image: 'https://source.unsplash.com/600x400/?ngo,africa,community',
 
     points: [
       { en: 'Subsidized kits for NGOs', fr: 'Kits subventionnés pour ONG' },
@@ -455,6 +527,7 @@ We work with schools and communities to identify those most at risk and deliver 
   {
     emoji: '🏪',
     title: { en: 'Pad on the Go', fr: 'Pad on the Go' },
+    image: 'https://source.unsplash.com/600x400/?africa,market,shop',
 
     points: [
       { en: 'Urban kiosks', fr: 'Kiosques urbains' },
@@ -471,6 +544,7 @@ We work with schools and communities to identify those most at risk and deliver 
   {
     emoji: '💼',
     title: { en: 'Social Enterprise Model', fr: 'Entreprise Sociale' },
+    image: skills,
 
     points: [
       { en: 'Self-sustaining system', fr: 'Système autonome' },

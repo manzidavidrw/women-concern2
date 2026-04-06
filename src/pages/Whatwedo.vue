@@ -78,7 +78,10 @@
               independence.` }}
             </p>
           </div>
-          <PlaceholderImage label="Women's Economic Empowerment — Section Image" color="emerald" />
+          <!-- SECTION IMAGE: Women's Economic Empowerment -->
+          <div class="aspect-video w-full rounded-3xl overflow-hidden shadow-lg">
+            <img src="../assets/empower.jpeg" alt="Women's Economic Empowerment" class="w-full h-full object-cover" />
+          </div>
         </div>
 
         <CarouselSection :cards="weeCards" accent="emerald" :emit-fn="(p) => $emit('navigate', p)" />
@@ -110,7 +113,10 @@
           title="Girls Leadership Academy" subtitle="Education, Leadership, Menstrual Health & SRHR" />
 
         <div class="mt-8 grid lg:grid-cols-2 gap-12 items-center mb-12">
-          <PlaceholderImage label="Girls Leadership Academy — Section Image" color="amber" />
+          <!-- SECTION IMAGE: Girls Leadership Academy -->
+          <div class="aspect-video w-full rounded-3xl overflow-hidden shadow-lg">
+            <img src="../assets/five.jpeg" alt="Girls Leadership Academy" class="w-full h-full object-cover" />
+          </div>
           <div class="space-y-4">
             <p class="text-gray-600 leading-relaxed text-base">
               {{ lang === 'fr'
@@ -193,7 +199,11 @@
               </button>
             </div>
           </div>
-          <PlaceholderImage label="GLFx Kivu — Climate Section Image" color="green" />
+          <!-- SECTION IMAGE: Land Restoration & Climate -->
+          <div class="aspect-video w-full rounded-3xl overflow-hidden shadow-lg">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80&fit=crop"
+              alt="Land Restoration and Climate Resilience" class="w-full h-full object-cover" />
+          </div>
         </div>
 
         <TestimonyBlock accent="green" :lang="lang"
@@ -224,7 +234,11 @@
           title="Peacebuilding & Disarmament" subtitle="Women Leading Peace Where It Matters Most" />
 
         <div class="mt-8 grid lg:grid-cols-2 gap-12 items-center mb-12">
-          <PlaceholderImage label="Peacebuilding — Section Image" color="blue" />
+          <!-- SECTION IMAGE: Peacebuilding -->
+          <div class="aspect-video w-full rounded-3xl overflow-hidden shadow-lg">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&fit=crop"
+              alt="Peacebuilding and Disarmament" class="w-full h-full object-cover" />
+          </div>
           <div class="space-y-4">
             <p class="text-gray-600 leading-relaxed text-base">
               {{ lang === 'fr'
@@ -294,7 +308,10 @@
               into a pathway for visibility, participation, and power.` }}
             </p>
           </div>
-          <PlaceholderImage label="Research & Advocacy — Section Image" color="purple" />
+          <!-- SECTION IMAGE: Research & Advocacy -->
+          <div class="aspect-video w-full rounded-3xl overflow-hidden shadow-lg">
+            <img src="../assets/adv.jpeg" alt="Research and Advocacy" class="w-full h-full object-cover" />
+          </div>
         </div>
 
         <CarouselSection :cards="researchCards" accent="purple" :emit-fn="(p) => $emit('navigate', p)" />
@@ -415,29 +432,6 @@ const SectionHeader = defineComponent({
         [props.emoji, '\u00A0', props.tag]),
       h('h2', { class: 'font-display text-4xl lg:text-5xl font-black text-gray-900 leading-none tracking-tight' }, props.title),
       h('p', { class: 'text-gray-400 text-base mt-2 font-medium' }, props.subtitle),
-    ])
-  }
-})
-
-const PlaceholderImage = defineComponent({
-  props: ['label', 'color'],
-  setup(props) {
-    const g = {
-      emerald: ['from-emerald-50 to-emerald-100', 'border-emerald-200', 'text-emerald-300'],
-      amber: ['from-amber-50 to-amber-100', 'border-amber-200', 'text-amber-300'],
-      green: ['from-green-50 to-green-100', 'border-green-200', 'text-green-300'],
-      blue: ['from-blue-50 to-blue-100', 'border-blue-200', 'text-blue-300'],
-      purple: ['from-purple-50 to-purple-100', 'border-purple-200', 'text-purple-300'],
-    }
-    const [grad, border, txt] = g[props.color] || g.emerald
-    return () => h('div', {
-      class: `aspect-video w-full rounded-3xl bg-gradient-to-br ${grad} border-2 border-dashed ${border} flex flex-col items-center justify-center gap-3`
-    }, [
-      h('svg', { class: `w-10 h-10 ${txt}`, fill: 'none', stroke: 'currentColor', 'stroke-width': '1.5', viewBox: '0 0 24 24' }, [
-        h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', d: 'M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18' })
-      ]),
-      h('p', { class: `text-xs font-semibold ${txt} text-center px-6` }, props.label),
-      h('p', { class: 'text-xs text-gray-300' }, 'Replace with your photo'),
     ])
   }
 })
@@ -578,12 +572,14 @@ const ProgramDetailPage = defineComponent({
 })
 
 // ═══════════════════════════════════════════════════════════════
-// CONTENT DATA
+// CONTENT DATA — card img values replaced with Unsplash URLs
+// To swap in your own photos, replace each img URL with your asset path,
+// e.g.: img: new URL('../assets/programs/basic.png', import.meta.url).href
 // ═══════════════════════════════════════════════════════════════
 
 const weeCards = [
   { emoji: '🔍', title: 'Identifying the Most Vulnerable Women', page: 'program-identifying-vulnerable', img: new URL('../assets/programs/basic.png', import.meta.url).href, desc: 'Community consultations and participatory processes identify widows, displaced women, GBV survivors, and female-headed households for targeted support.' },
-  { emoji: '💪', title: 'Building Skills and Confidence', page: 'program-skills-training', img: new URL('../assets/programs/skills.jpeg', import.meta.url).href, desc: 'Training in small business development, financial literacy, leadership, decision-making, and community participation.' },
+  { emoji: '💪', title: 'Building Skills and Confidence', page: 'program-skills-training', img: new URL('../assets/skills.jpeg', import.meta.url).href, desc: 'Training in small business development, financial literacy, leadership, decision-making, and community participation.' },
   { emoji: '🌱', title: 'Supporting Livelihood Development', page: 'program-livelihood-development', img: new URL('../assets/programs/productive.jpeg', import.meta.url).href, desc: 'Start-up capital, productive assets, and technical support in agriculture or trade, with market linkages and continuous business coaching.' },
   { emoji: '💰', title: 'Savings & Financial Inclusion', page: 'program-savings-financial', img: new URL('../assets/programs/savings.jpg', import.meta.url).href, desc: 'Community savings groups (VSLAs) where women save regularly, access small loans, and build financial resilience and productive capital over time.' },
   { emoji: '🤝', title: 'Ongoing Mentorship & Community Support', page: 'program-coaching-mentorship', img: new URL('../assets/programs/caoching.jpg', import.meta.url).href, desc: 'Regular household visits by WOCO staff and community facilitators provide personalized coaching, progress tracking, psychosocial support, and peer learning.' },

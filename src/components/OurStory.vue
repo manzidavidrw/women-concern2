@@ -41,90 +41,85 @@
         </div>
 
         <!-- Cards: Mission, Vision, Motto (motto last) -->
-        <div class="reveal space-y-4">
+        <!-- MISSION / VISION / MOTTO - HERO STYLE -->
+        <div class="reveal mt-20">
 
-          <!-- Mission Card -->
-          <div class="group relative bg-brand-green rounded-2xl p-6 overflow-hidden
-                      shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div class="absolute -right-3 -bottom-4 font-display font-black text-[110px]
-                        leading-none text-white/[0.06] select-none pointer-events-none">M</div>
-            <div class="relative z-10 flex items-start gap-5">
-              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-white/15
-                          flex items-center justify-center text-2xl shadow-inner">
-                🎯
-              </div>
+          <div class="grid lg:grid-cols-2 gap-10 items-stretch">
+
+            <!-- 🔥 BIG MISSION BLOCK -->
+            <div class="relative bg-brand-green text-white rounded-3xl p-12
+                shadow-2xl flex flex-col justify-between
+                hover:scale-[1.01] transition duration-300">
+
               <div>
-                <p class="text-brand-yellow text-[10px] font-black uppercase tracking-[0.2em] mb-1">
+                <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs font-bold mb-4">
                   {{ t({ en: 'Mission', fr: 'Mission' }) }}
                 </p>
-                <h3 class="font-display font-bold text-white text-xl mb-2 leading-snug">
-                  {{ t({ en: 'What We Do', fr: 'Ce que nous faisons' }) }}
+
+                <h3 class="font-display text-3xl md:text-4xl font-bold leading-tight mb-6">
+                  {{ t({ en: 'What Drives Us', fr: 'Ce qui nous motive' }) }}
                 </h3>
-                <p class="text-white/80 text-sm leading-relaxed">
+
+                <p class="text-white/80 text-lg leading-relaxed">
                   {{ t({
-                    en: `Lead rural women and girls to discover their potential, support them in their promotion,
-                  enhancement and exploitation for inclusive development.`,
-                    fr: `Accompagner les femmes et les filles rurales à découvrir leur potentiel, les soutenir dans leur
-                  promotion, valorisation et exploitation pour un développement inclusif.`
+                    en: `Lead rural women and girls to discover their potential,
+                  support them in their promotion, enhancement and exploitation
+                  for inclusive development.`,
+                    fr: `Accompagner les femmes et les filles rurales à découvrir leur potentiel
+                  et les soutenir pour un développement inclusif.`
                   }) }}
                 </p>
               </div>
-            </div>
-          </div>
 
-          <!-- Vision Card -->
-          <div class="group relative bg-gray-900 rounded-2xl p-6 overflow-hidden
-                      shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div class="absolute -right-3 -bottom-4 font-display font-black text-[110px]
-                        leading-none text-white/[0.05] select-none pointer-events-none">V</div>
-            <div class="absolute left-0 top-6 bottom-6 w-1 bg-brand-yellow rounded-r-full"></div>
-            <div class="relative z-10 flex items-start gap-5">
-              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-white/10
-                          flex items-center justify-center text-2xl shadow-inner">
-                👁️
-              </div>
-              <div>
-                <p class="text-brand-yellow text-[10px] font-black uppercase tracking-[0.2em] mb-1">
+              <div class="text-6xl opacity-10 absolute bottom-6 right-6">🎯</div>
+            </div>
+
+            <!-- SIDE STACK -->
+            <div class="flex flex-col gap-8">
+
+              <!-- 👁️ VISION -->
+              <div class="relative bg-gray-900 text-white rounded-3xl p-10
+                  shadow-xl hover:-translate-y-1 transition">
+
+                <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs font-bold mb-3">
                   {{ t({ en: 'Vision', fr: 'Vision' }) }}
                 </p>
-                <h3 class="font-display font-bold text-white text-xl mb-2 leading-snug">
-                  {{ t({ en: 'Where We\'re Going', fr: 'Là où nous allons' }) }}
+
+                <h3 class="font-display text-2xl font-bold mb-4">
+                  {{ t({ en: 'Where We’re Going', fr: 'Là où nous allons' }) }}
                 </h3>
-                <p class="text-white/70 text-sm leading-relaxed">
+
+                <p class="text-white/70 leading-relaxed">
                   {{ t({
                     en: 'A society where the dignity of women and girls prevails.',
                     fr: 'Une société où la dignité des femmes et des filles prévaut.'
                   }) }}
                 </p>
-              </div>
-            </div>
-          </div>
 
-          <!-- Motto Card -->
-          <div class="group relative bg-brand-yellow rounded-2xl p-6 overflow-hidden
-                      shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div class="absolute -right-3 -bottom-4 font-display font-black text-[110px]
-                        leading-none text-black/[0.06] select-none pointer-events-none">"</div>
-            <div class="relative z-10 flex items-start gap-5">
-              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-black/10
-                          flex items-center justify-center text-2xl shadow-inner">
-                ✨
+                <div class="text-4xl opacity-10 absolute bottom-4 right-4">👁️</div>
               </div>
-              <div>
-                <p class="text-brand-green text-[10px] font-black uppercase tracking-[0.2em] mb-1">
-                  {{ t({ en: 'Our Motto', fr: 'Notre Devise' }) }}
-                </p>
-                <h3 class="font-display font-bold text-gray-900 text-xl mb-2 leading-snug">
-                  {{ t({ en: 'Our Words to Live By', fr: 'Nos mots pour vivre' }) }}
-                </h3>
-                <p class="text-gray-800 text-sm leading-relaxed font-medium">
-                  {{ t({
-                    en: 'Dignifying women\'s life',
-                    fr: 'Dignifier la vie des femmes'
-                  }) }}
-                </p>
+
+              <!-- ✨ MOTTO (VERY DIFFERENT STYLE) -->
+              <div class="relative bg-brand-yellow text-gray-900 rounded-3xl p-10
+                  shadow-xl flex items-center justify-center text-center
+                  hover:-translate-y-1 transition">
+
+                <div>
+                  <p class="uppercase tracking-[0.25em] text-xs font-bold mb-3 text-brand-green">
+                    {{ t({ en: 'Motto', fr: 'Devise' }) }}
+                  </p>
+
+                  <p class="font-display text-2xl md:text-3xl font-bold leading-snug">
+                    “{{ t({
+                      en: 'Dignifying women\'s life',
+                      fr: 'Dignifier la vie des femmes'
+                    }) }}”
+                  </p>
+                </div>
               </div>
+
             </div>
+
           </div>
 
         </div>

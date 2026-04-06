@@ -308,8 +308,7 @@ const whatItems = [
   { anchor: 'education-girls-empowerment', emoji: '📚', en: 'Education & Girls Empowerment', fr: 'Éducation & Autonomisation des Filles', sub: { en: 'Learning & leadership for girls', fr: 'Apprentissage & leadership pour les filles' } },
   { anchor: 'land-restoration-climate', emoji: '🌱', en: 'Land Restoration & Climate Resilience', fr: 'Restauration des Terres & Résilience Climatique', sub: { en: 'Environment & sustainable futures', fr: 'Environnement & avenirs durables' } },
   { anchor: 'peace-building-disarmament', emoji: '🕊️', en: 'Peace Building & Disarmament', fr: 'Consolidation de la Paix & Désarmement', sub: { en: 'Community peace & security', fr: 'Paix et sécurité communautaires' } },
-  { anchor: 'research-learning', emoji: '🔬', en: 'Research & Learning', fr: 'Recherche & Apprentissage', sub: { en: 'Evidence-based programmes', fr: 'Programmes fondés sur des données' } },
-  { anchor: 'advocacy', emoji: '📣', en: 'Advocacy', fr: 'Plaidoyer', sub: { en: 'Policy change & rights', fr: 'Changement de politique & droits' } },
+  { anchor: 'research-advocacy', emoji: '🔬', en: 'Research & Advocacy', fr: 'Recherche & Plaidoyer', sub: { en: 'Evidence-based programmes', fr: 'Programmes fondés sur des données' } },
 ]
 
 // ── About Us items ───────────────────────────────────────────

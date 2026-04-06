@@ -22,49 +22,57 @@
         <div v-for="(pillar, i) in pillars" :key="i" @click="$emit('navigate', 'what-we-do')"
           class="group relative rounded-2xl overflow-hidden cursor-pointer" :style="{ animationDelay: i * 80 + 'ms' }">
           <!-- Background image or color block -->
-          <div class="aspect-[4/3] w-full flex flex-col items-start justify-end p-6 relative"
-            :style="{ background: pillar.bg }">
-            <!-- Subtle pattern -->
-            <div class="absolute inset-0 opacity-20"
-              style="background-image: radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px); background-size: 20px 20px;">
-            </div>
+          <div class="aspect-[4/3] w-full relative overflow-hidden">
 
-            <!-- Hover green overlay -->
-            <div
-              class="absolute inset-0 bg-brand-green opacity-0 group-hover:opacity-90 transition-opacity duration-400">
-            </div>
+            <!-- 🖼️ IMAGE -->
+            <img :src="pillar.image" alt="pillar image"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
 
-            <!-- Default state content -->
-            <div class="relative z-10 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-2">
-              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-2xl mb-3 shadow-sm"
-                :style="{ background: pillar.iconBg }">
-                {{ pillar.emoji }}
+            <!-- DARK OVERLAY -->
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
+
+            <!-- CONTENT -->
+            <div class="relative z-10 h-full flex flex-col justify-end p-6">
+
+              <!-- DEFAULT -->
+              <div class="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-2">
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center text-2xl mb-3 bg-white/80 backdrop-blur">
+                  {{ pillar.emoji }}
+                </div>
+
+                <h3 class="font-display font-bold text-white text-base leading-tight">
+                  {{ t(pillar.title) }}
+                </h3>
+
+                <p class="text-white/80 text-xs mt-1 leading-relaxed">
+                  {{ t(pillar.tagline) }}
+                </p>
               </div>
-              <h3 class="font-display font-bold text-gray-900 text-base leading-tight">
-                {{ t(pillar.title) }}
-              </h3>
-              <p class="text-gray-500 text-xs mt-1 leading-relaxed">
-                {{ t(pillar.tagline) }}
-              </p>
-            </div>
 
-            <!-- Hover state content -->
-            <div
-              class="absolute inset-0 z-20 flex flex-col items-start justify-end p-6 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-              <span class="text-3xl mb-3">{{ pillar.emoji }}</span>
-              <h3 class="font-display font-bold text-white text-base leading-tight mb-1">
-                {{ t(pillar.title) }}
-              </h3>
-              <p class="text-white/75 text-xs leading-relaxed mb-4">
-                {{ t(pillar.tagline) }}
-              </p>
-              <span class="inline-flex items-center gap-1.5 text-brand-yellow text-xs font-bold">
-                {{ t({ en: 'Explore', fr: 'Explorer' }) }}
-                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none"
-                  stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
+              <!-- HOVER -->
+              <div
+                class="absolute inset-0 z-20 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+
+                <span class="text-3xl mb-3">{{ pillar.emoji }}</span>
+
+                <h3 class="font-display font-bold text-white text-base leading-tight mb-1">
+                  {{ t(pillar.title) }}
+                </h3>
+
+                <p class="text-white/75 text-xs leading-relaxed mb-4">
+                  {{ t(pillar.tagline) }}
+                </p>
+
+                <span class="inline-flex items-center gap-1.5 text-brand-yellow text-xs font-bold">
+                  {{ t({ en: 'Explore', fr: 'Explorer' }) }}
+                  <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+
+              </div>
             </div>
           </div>
         </div>
@@ -88,6 +96,10 @@
 <script setup>
 import { useLang } from '../composables/useLang.js'
 import { useReveal } from '../composables/useReveal.js'
+import five from '../assets/five.jpeg'
+import empower from '../assets/empower.jpeg'
+import adv from '../assets/adv.jpeg'
+import comm from '../assets/comm.jpeg'
 
 const { t } = useLang()
 useReveal()
@@ -97,43 +109,37 @@ defineEmits(['navigate'])
 const pillars = [
   {
     emoji: '💼',
-    bg: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)',
-    iconBg: 'rgba(255,255,255,0.7)',
+    image: empower,
     title: { en: "Women's Economic Empowerment", fr: 'Autonomisation Économique des Femmes' },
     tagline: { en: 'Ultra-Poor Graduation — pathways out of extreme poverty.', fr: 'Graduation Ultra-Pauvre — voies hors de la pauvreté extrême.' },
   },
   {
     emoji: '📚',
-    bg: 'linear-gradient(135deg, #fef9c3 0%, #fde68a 100%)',
-    iconBg: 'rgba(255,255,255,0.7)',
+    image: five,
     title: { en: "Girls' Education & Empowerment", fr: 'Éducation et Autonomisation des Filles' },
     tagline: { en: 'Keeping girls in school and equipping them to lead.', fr: 'Maintenir les filles à l\'école et les préparer à diriger.' },
   },
   {
     emoji: '🌱',
-    bg: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
-    iconBg: 'rgba(255,255,255,0.7)',
+    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80&fit=crop",
     title: { en: 'Land Restoration & Climate Resilience', fr: 'Restauration des Terres et Résilience Climatique' },
     tagline: { en: 'GLFx Kivu — community-led landscape action.', fr: 'GLFx Kivu — action paysagère communautaire.' },
   },
   {
     emoji: '🕊️',
-    bg: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)',
-    iconBg: 'rgba(255,255,255,0.7)',
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&fit=crop",
     title: { en: 'Peace Building & Disarmament', fr: 'Consolidation de la Paix et Désarmement' },
     tagline: { en: 'Women-centred conflict transformation in Eastern DRC.', fr: 'Transformation des conflits centrée sur les femmes.' },
   },
   {
     emoji: '🔬',
-    bg: 'linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%)',
-    iconBg: 'rgba(255,255,255,0.7)',
+    image: adv,
     title: { en: 'Research & Learning', fr: 'Recherche et Apprentissage' },
     tagline: { en: 'Evidence-based advocacy for systemic change.', fr: 'Plaidoyer fondé sur des preuves pour un changement systémique.' },
   },
   {
     emoji: '📣',
-    bg: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
-    iconBg: 'rgba(255,255,255,0.7)',
+    image: comm,
     title: { en: 'Community-Led Advocacy', fr: 'Plaidoyer Communautaire' },
     tagline: { en: 'Empowering women to influence policy and social norms.', fr: 'Permettre aux femmes d\'influencer les politiques.' },
   },
