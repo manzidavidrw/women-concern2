@@ -12,9 +12,11 @@
   <MalkiaPadsPage v-else-if="page === 'malkia-pads'" @navigate="goTo" />
   <GlfxKivu v-else-if="page === 'glfx-kivu'" @navigate="goTo" />
   <CareerPage v-else-if="page === 'career'" @navigate="goTo" />
-  <PartneringPage v-else-if="page === 'partnerships'" @navigate="goTo" />
+  <PartneringPage v-else-if="page === 'partnering'" @navigate="goTo" />
   <VolunteerPage v-else-if="page === 'volunteer'" @navigate="goTo" />
 
+  <!-- ✅ NEW: ADMIN PAGE -->
+  <Admin v-else-if="page === 'admin'" />
 
   <!-- Program Detail Pages -->
   <ProgramDetail v-else-if="page.startsWith('program-')" :program-id="page" @navigate="goTo" />
@@ -27,7 +29,7 @@
     <OurStory />
     <ProjectsBlog @navigate="goTo" />
     <ourboard />
-    <GetInvolved />
+    <GetInvolved @navigate="goTo" />
     <PartnershipsPage />
   </main>
 
@@ -60,6 +62,9 @@ import GlfxKivu from './pages/Glfxkivu.vue'
 import CareerPage from './pages/Careerpage.vue'
 import PartneringPage from './pages/Partneringpage.vue'
 import VolunteerPage from './pages/VolunteerPage.vue'
+
+/* ✅ NEW IMPORT */
+import Admin from './pages/Admin.vue'
 
 import { ref } from 'vue'
 

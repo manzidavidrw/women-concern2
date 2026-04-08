@@ -157,6 +157,18 @@
           class="pulse-btn hidden md:inline-block bg-brand-yellow text-brand-green font-semibold text-sm px-5 py-2 rounded-full hover:brightness-105 transition-all">
           ♥ {{ lang === 'en' ? 'Donate' : 'Donner' }}
         </a>
+        <!-- Login / Admin Icon -->
+        <button @click="navigate('admin')" class="ml-2 p-2 rounded-full transition-all hover:scale-105" :class="isScrolled
+          ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+          : 'text-white hover:text-white/80 hover:bg-white/10'">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5a8.25 8.25 0 0115 0" />
+          </svg>
+        </button>
+
         <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-1"
           :class="isScrolled ? 'text-gray-700' : 'text-white'">
           <svg v-if="!mobileOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
@@ -183,6 +195,18 @@
           <button @click="lang = 'fr'"
             :class="['text-xs px-3 py-1 rounded-full font-medium border transition-colors',
               lang === 'fr' ? 'bg-brand-yellow text-brand-green border-brand-yellow' : 'text-gray-500 border-gray-200']">FR</button>
+        </div>
+        <!-- Admin Login (Mobile Icon Button) -->
+        <div class="flex justify-center mt-4">
+          <button @click="navigate('admin'); mobileOpen = false"
+            class="p-3 rounded-full bg-brand-green text-white hover:brightness-110 transition-all shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5a8.25 8.25 0 0115 0" />
+            </svg>
+          </button>
         </div>
 
         <!-- What We Do mobile -->
