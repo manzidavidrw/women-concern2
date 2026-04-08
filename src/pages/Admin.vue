@@ -30,6 +30,7 @@
           <span class="logo-text">Stories</span>
         </div>
         <nav class="sidebar-nav">
+          <p class="nav-section-label">Blog</p>
           <button class="nav-item" :class="{ active: view === 'list' }" @click="view = 'list'; editingPost = null">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -41,6 +42,20 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
             </svg>
             New Post
+          </button>
+          <p class="nav-section-label" style="margin-top:12px">Homepage</p>
+          <button class="nav-item" :class="{ active: view === 'emergency-list' }" @click="view = 'emergency-list'">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            </svg>
+            Emergency Slides
+          </button>
+          <button class="nav-item" :class="{ active: view === 'emergency-new' }" @click="startNewSlide">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
+            New Slide
           </button>
         </nav>
         <button class="signout-btn" @click="signOut">
@@ -351,10 +366,213 @@
 
         </section>
 
+        <!-- ── EMERGENCY SLIDES LIST ── -->
+        <section v-if="view === 'emergency-list'">
+          <div class="page-header">
+            <div>
+              <h2 class="page-title">🚨 Emergency Slides</h2>
+              <p class="page-sub">{{ slides.length }} slide{{ slides.length !== 1 ? 's' : '' }} — shown in order</p>
+            </div>
+            <button class="btn-primary" @click="startNewSlide">+ New Slide</button>
+          </div>
+          <div v-if="loadingSlides" class="loading-state">Loading slides…</div>
+          <div v-else class="post-list">
+            <div v-for="s in slides" :key="s.id" class="post-row">
+              <div class="post-row-emoji"
+                style="font-size:14px;background:#e8f0eb;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#1E4D35;font-weight:700;flex-shrink:0">
+                {{ s.sort_order }}
+              </div>
+              <div class="post-row-info">
+                <p class="post-row-title">{{ s.headline_en }}</p>
+                <p class="post-row-meta">{{ s.location_en }}</p>
+              </div>
+              <span class="badge" :class="s.published ? 'published' : 'draft'">
+                {{ s.published ? 'Published' : 'Draft' }}
+              </span>
+              <div class="post-row-actions">
+                <button class="icon-btn" title="Edit" @click="editSlide(s)">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </button>
+                <button class="icon-btn danger" title="Delete" @click="confirmDeleteSlide(s)">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div v-if="slides.length === 0" class="empty-state">No slides yet. Create your first emergency slide!</div>
+          </div>
+        </section>
+
+        <!-- ── EMERGENCY SLIDE EDITOR ── -->
+        <section v-if="view === 'emergency-new' || view === 'emergency-edit'">
+          <div class="page-header">
+            <div>
+              <h2 class="page-title">{{ view === 'emergency-edit' ? 'Edit Slide' : 'New Slide' }}</h2>
+              <p class="page-sub">English is required. French is optional.</p>
+            </div>
+          </div>
+
+          <div class="editor-grid">
+            <!-- LEFT -->
+            <div class="editor-main">
+
+              <div class="card">
+                <h3 class="card-title">Slide Info</h3>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label class="field-label">Location Tag (EN) <span class="req">*</span></label>
+                    <input v-model="slideForm.location_en" class="field-input" placeholder="Goma, North Kivu — DRC" />
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">Location Tag (FR)</label>
+                    <input v-model="slideForm.location_fr" class="field-input" placeholder="Goma, Nord-Kivu — RDC" />
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field-group" style="max-width:100px">
+                    <label class="field-label">Order</label>
+                    <input v-model.number="slideForm.sort_order" type="number" class="field-input" placeholder="0" />
+                    <p class="field-hint">Lower = shown first</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3 class="card-title">Headline & Body</h3>
+                <div class="field-group">
+                  <label class="field-label">Headline (EN) <span class="req">*</span></label>
+                  <input v-model="slideForm.headline_en" class="field-input"
+                    placeholder="People in Goma Need You Today." />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Headline (FR)</label>
+                  <input v-model="slideForm.headline_fr" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Body Text (EN)</label>
+                  <textarea v-model="slideForm.body_en" class="field-textarea" rows="3"
+                    placeholder="Describe the situation and why people should donate…"></textarea>
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Body Text (FR)</label>
+                  <textarea v-model="slideForm.body_fr" class="field-textarea" rows="3"></textarea>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3 class="card-title">Primary Button</h3>
+                <div class="field-group">
+                  <label class="field-label">Button Label (EN) <span class="req">*</span></label>
+                  <input v-model="slideForm.primary_label_en" class="field-input"
+                    placeholder="♥ Donate Emergency Relief" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Button Label (FR)</label>
+                  <input v-model="slideForm.primary_label_fr" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Button URL <span class="req">*</span></label>
+                  <input v-model="slideForm.primary_url" class="field-input" placeholder="https://gogetfunding.com/…" />
+                </div>
+              </div>
+
+              <div class="card">
+                <h3 class="card-title">Secondary Button <span class="card-hint">— optional</span></h3>
+                <div class="field-group">
+                  <label class="field-label">Button Label (EN)</label>
+                  <input v-model="slideForm.secondary_label_en" class="field-input" placeholder="Learn More" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Button Label (FR)</label>
+                  <input v-model="slideForm.secondary_label_fr" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Button URL</label>
+                  <input v-model="slideForm.secondary_url" class="field-input" placeholder="#programs" />
+                </div>
+              </div>
+
+              <div class="card">
+                <h3 class="card-title">Trust Line & Tab Label</h3>
+                <div class="field-group">
+                  <label class="field-label">Trust Line (EN)</label>
+                  <input v-model="slideForm.trust_en" class="field-input"
+                    placeholder="100% of donations reach beneficiaries directly." />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Trust Line (FR)</label>
+                  <input v-model="slideForm.trust_fr" class="field-input" />
+                </div>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label class="field-label">Tab Label (EN) <span class="req">*</span></label>
+                    <input v-model="slideForm.short_label_en" class="field-input" placeholder="Emergency Relief" />
+                    <p class="field-hint">Short — shown in the pill tabs below the carousel</p>
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">Tab Label (FR)</label>
+                    <input v-model="slideForm.short_label_fr" class="field-input" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- RIGHT: image -->
+            <div class="editor-sidebar">
+              <div class="card">
+                <h3 class="card-title">Slide Image</h3>
+                <div class="field-group">
+                  <label class="field-label">Background Image</label>
+                  <div class="upload-zone" @click="triggerSlideUpload" @dragover.prevent
+                    @drop.prevent="dropSlideFile($event)">
+                    <img v-if="slideForm.image_url" :src="slideForm.image_url" class="upload-preview" />
+                    <div v-else class="upload-placeholder">
+                      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span>Click or drag to upload</span>
+                    </div>
+                    <div v-if="uploadingSlide" class="upload-progress">Uploading…</div>
+                  </div>
+                  <input v-model="slideForm.image_url" class="field-input" style="margin-top:8px"
+                    placeholder="or paste image URL" />
+                  <button v-if="slideForm.image_url" class="btn-ghost danger-ghost" style="margin-top:6px"
+                    @click="slideForm.image_url = ''">Remove</button>
+                  <input ref="slideImgInput" type="file" accept="image/*" style="display:none"
+                    @change="handleSlideFileChange" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom save bar -->
+          <div class="bottom-bar">
+            <label class="toggle-wrap">
+              <input type="checkbox" v-model="slideForm.published" class="toggle-input" />
+              <span class="toggle-track"></span>
+              <span class="toggle-label">{{ slideForm.published ? 'Published' : 'Draft' }}</span>
+            </label>
+            <div style="display:flex;gap:10px">
+              <button class="btn-secondary" @click="view = 'emergency-list'">Cancel</button>
+              <button class="btn-primary large" :disabled="savingSlide" @click="saveSlide">
+                {{ savingSlide ? 'Saving…' : (view === 'emergency-edit' ? '✓ Update Slide' : '✓ Publish Slide') }}
+              </button>
+            </div>
+          </div>
+        </section>
+
       </main>
     </template>
 
-    <!-- Delete confirm modal -->
+    <!-- Delete post modal -->
     <div v-if="deleteTarget" class="modal-overlay" @click.self="deleteTarget = null">
       <div class="modal-card">
         <h3 class="modal-title">Delete post?</h3>
@@ -364,6 +582,20 @@
           <button class="btn-secondary" @click="deleteTarget = null">Cancel</button>
           <button class="btn-danger" :disabled="deleting" @click="deletePost">
             {{ deleting ? 'Deleting…' : 'Yes, delete' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete slide modal -->
+    <div v-if="deleteSlideTarget" class="modal-overlay" @click.self="deleteSlideTarget = null">
+      <div class="modal-card">
+        <h3 class="modal-title">Delete slide?</h3>
+        <p class="modal-body">"<strong>{{ deleteSlideTarget.headline_en }}</strong>" will be permanently removed.</p>
+        <div class="modal-actions">
+          <button class="btn-secondary" @click="deleteSlideTarget = null">Cancel</button>
+          <button class="btn-danger" :disabled="deletingSlide" @click="deleteSlide">
+            {{ deletingSlide ? 'Deleting…' : 'Yes, delete' }}
           </button>
         </div>
       </div>
@@ -387,7 +619,7 @@ onMounted(async () => {
   const { data } = await supabase.auth.getSession()
   session.value = data.session
   supabase.auth.onAuthStateChange((_, s) => { session.value = s })
-  if (session.value) loadPosts()
+  if (session.value) { loadPosts(); loadSlides() }
 })
 
 async function signIn() {
@@ -596,6 +828,177 @@ function showToast(message, type = 'success') {
   clearTimeout(toastTimer)
   toastTimer = setTimeout(() => { toast.value = null }, 3200)
 }
+
+// ── Emergency slides list ─────────────────────────────────────────
+const slides = ref([])
+const loadingSlides = ref(false)
+const deleteSlideTarget = ref(null)
+const deletingSlide = ref(false)
+
+async function loadSlides() {
+  loadingSlides.value = true
+  const { data } = await supabase
+    .from('emergency_actions')
+    .select('id, headline_en, location_en, sort_order, published')
+    .order('sort_order', { ascending: true })
+  slides.value = data || []
+  loadingSlides.value = false
+}
+
+function confirmDeleteSlide(s) { deleteSlideTarget.value = s }
+
+async function deleteSlide() {
+  deletingSlide.value = true
+  await supabase.from('emergency_actions').delete().eq('id', deleteSlideTarget.value.id)
+  showToast('Slide deleted', 'success')
+  deleteSlideTarget.value = null
+  deletingSlide.value = false
+  loadSlides()
+}
+
+// ── Emergency slide form ──────────────────────────────────────────
+const editingSlide = ref(null)
+const savingSlide = ref(false)
+const slideImgInput = ref(null)
+const uploadingSlide = ref(false)
+
+const emptySlideForm = () => ({
+  location_en: '',
+  location_fr: '',
+  headline_en: '',
+  headline_fr: '',
+  body_en: '',
+  body_fr: '',
+  primary_label_en: '',
+  primary_label_fr: '',
+  primary_url: '',
+  secondary_label_en: '',
+  secondary_label_fr: '',
+  secondary_url: '',
+  trust_en: '',
+  trust_fr: '',
+  short_label_en: '',
+  short_label_fr: '',
+  image_url: '',
+  sort_order: 0,
+  published: true,
+})
+
+const slideForm = reactive(emptySlideForm())
+
+function startNewSlide() {
+  editingSlide.value = null
+  Object.assign(slideForm, emptySlideForm())
+  view.value = 'emergency-new'
+  if (!slides.value.length) loadSlides()
+  window.scrollTo(0, 0)
+}
+
+function editSlide(s) {
+  supabase.from('emergency_actions').select('*').eq('id', s.id).single().then(({ data }) => {
+    if (!data) return
+    editingSlide.value = data
+    Object.assign(slideForm, {
+      location_en: data.location_en || '',
+      location_fr: data.location_fr || '',
+      headline_en: data.headline_en || '',
+      headline_fr: data.headline_fr || '',
+      body_en: data.body_en || '',
+      body_fr: data.body_fr || '',
+      primary_label_en: data.primary_label_en || '',
+      primary_label_fr: data.primary_label_fr || '',
+      primary_url: data.primary_url || '',
+      secondary_label_en: data.secondary_label_en || '',
+      secondary_label_fr: data.secondary_label_fr || '',
+      secondary_url: data.secondary_url || '',
+      trust_en: data.trust_en || '',
+      trust_fr: data.trust_fr || '',
+      short_label_en: data.short_label_en || '',
+      short_label_fr: data.short_label_fr || '',
+      image_url: data.image_url || '',
+      sort_order: data.sort_order ?? 0,
+      published: data.published ?? true,
+    })
+    view.value = 'emergency-edit'
+    window.scrollTo(0, 0)
+  })
+}
+
+async function saveSlide() {
+  if (!slideForm.headline_en) {
+    showToast('English headline is required', 'error')
+    return
+  }
+  savingSlide.value = true
+
+  const payload = {
+    location_en: slideForm.location_en || null,
+    location_fr: slideForm.location_fr || null,
+    headline_en: slideForm.headline_en,
+    headline_fr: slideForm.headline_fr || null,
+    body_en: slideForm.body_en || null,
+    body_fr: slideForm.body_fr || null,
+    primary_label_en: slideForm.primary_label_en || null,
+    primary_label_fr: slideForm.primary_label_fr || null,
+    primary_url: slideForm.primary_url || null,
+    secondary_label_en: slideForm.secondary_label_en || null,
+    secondary_label_fr: slideForm.secondary_label_fr || null,
+    secondary_url: slideForm.secondary_url || null,
+    trust_en: slideForm.trust_en || null,
+    trust_fr: slideForm.trust_fr || null,
+    short_label_en: slideForm.short_label_en || null,
+    short_label_fr: slideForm.short_label_fr || null,
+    image_url: slideForm.image_url || null,
+    sort_order: slideForm.sort_order,
+    published: slideForm.published,
+  }
+
+  let error
+  if (editingSlide.value) {
+    ; ({ error } = await supabase.from('emergency_actions').update(payload).eq('id', editingSlide.value.id))
+  } else {
+    ; ({ error } = await supabase.from('emergency_actions').insert(payload))
+  }
+
+  savingSlide.value = false
+
+  if (error) {
+    showToast(error.message, 'error')
+  } else {
+    showToast(editingSlide.value ? 'Slide updated!' : 'Slide published!', 'success')
+    loadSlides()
+    view.value = 'emergency-list'
+    editingSlide.value = null
+  }
+}
+
+// ── Slide image upload ────────────────────────────────────────────
+function triggerSlideUpload() { slideImgInput.value.click() }
+
+function dropSlideFile(event) {
+  const file = event.dataTransfer.files[0]
+  if (file) uploadSlideFile(file)
+}
+
+function handleSlideFileChange(event) {
+  const file = event.target.files[0]
+  if (file) uploadSlideFile(file)
+}
+
+async function uploadSlideFile(file) {
+  uploadingSlide.value = true
+  const ext = file.name.split('.').pop()
+  const path = `emergency/${Date.now()}.${ext}`
+  const { error } = await supabase.storage.from('blog-images').upload(path, file, { upsert: true })
+  if (error) {
+    showToast('Upload failed: ' + error.message, 'error')
+  } else {
+    const { data } = supabase.storage.from('blog-images').getPublicUrl(path)
+    slideForm.image_url = data.publicUrl
+    showToast('Image uploaded!', 'success')
+  }
+  uploadingSlide.value = false
+}
 </script>
 
 <style scoped>
@@ -742,6 +1145,16 @@ function showToast(message, type = 'success') {
   background: #e8f0eb;
   color: #1E4D35;
   font-weight: 600;
+}
+
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 0 12px;
+  margin-bottom: 2px;
 }
 
 .signout-btn {

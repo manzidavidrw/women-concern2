@@ -1,7 +1,6 @@
 <template>
   <section id="donate" class="py-10 bg-white relative overflow-hidden">
 
-    <!-- Subtle brand-green tint in corners -->
     <div class="absolute inset-0 pointer-events-none">
       <div
         class="siren-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-brand-green/5">
@@ -10,145 +9,145 @@
 
     <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
 
-      <!-- Emergency header bar -->
-      <div class="flex items-center justify-center gap-4 mb-8">
-        <div class="siren-light flex-shrink-0">
-          <div class="siren-outer w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center">
-            <div class="siren-inner w-4 h-4 rounded-full bg-red-500"></div>
-          </div>
-        </div>
+      <!-- Loading -->
+      <div v-if="loading" class="h-[500px] rounded-3xl bg-brand-green/10 animate-pulse"></div>
 
-        <span class="text-brand-green text-xs font-bold uppercase tracking-[0.3em]">
-          🚨 {{ t({ en: 'Emergency Response Active', fr: 'Réponse d\'Urgence Active' }) }}
-        </span>
-
-        <div class="siren-light siren-delay flex-shrink-0">
-          <div class="siren-outer w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center">
-            <div class="siren-inner w-4 h-4 rounded-full bg-red-500"></div>
-          </div>
-        </div>
+      <!-- Empty -->
+      <div v-else-if="actions.length === 0" class="h-[200px] flex items-center justify-center text-gray-400 text-sm">
+        No emergency actions configured.
       </div>
 
-      <!-- Main card — brand-green background with image -->
-      <div
-        class="relative bg-brand-green border border-brand-green rounded-3xl overflow-hidden shadow-2xl shadow-brand-green/20">
+      <template v-else>
 
-        <!-- Top yellow alert strip -->
-        <div class="h-1 w-full bg-gradient-to-r from-brand-yellow/40 via-brand-yellow to-brand-yellow/40 alert-strip">
+        <!-- Emergency header bar -->
+        <div class="flex items-center justify-center gap-4 mb-8">
+          <div class="siren-light flex-shrink-0">
+            <div class="siren-outer w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center">
+              <div class="siren-inner w-4 h-4 rounded-full bg-red-500"></div>
+            </div>
+          </div>
+          <span class="text-brand-green text-xs font-bold uppercase tracking-[0.3em]">
+            🚨 {{ t({ en: 'Emergency Response Active', fr: 'Réponse d\'Urgence Active' }) }}
+          </span>
+          <div class="siren-light siren-delay flex-shrink-0">
+            <div class="siren-outer w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center">
+              <div class="siren-inner w-4 h-4 rounded-full bg-red-500"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-0">
+        <!-- Main card -->
+        <div
+          class="relative bg-brand-green border border-brand-green rounded-3xl overflow-hidden shadow-2xl shadow-brand-green/20">
 
-          <!-- LEFT: Content -->
-          <div class="p-8 md:p-14 flex flex-col">
+          <div class="h-1 w-full bg-gradient-to-r from-brand-yellow/40 via-brand-yellow to-brand-yellow/40 alert-strip">
+          </div>
 
-            <!-- Slide counter + progress -->
-            <div class="flex items-center justify-between mb-8">
-              <div class="flex gap-2">
-                <button v-for="(_, i) in actions" :key="i" @click="goTo(i)"
-                  class="relative h-1.5 rounded-full overflow-hidden transition-all duration-300"
-                  :class="i === current ? 'w-12 bg-white/20' : 'w-4 bg-white/10 hover:bg-white/20'">
-                  <div v-if="i === current" class="absolute inset-y-0 left-0 bg-brand-yellow rounded-full"
-                    :style="{ width: progressWidth + '%', transition: 'width ' + tickInterval + 'ms linear' }"></div>
-                </button>
+          <div class="grid lg:grid-cols-2 gap-0">
+
+            <!-- LEFT: Content -->
+            <div class="p-8 md:p-14 flex flex-col">
+
+              <!-- Slide counter + progress -->
+              <div class="flex items-center justify-between mb-8">
+                <div class="flex gap-2">
+                  <button v-for="(_, i) in actions" :key="i" @click="goTo(i)"
+                    class="relative h-1.5 rounded-full overflow-hidden transition-all duration-300"
+                    :class="i === current ? 'w-12 bg-white/20' : 'w-4 bg-white/10 hover:bg-white/20'">
+                    <div v-if="i === current" class="absolute inset-y-0 left-0 bg-brand-yellow rounded-full"
+                      :style="{ width: progressWidth + '%', transition: 'width ' + tickInterval + 'ms linear' }"></div>
+                  </button>
+                </div>
+                <span class="text-white/30 text-xs font-mono">{{ current + 1 }} / {{ actions.length }}</span>
               </div>
-              <span class="text-white/30 text-xs font-mono">{{ current + 1 }} / {{ actions.length }}</span>
+
+              <!-- Slides -->
+              <transition :name="slideDirection" mode="out-in">
+                <div :key="current" class="min-h-[280px] flex flex-col flex-1">
+
+                  <div class="flex items-center gap-2 mb-5">
+                    <div class="w-2 h-2 rounded-full bg-red-500 pulse-dot"></div>
+                    <span class="text-brand-yellow text-xs font-semibold uppercase tracking-widest">
+                      {{ t(actions[current].location) }}
+                    </span>
+                  </div>
+
+                  <h2 class="font-display font-black text-white mb-4 leading-tight text-3xl md:text-4xl lg:text-5xl">
+                    {{ t(actions[current].headline) }}
+                  </h2>
+
+                  <p class="text-white/70 text-base leading-relaxed mb-8 max-w-2xl">
+                    {{ t(actions[current].body) }}
+                  </p>
+
+                  <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                    <a :href="actions[current].primaryUrl" target="_blank" rel="noopener"
+                      class="inline-flex items-center justify-center gap-2 bg-brand-yellow text-brand-green font-bold px-8 py-4 rounded-full text-sm transition-all shadow-lg hover:brightness-105 hover:scale-105">
+                      <span>{{ t(actions[current].primaryLabel) }}</span>
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    <a v-if="actions[current].secondaryUrl" :href="actions[current].secondaryUrl"
+                      class="inline-flex items-center justify-center gap-2 border border-white/25 hover:border-brand-yellow/60 text-white/70 hover:text-white font-medium px-8 py-4 rounded-full text-sm transition-all">
+                      {{ t(actions[current].secondaryLabel) }}
+                    </a>
+                  </div>
+
+                  <p class="text-white/25 text-xs mt-5">
+                    {{ t(actions[current].trust) }}
+                  </p>
+
+                </div>
+              </transition>
+
             </div>
 
-            <!-- Slides -->
-            <transition :name="slideDirection" mode="out-in">
-              <div :key="current" class="min-h-[280px] flex flex-col flex-1">
-
-                <!-- Location tag -->
-                <div class="flex items-center gap-2 mb-5">
-                  <div class="w-2 h-2 rounded-full bg-red-500 pulse-dot"></div>
-                  <span class="text-brand-yellow text-xs font-semibold uppercase tracking-widest">
-                    {{ t(actions[current].location) }}
-                  </span>
+            <!-- RIGHT: Image -->
+            <div class="relative h-[400px] lg:h-auto overflow-hidden">
+              <transition :name="slideDirection" mode="out-in">
+                <div :key="current" class="absolute inset-0">
+                  <img :src="actions[current].image" :alt="t(actions[current].headline)"
+                    class="w-full h-full object-cover" />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-r from-brand-green via-brand-green/50 to-transparent lg:opacity-80">
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 </div>
-
-                <!-- Headline -->
-                <h2 class="font-display font-black text-white mb-4 leading-tight text-3xl md:text-4xl lg:text-5xl">
-                  {{ t(actions[current].headline) }}
-                </h2>
-
-                <!-- Body -->
-                <p class="text-white/70 text-base leading-relaxed mb-8 max-w-2xl">
-                  {{ t(actions[current].body) }}
-                </p>
-
-                <!-- CTAs -->
-                <div class="flex flex-col sm:flex-row gap-3 mt-auto">
-                  <a :href="actions[current].primaryUrl" target="_blank" rel="noopener"
-                    class="inline-flex items-center justify-center gap-2 bg-brand-yellow text-brand-green font-bold px-8 py-4 rounded-full text-sm transition-all shadow-lg hover:brightness-105 hover:scale-105">
-                    <span>{{ t(actions[current].primaryLabel) }}</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                  <a v-if="actions[current].secondaryUrl" :href="actions[current].secondaryUrl"
-                    class="inline-flex items-center justify-center gap-2 border border-white/25 hover:border-brand-yellow/60 text-white/70 hover:text-white font-medium px-8 py-4 rounded-full text-sm transition-all">
-                    {{ t(actions[current].secondaryLabel) }}
-                  </a>
-                </div>
-
-                <!-- Trust line -->
-                <p class="text-white/25 text-xs mt-5">
-                  {{ t(actions[current].trust) }}
-                </p>
-
-              </div>
-            </transition>
+              </transition>
+            </div>
 
           </div>
 
-          <!-- RIGHT: Image -->
-          <div class="relative h-[400px] lg:h-auto overflow-hidden">
-            <!-- Image with overlay -->
-            <transition :name="slideDirection" mode="out-in">
-              <div :key="current" class="absolute inset-0">
-                <img :src="actions[current].image" :alt="t(actions[current].headline)"
-                  class="w-full h-full object-cover" />
-                <!-- Gradient overlays for better text visibility and depth -->
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-brand-green via-brand-green/50 to-transparent lg:opacity-80">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-              </div>
-            </transition>
+          <!-- Nav arrows -->
+          <button @click="prev"
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-sm text-white/50 hover:text-white flex items-center justify-center transition-all z-20 shadow-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button @click="next"
+            class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-sm text-white/50 hover:text-white flex items-center justify-center transition-all z-20 shadow-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <div class="h-1 w-full bg-gradient-to-r from-brand-yellow/40 via-brand-yellow to-brand-yellow/40 alert-strip">
           </div>
-
         </div>
 
-        <!-- Nav arrows -->
-        <button @click="prev"
-          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-sm text-white/50 hover:text-white flex items-center justify-center transition-all z-20 shadow-lg">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button @click="next"
-          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-sm text-white/50 hover:text-white flex items-center justify-center transition-all z-20 shadow-lg">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-
-        <!-- Bottom strip -->
-        <div class="h-1 w-full bg-gradient-to-r from-brand-yellow/40 via-brand-yellow to-brand-yellow/40 alert-strip">
+        <!-- Quick-link pills -->
+        <div class="flex flex-wrap justify-center gap-3 mt-6">
+          <button v-for="(action, i) in actions" :key="i" @click="goTo(i)"
+            class="text-xs px-4 py-2 rounded-full border transition-all" :class="i === current
+              ? 'border-brand-green bg-brand-green/10 text-brand-green font-semibold'
+              : 'border-gray-200 text-gray-400 hover:border-brand-green/40 hover:text-brand-green'">
+            {{ t(action.shortLabel) }}
+          </button>
         </div>
-      </div>
 
-      <!-- Quick-link pills -->
-      <div class="flex flex-wrap justify-center gap-3 mt-6">
-        <button v-for="(action, i) in actions" :key="i" @click="goTo(i)"
-          class="text-xs px-4 py-2 rounded-full border transition-all" :class="i === current
-            ? 'border-brand-green bg-brand-green/10 text-brand-green font-semibold'
-            : 'border-gray-200 text-gray-400 hover:border-brand-green/40 hover:text-brand-green'">
-          {{ t(action.shortLabel) }}
-        </button>
-      </div>
-
+      </template>
     </div>
   </section>
 </template>
@@ -156,11 +155,12 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useLang } from '../composables/useLang.js'
-import sexual from '../assets/programs/sexual.jpeg'
-import goma from '../assets/programs/goma.jpg'
+import { supabase } from '../lib/supabase.js'
 
 const { t } = useLang()
 
+const actions = ref([])
+const loading = ref(true)
 const current = ref(0)
 const progressWidth = ref(0)
 const slideDirection = ref('slide-left')
@@ -168,53 +168,35 @@ const tickInterval = 5000
 let timer = null
 let progressTimer = null
 
-const actions = [
-  {
-    location: { en: 'Goma, North Kivu — DRC', fr: 'Goma, Nord-Kivu — RDC' },
-    headline: { en: 'People in Goma Need You Today.', fr: 'Les Gens de Goma Ont Besoin de Vous.' },
-    body: {
-      en: 'Thousands of displaced women and children in Goma face hunger, violence, and medical emergencies every day. Your donation goes directly to emergency relief on the ground.',
-      fr: "Des milliers de femmes et enfants déplacés à Goma font face à la faim, la violence et des urgences médicales chaque jour. Votre don va directement à l'aide d'urgence sur le terrain."
-    },
-    primaryLabel: { en: '♥ Donate Emergency Relief', fr: "♥ Donner pour l'Urgence" },
-    primaryUrl: 'https://gogetfunding.com/emergency-humanitarian-response-in-goma-north-kivu/',
-    secondaryLabel: { en: 'Learn More', fr: 'En Savoir Plus' },
-    secondaryUrl: '#about',
-    trust: { en: '100% of donations reach beneficiaries directly.', fr: '100% des dons atteignent directement les bénéficiaires.' },
-    shortLabel: { en: 'Emergency Relief', fr: "Aide d'Urgence" },
-    image: goma
-  },
-  {
-    location: { en: 'Girls in Crisis — Eastern DRC', fr: 'Filles en Crise — Est de la RDC' },
-    headline: { en: 'Give Girls Dignity. Buy Pads.', fr: 'Donnez de la Dignité aux Filles.' },
-    body: {
-      en: 'Girls in displacement camps miss school every month because they lack sanitary pads. A small donation keeps them safe, in school, and with dignity intact.',
-      fr: "Les filles dans les camps de déplacement manquent l'école chaque mois faute de serviettes hygiéniques. Un petit don les maintient en sécurité et à l'école."
-    },
-    primaryLabel: { en: '📦 Buy Pads for Girls', fr: '📦 Acheter des Serviettes' },
-    primaryUrl: '#pads',
-    secondaryLabel: { en: 'See Impact', fr: "Voir l'Impact" },
-    secondaryUrl: '#programs',
-    trust: { en: 'Each pack supports one girl for one month.', fr: 'Chaque paquet soutient une fille pendant un mois.' },
-    shortLabel: { en: 'Pads for Girls', fr: 'Serviettes' },
-    image: sexual
-  },
-  {
-    location: { en: 'Women at Risk — Bukavu, DRC', fr: 'Femmes à Risque — Bukavu, RDC' },
-    headline: { en: 'Protect Survivors of Violence.', fr: 'Protégez les Survivantes de Violence.' },
-    body: {
-      en: 'Women survivors of gender-based violence need safe shelter, legal aid, and psychosocial support. Fund a safe space that gives them a path forward.',
-      fr: "Les survivantes de violence basée sur le genre ont besoin d'un abri sûr, d'une aide juridique et d'un soutien psychosocial. Financez un espace sûr."
-    },
-    primaryLabel: { en: '🛡️ Fund Safe Shelter', fr: '🛡️ Financer un Refuge' },
-    primaryUrl: 'https://gogetfunding.com/emergency-humanitarian-response-in-goma-north-kivu/',
-    secondaryLabel: { en: 'Our GBV Programs', fr: 'Nos Programmes VBG' },
-    secondaryUrl: '#programs',
-    trust: { en: 'Verified impact — audited annually.', fr: 'Impact vérifié — audité chaque année.' },
-    shortLabel: { en: 'Safe Shelter', fr: 'Refuge Sûr' },
-    image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80'
+function mapAction(r) {
+  return {
+    id: r.id,
+    location: { en: r.location_en || '', fr: r.location_fr || '' },
+    headline: { en: r.headline_en || '', fr: r.headline_fr || '' },
+    body: { en: r.body_en || '', fr: r.body_fr || '' },
+    primaryLabel: { en: r.primary_label_en || '', fr: r.primary_label_fr || '' },
+    primaryUrl: r.primary_url || '#',
+    secondaryLabel: { en: r.secondary_label_en || '', fr: r.secondary_label_fr || '' },
+    secondaryUrl: r.secondary_url || null,
+    trust: { en: r.trust_en || '', fr: r.trust_fr || '' },
+    shortLabel: { en: r.short_label_en || '', fr: r.short_label_fr || '' },
+    image: r.image_url || '',
   }
-]
+}
+
+onMounted(async () => {
+  const { data, error } = await supabase
+    .from('emergency_actions')
+    .select('*')
+    .eq('published', true)
+    .order('sort_order', { ascending: true })
+
+  if (!error && data) actions.value = data.map(mapAction)
+  loading.value = false
+  if (actions.value.length > 0) startTimers()
+})
+
+onUnmounted(() => { clearInterval(progressTimer); clearTimeout(timer) })
 
 const goTo = (i) => {
   slideDirection.value = i > current.value ? 'slide-left' : 'slide-right'
@@ -223,12 +205,12 @@ const goTo = (i) => {
 }
 const next = () => {
   slideDirection.value = 'slide-left'
-  current.value = (current.value + 1) % actions.length
+  current.value = (current.value + 1) % actions.value.length
   resetProgress()
 }
 const prev = () => {
   slideDirection.value = 'slide-right'
-  current.value = (current.value - 1 + actions.length) % actions.length
+  current.value = (current.value - 1 + actions.value.length) % actions.value.length
   resetProgress()
 }
 const resetProgress = () => {
@@ -248,13 +230,10 @@ const startTimers = () => {
   }, stepTime)
   timer = setTimeout(() => {
     slideDirection.value = 'slide-left'
-    current.value = (current.value + 1) % actions.length
+    current.value = (current.value + 1) % actions.value.length
     resetProgress()
   }, tickInterval)
 }
-
-onMounted(() => startTimers())
-onUnmounted(() => { clearInterval(progressTimer); clearTimeout(timer) })
 </script>
 
 <style scoped>
@@ -344,7 +323,7 @@ onUnmounted(() => { clearInterval(progressTimer); clearTimeout(timer) })
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+    box-shadow: 0 0 0 0px rgba(239, 68, 68, 0.6);
   }
 
   50% {
